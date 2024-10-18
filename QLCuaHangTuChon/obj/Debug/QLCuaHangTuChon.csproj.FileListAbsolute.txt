@@ -1,0 +1,12 @@
+D:\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHang.mdf
+D:\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHang_log.ldf
+D:\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe.config
+D:\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe
+D:\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.pdb
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.AssemblyReference.cache
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Form1.resources
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Properties.Resources.resources
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.GenerateResource.cache
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCompileInputs.cache
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.exe
+D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb

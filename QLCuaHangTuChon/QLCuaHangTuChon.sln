@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCuaHangTuChon", "QLCuaHangTuChon.csproj", "{40E15E8F-019C-4F26-8CC7-59B0855D621B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E15E8F-019C-4F26-8CC7-59B0855D621B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E15E8F-019C-4F26-8CC7-59B0855D621B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E15E8F-019C-4F26-8CC7-59B0855D621B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E15E8F-019C-4F26-8CC7-59B0855D621B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9B41092-E688-4FE5-9ECC-7D6448560A29}
+	EndGlobalSection
+EndGlobal
