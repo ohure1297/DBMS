@@ -10,3 +10,15 @@ D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.GenerateResource.cache
 D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCompileInputs.cache
 D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.exe
 D:\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHang.mdf
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHang_log.ldf
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe.config
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.pdb
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.AssemblyReference.cache
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Form1.resources
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Properties.Resources.resources
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.GenerateResource.cache
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCompileInputs.cache
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.exe
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb
