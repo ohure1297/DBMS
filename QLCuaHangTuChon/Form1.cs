@@ -29,6 +29,9 @@ namespace QLCuaHangTuChon
             adapter.Fill(nhanVienTable);
             dgvNhanVien.DataSource = nhanVienTable;
             DBConn.ConnClose();
+
+
+            //hello
         }
     }
 }
