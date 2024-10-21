@@ -23,11 +23,21 @@ namespace QLCuaHangTuChon
         {
             DBConn.ConnOpen();
             DBConn db = new DBConn();
+            //Nhan vien
             SqlCommand cmd = new SqlCommand("SELECT * FROM ThongTinNhanVien", db.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable nhanVienTable = new DataTable();
             adapter.Fill(nhanVienTable);
             dgvNhanVien.DataSource = nhanVienTable;
+
+            //San pham
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM SanPham", db.getConnection);
+            SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
+            DataTable sanphamTable = new DataTable();
+            adapter1.Fill(sanphamTable);
+            dgvSanPham.DataSource = sanphamTable;
+
+
             DBConn.ConnClose();
 
         }

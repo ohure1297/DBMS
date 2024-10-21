@@ -22,3 +22,5 @@ C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.GenerateRes
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCompileInputs.cache
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.exe
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb
+C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\Guna.UI2.dll
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHan.10DC7BF6.Up2Date
