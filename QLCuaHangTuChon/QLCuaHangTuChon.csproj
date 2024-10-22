@@ -120,10 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QLCuaHang.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="QLCuaHang_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>QLCuaHang.mdf</DependentUpon>
     </Content>
   </ItemGroup>
