@@ -27,14 +27,14 @@ namespace QLCuaHangTuChon
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable nhanVienTable = new DataTable();
             adapter.Fill(nhanVienTable);
-            dgvNhanVien.DataSource = nhanVienTable;
+            dtgvNhanVien.DataSource = nhanVienTable;
 
             //San pham
             SqlCommand cmd1 = new SqlCommand("SELECT * FROM DanhSachSanPham", db.getConnection);
             SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
             DataTable sanphamTable = new DataTable();
             adapter1.Fill(sanphamTable);
-            dgvSanPham.DataSource = sanphamTable;
+            dtgvSanPham.DataSource = sanphamTable;
 
 
             DBConn.ConnClose();

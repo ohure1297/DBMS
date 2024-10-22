@@ -16,7 +16,6 @@ C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe.config
 C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.exe
 C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\QLCuaHangTuChon.pdb
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.AssemblyReference.cache
-C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Form1.resources
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.Properties.Resources.resources
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.GenerateResource.cache
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCompileInputs.cache
@@ -39,3 +38,5 @@ D:\Nam3\DBMS\git\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb
 D:\Nam3\DBMS\git\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.MainForm.resources
 C:\Users\Admin\DBMS\QLCuaHangTuChon\bin\Debug\Guna.UI2.dll
 C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHan.10DC7BF6.Up2Date
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.MainForm.resources
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.LoginForm.resources
