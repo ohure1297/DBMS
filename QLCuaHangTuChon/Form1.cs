@@ -31,7 +31,7 @@ namespace QLCuaHangTuChon
             dgvNhanVien.DataSource = nhanVienTable;
 
             //San pham
-            SqlCommand cmd1 = new SqlCommand("SELECT * FROM SanPham", db.getConnection);
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM DanhSachSanPham", db.getConnection);
             SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
             DataTable sanphamTable = new DataTable();
             adapter1.Fill(sanphamTable);
