@@ -20,7 +20,7 @@ namespace QLCuaHangTuChon
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             MainForm main = new MainForm();
-            this.Hide();
+            //this.Hide();
             main.Show();    
         }
     }

@@ -139,6 +139,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>QLCuaHang.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\LoginRef.png" />
     <None Include="Resources\import.png" />
     <None Include="Resources\export.png" />
     <None Include="Resources\man.png" />
