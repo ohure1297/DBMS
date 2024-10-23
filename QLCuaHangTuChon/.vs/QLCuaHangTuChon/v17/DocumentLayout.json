@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|c:\\users\\admin\\dbms\\qlcuahangtuchon\\gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|c:\\users\\admin\\dbms\\qlcuahangtuchon\\dbconn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:dbconn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|c:\\users\\admin\\dbms\\qlcuahangtuchon\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -51,32 +55,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GetTable.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\GetTable.cs",
+              "RelativeDocumentMoniker": "GetTable.cs",
+              "ToolTip": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\GetTable.cs",
+              "RelativeToolTip": "GetTable.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAcwCIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T13:52:00.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DBConn.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\DBConn.cs",
               "RelativeDocumentMoniker": "DBConn.cs",
               "ToolTip": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\DBConn.cs",
               "RelativeToolTip": "DBConn.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAmAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T12:42:14.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwCUAAAAAAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAADgvx0AAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T13:40:37.615Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -89,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",

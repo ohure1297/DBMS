@@ -53,10 +53,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.roundPictureBox1 = new QLCuaHangTuChon.RoundPictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.dtgvSanPham = new System.Windows.Forms.DataGridView();
             this.dtgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.roundPictureBox1 = new QLCuaHangTuChon.RoundPictureBox();
+            this.dtgvPhanCa = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinNhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLCuaHangDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLCuaHangDataSet)).BeginInit();
@@ -66,10 +68,12 @@
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhanCa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // thongTinNhanVienBindingSource
@@ -368,10 +372,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Quyền người dùng";
             // 
+            // roundPictureBox1
+            // 
+            this.roundPictureBox1.Image = global::QLCuaHangTuChon.Properties.Resources.man;
+            this.roundPictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.roundPictureBox1.Name = "roundPictureBox1";
+            this.roundPictureBox1.Size = new System.Drawing.Size(80, 74);
+            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.roundPictureBox1.TabIndex = 0;
+            this.roundPictureBox1.TabStop = false;
+            // 
             // guna2Panel6
             // 
             this.guna2Panel6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.guna2Panel6.BorderThickness = 5;
+            this.guna2Panel6.Controls.Add(this.dataGridView2);
+            this.guna2Panel6.Controls.Add(this.dtgvPhanCa);
             this.guna2Panel6.Controls.Add(this.dtgvSanPham);
             this.guna2Panel6.Controls.Add(this.dtgvNhanVien);
             this.guna2Panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -383,11 +399,11 @@
             // dtgvSanPham
             // 
             this.dtgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvSanPham.Location = new System.Drawing.Point(6, 374);
+            this.dtgvSanPham.Location = new System.Drawing.Point(6, 172);
             this.dtgvSanPham.Name = "dtgvSanPham";
             this.dtgvSanPham.RowHeadersWidth = 51;
             this.dtgvSanPham.RowTemplate.Height = 24;
-            this.dtgvSanPham.Size = new System.Drawing.Size(1050, 334);
+            this.dtgvSanPham.Size = new System.Drawing.Size(1050, 154);
             this.dtgvSanPham.TabIndex = 1;
             // 
             // dtgvNhanVien
@@ -397,18 +413,28 @@
             this.dtgvNhanVien.Name = "dtgvNhanVien";
             this.dtgvNhanVien.RowHeadersWidth = 51;
             this.dtgvNhanVien.RowTemplate.Height = 24;
-            this.dtgvNhanVien.Size = new System.Drawing.Size(1050, 334);
+            this.dtgvNhanVien.Size = new System.Drawing.Size(1050, 154);
             this.dtgvNhanVien.TabIndex = 0;
             // 
-            // roundPictureBox1
+            // dtgvPhanCa
             // 
-            this.roundPictureBox1.Image = global::QLCuaHangTuChon.Properties.Resources.man;
-            this.roundPictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.roundPictureBox1.Name = "roundPictureBox1";
-            this.roundPictureBox1.Size = new System.Drawing.Size(80, 74);
-            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.roundPictureBox1.TabIndex = 0;
-            this.roundPictureBox1.TabStop = false;
+            this.dtgvPhanCa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvPhanCa.Location = new System.Drawing.Point(6, 332);
+            this.dtgvPhanCa.Name = "dtgvPhanCa";
+            this.dtgvPhanCa.RowHeadersWidth = 51;
+            this.dtgvPhanCa.RowTemplate.Height = 24;
+            this.dtgvPhanCa.Size = new System.Drawing.Size(1050, 154);
+            this.dtgvPhanCa.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 492);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(1050, 154);
+            this.dataGridView2.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -433,10 +459,12 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhanCa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,6 +498,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dtgvSanPham;
         private System.Windows.Forms.DataGridView dtgvNhanVien;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dtgvPhanCa;
     }
 }
 
