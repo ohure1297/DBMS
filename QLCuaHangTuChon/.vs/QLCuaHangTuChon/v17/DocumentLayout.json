@@ -7,11 +7,7 @@
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|c:\\users\\admin\\dbms\\qlcuahangtuchon\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -25,6 +21,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|c:\\users\\admin\\dbms\\qlcuahangtuchon\\gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|solutionrelative:gettable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40E15E8F-019C-4F26-8CC7-59B0855D621B}|QLCuaHangTuChon.csproj|C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\dbconn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -75,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
@@ -87,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "GetTable.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\GetTable.cs",
               "RelativeDocumentMoniker": "GetTable.cs",
@@ -113,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -139,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\DBMS\\QLCuaHangTuChon\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
