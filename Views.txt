@@ -1,0 +1,10 @@
+//Danh sách nhân viên
+CREATE View [dbo].[ThongTinNhanVien] AS
+ SELECT MaNV, HoTen, GioiTinh, NgaySinh, SDT, DChi, NgTuyenDung, ChucVu 
+ FROM NHANVIEN
+GO
+//Danh Sách Sản Phẩm
+CREATE VIEW [dbo].[DanhSachSanPham] AS 
+ SELECT MaSPham, TenSPham, HinhAnh, NhaSanXuat, GiaBan  
+ FROM SANPHAM
+GO
