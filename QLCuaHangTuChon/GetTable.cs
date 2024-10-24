@@ -10,31 +10,33 @@ namespace QLCuaHangTuChon
 {
     public static class GetTable
     {
-        public static DataTable LoadTable(DBConn db, string sqlquery)
+        public static DataTable LoadTable(string sqlquery)
         {
-            SqlCommand cmd = new SqlCommand(sqlquery, db.getConnection);
+            DBConn.ConnOpen();
+            SqlCommand cmd = new SqlCommand(sqlquery, DBConn.getConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            DBConn.ConnClose();
             return dataTable;
         }
 
-        public static DataTable getEmployees(DBConn db)
+        public static DataTable getEmployees()
         {
             string sqlquery = "SELECT * FROM v_ThongTinNhanVien";
-            return LoadTable(db, sqlquery);
+            return LoadTable(sqlquery);
         }
 
-        public static DataTable loadProducts(DBConn db)
+        public static DataTable loadProducts()
         {
             string sqlquery = "SELECT * FROM v_DanhSachSanPham";
-            return LoadTable(db, sqlquery);
+            return LoadTable(sqlquery);
         }
 
-        public static DataTable shiftDivision(DBConn db)
+        public static DataTable shiftDivision()
         {
             string sqlquery = "SELECT * FROM v_BangPhanCa";
-            return LoadTable(db, sqlquery);
+            return LoadTable(sqlquery);
         }
     }
 }
