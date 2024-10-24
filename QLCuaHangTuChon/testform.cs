@@ -19,6 +19,7 @@ namespace QLCuaHangTuChon
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            DBConn.ConnOpen();
             DBConn db = new DBConn();
 
             SanPham sp = new SanPham()
@@ -33,6 +34,13 @@ namespace QLCuaHangTuChon
             };
 
             DAO_NhanVien.InsertProducts(db, sp);
+        }
+
+        private void testform_Load(object sender, EventArgs e)
+        {
+            DBConn.ConnOpen();
+            DBConn db = new DBConn();
+            dtgvSanPham.DataSource = GetTable.loadProducts(db);
         }
     }
 

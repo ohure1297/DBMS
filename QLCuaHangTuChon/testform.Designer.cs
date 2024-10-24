@@ -255,6 +255,7 @@
             this.Controls.Add(this.label1);
             this.Name = "testform";
             this.Text = "testform";
+            this.Load += new System.EventHandler(this.testform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

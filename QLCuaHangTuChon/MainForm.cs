@@ -41,7 +41,7 @@ namespace QLCuaHangTuChon
         private void btnHangHoa_Click(object sender, EventArgs e)
         {
             testform test = new testform();
-            test.Load();
+            test.Show();
         }
     }
 }

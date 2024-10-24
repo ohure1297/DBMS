@@ -55,3 +55,4 @@ D:\Projects\Github\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.csproj.CoreCom
 D:\Projects\Github\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHan.10DC7BF6.Up2Date
 D:\Projects\Github\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.exe
 D:\Projects\Github\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.pdb
+C:\Users\Admin\DBMS\QLCuaHangTuChon\obj\Debug\QLCuaHangTuChon.testform.resources
