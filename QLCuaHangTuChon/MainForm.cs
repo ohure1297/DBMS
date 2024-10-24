@@ -20,6 +20,15 @@ namespace QLCuaHangTuChon
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            DBConn.ConnOpen();
+            DBConn db = new DBConn();
+            //Nhan vien
+            dtgvNhanVien.DataSource = GetTable.getEmployees(db);
+            //San pham
+            dtgvSanPham.DataSource = GetTable.loadProducts(db);
+            //Phan ca
+            dtgvPhanCa.DataSource = GetTable.shiftDivision(db);
+            DBConn.ConnClose();
             
         }
     }
