@@ -1,0 +1,8 @@
+# Ignore Visual Studio cache files
+.vs/
+*.suo
+
+# Ignore general cache files
+cache/
+*.cache
+*.tmp
