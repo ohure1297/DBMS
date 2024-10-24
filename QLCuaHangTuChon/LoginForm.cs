@@ -21,7 +21,7 @@ namespace QLCuaHangTuChon
         {
             MainForm main = new MainForm();
             //this.Hide();
-            main.Show();    
+            main.Show();
         }
     }
 }
