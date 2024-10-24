@@ -6,3 +6,11 @@
 cache/
 *.cache
 *.tmp
+
+# Ignore Visual Studio build results
+/bin/
+/obj/
+*.exe
+*.pdb
+*.mdf
+*.ldf
