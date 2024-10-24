@@ -30,5 +30,28 @@ namespace QLCuaHangTuChon
 
             
         }
+
+        private void XoaNhomSanPham()
+        {
+            DBConn.ConnOpen();
+            SqlCommand cmd = new SqlCommand("ThemNhomSanPham", DBConn.getConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@MaNhom", SqlDbType.NVarChar, 10)).Value = nhomSp.MaNhomVal;
+            try
+            {
+                
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) 
+            { 
+                DBConn.ConnClose();
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ThemNhomSanPham();
+        }
     }
 }
