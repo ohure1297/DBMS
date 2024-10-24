@@ -14,7 +14,7 @@ namespace QLCuaHangTuChon
         private static string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\QLCuaHang.mdf;Integrated Security=True";
         private static SqlConnection connection;
 
-        public SqlConnection getConnection
+        public static SqlConnection getConnection
         {
             get { return connection; }         
         }
