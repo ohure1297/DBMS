@@ -28,8 +28,14 @@ namespace QLCuaHangTuChon
             dtgvSanPham.DataSource = GetTable.loadProducts(db);
             //Phan ca
             dtgvPhanCa.DataSource = GetTable.shiftDivision(db);
+            //Don Nhap
+            dtgvDonNhap.DataSource = GetTable.stockReceipts(db);
+            //Hoa Don
+            dtgvHoaDon.DataSource = GetTable.salesReceipts(db);
+            //Ca Lam Viec
+            dtgvCalamviec.DataSource = GetTable.shiftSchedule(db);
             DBConn.ConnClose();
-            
+
         }
     }
 }

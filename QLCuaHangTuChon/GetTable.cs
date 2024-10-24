@@ -36,5 +36,23 @@ namespace QLCuaHangTuChon
             string sqlquery = "SELECT * FROM v_BangPhanCa";
             return LoadTable(db, sqlquery);
         }
+
+        public static DataTable stockReceipts(DBConn db)
+        {
+            string sqlquery = "SELECT * FROM v_ChiTietDonNhap";
+            return LoadTable(db, sqlquery);
+        }
+
+        public static DataTable salesReceipts(DBConn db)
+        {
+            string sqlquery = "SELECT * FROM v_DanhMucHoaDon";
+            return LoadTable(db, sqlquery);
+        }
+
+        public static DataTable shiftSchedule(DBConn db)
+        {
+            string sqlquery = "SELECT * FROM CALAMVIEC";
+            return LoadTable(db, sqlquery);
+        }
     }
 }
