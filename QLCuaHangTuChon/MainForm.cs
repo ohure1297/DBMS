@@ -37,5 +37,11 @@ namespace QLCuaHangTuChon
             DBConn.ConnClose();
 
         }
+
+        private void btnHangHoa_Click(object sender, EventArgs e)
+        {
+            testform test = new testform();
+            test.Load();
+        }
     }
 }

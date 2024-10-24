@@ -16,5 +16,25 @@ namespace QLCuaHangTuChon
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            DBConn db = new DBConn();
+
+            SanPham sp = new SanPham()
+            {
+                MaSP = txtMaSP.Text,
+                TenSP = txtTenSP.Text,
+                Hinhanh = txtHinhAnh.Text,
+                NhaSX = txtNhaSanXuat.Text,
+                Giaban = Int32.Parse(txtGiaBan.Text),
+                Tonkho = Int32.Parse(txtTonKho.Text),
+                Daban = Int32.Parse(txtDaBan.Text),
+            };
+
+            DAO_NhanVien.InsertProducts(db, sp);
+        }
     }
+
+
 }
