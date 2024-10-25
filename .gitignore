@@ -1,16 +1,3 @@
-# Ignore Visual Studio cache files
-.vs/
-*.suo
-
-# Ignore general cache files
-cache/
-*.cache
-*.tmp
-
-# Ignore Visual Studio build results
-/bin/
-/obj/
-*.exe
-*.pdb
-*.mdf
-*.ldf
+.vs
+bin
+obj

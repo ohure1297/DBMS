@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6CB910A1-BEC3-449E-9ABE-AD0E45637B0D}</ProjectGuid>
+    <ProjectGuid>{B1C9BCC6-C7AC-440F-9D2D-407A5500D732}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GiaoDien</RootNamespace>
     <AssemblyName>GiaoDien</AssemblyName>
@@ -52,16 +52,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DAO\DBConnection.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ReceiptDAO.cs" />
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddNhanVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddNhanVienForm.Designer.cs">
+      <DependentUpon>AddNhanVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AddSanPhamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\AddSanPhamForm.Designer.cs">
+      <DependentUpon>AddSanPhamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\DonNhap.cs" />
+    <Compile Include="Objects\Employee.cs" />
+    <Compile Include="Objects\Product.cs" />
+    <Compile Include="Objects\Receipt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\EmployeesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeesView.Designer.cs">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductsView.Designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReceiptsView.Designer.cs">
+      <DependentUpon>ReceiptsView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddNhanVienForm.resx">
+      <DependentUpon>AddNhanVienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\AddSanPhamForm.resx">
+      <DependentUpon>AddSanPhamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +124,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\EmployeesView.resx">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductsView.resx">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReceiptsView.resx">
+      <DependentUpon>ReceiptsView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,5 +147,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

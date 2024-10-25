@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiaoDien
+namespace GiaoDien.Views
 {
-    public partial class MainForm : Form
+    public partial class ReceiptsView : Form
     {
-        public MainForm()
+        public ReceiptsView()
         {
             InitializeComponent();
         }
