@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.thongTinNhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLCuaHangDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLCuaHangDataSet = new QLCuaHangTuChon.QLCuaHangDataSet();
-            this.thongTinNhanVienTableAdapter = new QLCuaHangTuChon.QLCuaHangDataSetTableAdapters.ThongTinNhanVienTableAdapter();
             this.guna2PanelSlide = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDangXuat = new System.Windows.Forms.Button();
@@ -54,10 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.roundPictureBox1 = new QLCuaHangTuChon.RoundPictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.thongTinNhanVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLCuaHangDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLCuaHangDataSet)).BeginInit();
+
             this.guna2PanelSlide.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -78,9 +73,6 @@
             this.qLCuaHangDataSetBindingSource.Position = 0;
             // 
             // qLCuaHangDataSet
-            // 
-            this.qLCuaHangDataSet.DataSetName = "QLCuaHangDataSet";
-            this.qLCuaHangDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // thongTinNhanVienTableAdapter
             // 
@@ -432,10 +424,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource qLCuaHangDataSetBindingSource;
-        private QLCuaHangDataSet qLCuaHangDataSet;
-        private System.Windows.Forms.BindingSource thongTinNhanVienBindingSource;
-        private QLCuaHangDataSetTableAdapters.ThongTinNhanVienTableAdapter thongTinNhanVienTableAdapter;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelSlide;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private RoundPictureBox roundPictureBox1;
