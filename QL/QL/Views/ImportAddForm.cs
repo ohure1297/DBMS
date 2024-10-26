@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiaoDien.Models
+namespace GiaoDien.Views
 {
-    public partial class AddNhanVienForm : Form
+    public partial class ImportAddForm : Form
     {
-        public AddNhanVienForm()
+        public ImportAddForm()
         {
             InitializeComponent();
         }

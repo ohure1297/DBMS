@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GiaoDien.Properties
+namespace QL.Properties
 {
 
 

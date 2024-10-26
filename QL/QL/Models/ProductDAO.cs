@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GiaoDien.Objects
+namespace QL.Models
 {
-    public class Receipt
+    public class ProductDAO
     {
     }
 }

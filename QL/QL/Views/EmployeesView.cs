@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiaoDien.Views
+namespace QL.Views
 {
     public partial class EmployeesView : Form
     {

@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DBConnection.cs" />
-    <Compile Include="DAO\ProductDAO.cs" />
-    <Compile Include="DAO\ReceiptDAO.cs" />
+    <Compile Include="Models\DBConnection.cs" />
+    <Compile Include="Models\ProductDAO.cs" />
+    <Compile Include="Models\ReceiptDAO.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,29 +67,41 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddNhanVienForm.cs">
+    <Compile Include="Views\AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\AddNhanVienForm.Designer.cs">
-      <DependentUpon>AddNhanVienForm.cs</DependentUpon>
+    <Compile Include="Views\AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddSanPhamForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Models\AddSanPhamForm.Designer.cs">
-      <DependentUpon>AddSanPhamForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Objects\DonNhap.cs" />
-    <Compile Include="Objects\Employee.cs" />
-    <Compile Include="Objects\Product.cs" />
-    <Compile Include="Objects\Receipt.cs" />
+    <Compile Include="Models\DonNhap.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Receipt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AddProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddProductForm.Designer.cs">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CategoryAddForm.Designer.cs">
+      <DependentUpon>CategoryAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeesView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\EmployeesView.Designer.cs">
       <DependentUpon>EmployeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ImportAddForm.Designer.cs">
+      <DependentUpon>ImportAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductsView.cs">
       <SubType>Form</SubType>
@@ -109,11 +121,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Models\AddNhanVienForm.resx">
-      <DependentUpon>AddNhanVienForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Models\AddSanPhamForm.resx">
-      <DependentUpon>AddSanPhamForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,8 +133,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddProductForm.resx">
+      <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategoryAddForm.resx">
+      <DependentUpon>CategoryAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeesView.resx">
       <DependentUpon>EmployeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImportAddForm.resx">
+      <DependentUpon>ImportAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductsView.resx">
       <DependentUpon>ProductsView.cs</DependentUpon>
@@ -147,6 +165,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Presenter\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

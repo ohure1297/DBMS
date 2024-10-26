@@ -1,4 +1,4 @@
-﻿namespace GiaoDien
+﻿namespace QL
 {
     partial class MainForm
     {

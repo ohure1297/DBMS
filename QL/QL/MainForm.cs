@@ -1,4 +1,4 @@
-﻿using GiaoDien.Views;
+﻿using QL.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiaoDien
+namespace QL
 {
     public partial class MainForm : Form
     {
