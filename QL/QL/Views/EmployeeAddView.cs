@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QL.Views
 {
-    public partial class AddProductView : Form
+    public partial class EmployeeAddView : Form
     {
-        public AddProductView()
+        public EmployeeAddView()
         {
             InitializeComponent();
         }

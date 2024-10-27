@@ -21,8 +21,8 @@ namespace QL
         private void MainForm_Load(object sender, EventArgs e)
         {
             btn_Max.PerformClick();
-            btn_employee.Hide();
-            btn_discount.Hide();
+            //btn_employee.Hide();
+            //btn_discount.Hide();
         }
         public void AddControls(Form form)
         {
@@ -57,6 +57,11 @@ namespace QL
         private void btn_stockReceipt_Click(object sender, EventArgs e)
         {
             AddControls(new StockReceiptsView());
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

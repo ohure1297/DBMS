@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace QL.Views
 {
-    public partial class AddProductView : Form
+    public partial class DiscountView : Form
     {
-        public AddProductView()
+        public DiscountView()
         {
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void DiscountView_Load(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

@@ -103,6 +103,24 @@
     <Compile Include="Views\DetailStockReceiptView.Designer.cs">
       <DependentUpon>DetailStockReceiptView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DiscountAddView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DiscountAddView.Designer.cs">
+      <DependentUpon>DiscountAddView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiscountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DiscountView.Designer.cs">
+      <DependentUpon>DiscountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeAddView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeAddView.Designer.cs">
+      <DependentUpon>EmployeeAddView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeDetailView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +202,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailStockReceiptView.resx">
       <DependentUpon>DetailStockReceiptView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DiscountAddView.resx">
+      <DependentUpon>DiscountAddView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DiscountView.resx">
+      <DependentUpon>DiscountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeAddView.resx">
+      <DependentUpon>EmployeeAddView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeesView.resx">
       <DependentUpon>EmployeesView.cs</DependentUpon>

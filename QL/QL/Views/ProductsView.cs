@@ -25,7 +25,13 @@ namespace QL.Views
 
         private void ProductsView_Load(object sender, EventArgs e)
         {
-            btnAdd.Hide();
+            //btnAdd.Hide();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddProductView view = new AddProductView(); 
+            view.Show();
         }
     }
 }

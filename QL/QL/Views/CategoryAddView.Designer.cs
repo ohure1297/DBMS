@@ -48,7 +48,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(364, 100);
+            this.guna2Panel1.Size = new System.Drawing.Size(391, 100);
             this.guna2Panel1.TabIndex = 1;
             // 
             // label3
@@ -69,7 +69,7 @@
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 303);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(364, 100);
+            this.guna2Panel2.Size = new System.Drawing.Size(391, 100);
             this.guna2Panel2.TabIndex = 2;
             // 
             // btnClose
@@ -170,11 +170,11 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Name";
             // 
-            // CategoryAddForm
+            // CategoryAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(364, 403);
+            this.ClientSize = new System.Drawing.Size(391, 403);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2TextBox1);
@@ -182,7 +182,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CategoryAddForm";
+            this.Name = "CategoryAddView";
             this.Text = "CategoryAddForm";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
