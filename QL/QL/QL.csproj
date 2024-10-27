@@ -67,7 +67,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
