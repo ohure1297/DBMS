@@ -16,5 +16,10 @@ namespace QL.Views
         {
             InitializeComponent();
         }
+
+        private void EmployeesView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -56,6 +56,7 @@
             this.btnDangNhap.Size = new System.Drawing.Size(204, 56);
             this.btnDangNhap.TabIndex = 33;
             this.btnDangNhap.Text = "LogIn";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // label3
             // 

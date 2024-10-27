@@ -11,7 +11,7 @@ namespace QL.Models
     public class DBConnection
     {
         
-        SqlConnection conn = new SqlConnection("Them connection String o day");
+        SqlConnection conn = new SqlConnection("Data Source=Jucky;Initial Catalog=QLSINHVIEN;Integrated Security=True");
         public SqlConnection getConnection
         {
             get

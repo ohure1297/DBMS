@@ -18,20 +18,33 @@ namespace QL
             InitializeComponent();
         }
 
-
-        private void AddControl(Form form)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            form.TopLevel = false;
+            btn_Max.PerformClick();
+        }
+        public void AddControls(Form form)
+        {
+            this.CenterPanel.Controls.Clear();
             form.Dock = DockStyle.Fill;
+            form.TopLevel = false;
+            form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CenterPanel.Controls.Add(form);
             form.Show();
         }
-        private void guna2Button6_Click(object sender, EventArgs e)
+
+        private void btn_category_Click(object sender, EventArgs e)
         {
-            EmployeesView form = new EmployeesView();
-            AddControl(form);
+            AddControls(new CategoryView());
+        }
 
+        private void btn_employee_Click(object sender, EventArgs e)
+        {
+            AddControls(new EmployeesView());
+        }
 
+        private void btn_product_Click(object sender, EventArgs e)
+        {
+            AddControls(new ProductsView());
         }
     }
 }

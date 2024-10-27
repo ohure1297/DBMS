@@ -154,7 +154,11 @@
             this.dgvCategory.RowHeadersVisible = false;
             this.dgvCategory.RowHeadersWidth = 51;
             this.dgvCategory.RowTemplate.Height = 50;
+<<<<<<< Updated upstream
             this.dgvCategory.Size = new System.Drawing.Size(1028, 387);
+=======
+            this.dgvCategory.Size = new System.Drawing.Size(1028, 413);
+>>>>>>> Stashed changes
             this.dgvCategory.TabIndex = 5;
             this.dgvCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -260,6 +264,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductsView";
             this.Text = "ProductsView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
