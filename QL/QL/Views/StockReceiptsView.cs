@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace QL.Views
 {
-    public partial class ReceiptsView : Form
+    public partial class StockReceiptsView : Form
     {
-        public ReceiptsView()
+        public StockReceiptsView()
         {
             InitializeComponent();
         }
 
         private void dgvCategory_Click(object sender, EventArgs e)
         {
-            DetailReceiptView view = new DetailReceiptView();
+            DetailStockReceiptView view = new DetailStockReceiptView();
             view.Show();
         }
 
-        private void ReceiptsView_Load(object sender, EventArgs e)
+        private void StockReceiptsView_Load(object sender, EventArgs e)
         {
             btnAdd.Hide();
         }

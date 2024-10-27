@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QL.Views
 {
-    public partial class CategoryView : Form
+    public partial class DetailReceiptView : Form
     {
-        public CategoryView()
+        public DetailReceiptView()
         {
             InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

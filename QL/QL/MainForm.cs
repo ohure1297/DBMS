@@ -21,6 +21,8 @@ namespace QL
         private void MainForm_Load(object sender, EventArgs e)
         {
             btn_Max.PerformClick();
+            btn_employee.Hide();
+            btn_discount.Hide();
         }
         public void AddControls(Form form)
         {
@@ -34,7 +36,7 @@ namespace QL
 
         private void btn_category_Click(object sender, EventArgs e)
         {
-            AddControls(new CategoryView());
+            AddControls(new ReceiptsView());
         }
 
         private void btn_employee_Click(object sender, EventArgs e)
@@ -45,6 +47,16 @@ namespace QL
         private void btn_product_Click(object sender, EventArgs e)
         {
             AddControls(new ProductsView());
+        }
+
+        private void btn_home_Click(object sender, EventArgs e)
+        {
+            AddControls(new SellingView());
+        }
+
+        private void btn_stockReceipt_Click(object sender, EventArgs e)
+        {
+            AddControls(new StockReceiptsView());
         }
     }
 }

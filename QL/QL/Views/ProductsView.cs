@@ -16,5 +16,16 @@ namespace QL.Views
         {
             InitializeComponent();
         }
+
+        private void dgvCategory_Click(object sender, EventArgs e)
+        {
+            DetailProductView view = new DetailProductView();
+            view.Show();
+        }
+
+        private void ProductsView_Load(object sender, EventArgs e)
+        {
+            btnAdd.Hide();
+        }
     }
 }

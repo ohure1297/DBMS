@@ -82,17 +82,20 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "% khuyến mãi";
             // 
-            // UserControl1
+            // UCProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2PictureBox1);
-            this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(255, 307);
+            this.MaximumSize = new System.Drawing.Size(255, 307);
+            this.MinimumSize = new System.Drawing.Size(255, 307);
+            this.Name = "UCProduct";
+            this.Size = new System.Drawing.Size(253, 305);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
