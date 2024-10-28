@@ -34,6 +34,7 @@
             this.btn_Close = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_discount = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_customer = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_stockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.btn_employee = new Guna.UI2.WinForms.Guna2Button();
@@ -98,6 +99,7 @@
             // 
             this.guna2Panel2.BorderRadius = 60;
             this.guna2Panel2.Controls.Add(this.btn_discount);
+            this.guna2Panel2.Controls.Add(this.btn_customer);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.btn_stockReceipt);
             this.guna2Panel2.Controls.Add(this.btn_employee);
@@ -129,13 +131,34 @@
             this.btn_discount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
             this.btn_discount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_discount.ForeColor = System.Drawing.Color.White;
-            this.btn_discount.Location = new System.Drawing.Point(4, 462);
+            this.btn_discount.Location = new System.Drawing.Point(0, 522);
             this.btn_discount.Margin = new System.Windows.Forms.Padding(2);
             this.btn_discount.Name = "btn_discount";
             this.btn_discount.Size = new System.Drawing.Size(220, 56);
-            this.btn_discount.TabIndex = 6;
+            this.btn_discount.TabIndex = 7;
             this.btn_discount.Text = "Discount";
             this.btn_discount.Click += new System.EventHandler(this.btn_discount_Click);
+            // 
+            // btn_customer
+            // 
+            this.btn_customer.AutoRoundedCorners = true;
+            this.btn_customer.BackColor = System.Drawing.Color.Transparent;
+            this.btn_customer.BorderRadius = 27;
+            this.btn_customer.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(92)))), ((int)(((byte)(214)))));
+            this.btn_customer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_customer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_customer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_customer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_customer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btn_customer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_customer.ForeColor = System.Drawing.Color.White;
+            this.btn_customer.Location = new System.Drawing.Point(4, 462);
+            this.btn_customer.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_customer.Name = "btn_customer";
+            this.btn_customer.Size = new System.Drawing.Size(220, 56);
+            this.btn_customer.TabIndex = 6;
+            this.btn_customer.Text = "Customer";
+            this.btn_customer.Click += new System.EventHandler(this.btn_customer_Click);
             // 
             // label1
             // 
@@ -305,7 +328,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox btn_Max;
         private Guna.UI2.WinForms.Guna2ControlBox btn_Close;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button btn_discount;
+        private Guna.UI2.WinForms.Guna2Button btn_customer;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btn_stockReceipt;
         private Guna.UI2.WinForms.Guna2Button btn_employee;
@@ -314,5 +337,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_home;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel CenterPanel;
+        private Guna.UI2.WinForms.Guna2Button btn_discount;
     }
 }

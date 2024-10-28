@@ -63,6 +63,11 @@ namespace QL
         {
             AddControls(new DiscountView());
         }
+
+        private void btn_customer_Click(object sender, EventArgs e)
+        {
+            AddControls(new CustomerManagementView());
+        }
         private void btn_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
