@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucProductDetails1 = new QL.Views.UCProductDetails();
+            this.ucProductDetails = new QL.Views.UCProductDetails();
             this.SuspendLayout();
             // 
-            // ucProductDetails1
+            // ucProductDetails
             // 
-            this.ucProductDetails1.Location = new System.Drawing.Point(-2, -1);
-            this.ucProductDetails1.Name = "ucProductDetails1";
-            this.ucProductDetails1.Size = new System.Drawing.Size(1345, 505);
-            this.ucProductDetails1.TabIndex = 0;
+            this.ucProductDetails.Location = new System.Drawing.Point(-2, -1);
+            this.ucProductDetails.Name = "ucProductDetails";
+            this.ucProductDetails.Size = new System.Drawing.Size(1345, 505);
+            this.ucProductDetails.TabIndex = 0;
             // 
             // DetailProductView
             // 
@@ -44,7 +44,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1345, 505);
-            this.Controls.Add(this.ucProductDetails1);
+            this.Controls.Add(this.ucProductDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DetailProductView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private UCProductDetails ucProductDetails1;
+        private UCProductDetails ucProductDetails;
     }
 }

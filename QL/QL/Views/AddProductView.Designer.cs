@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucProductDetails1 = new QL.Views.UCProductDetails();
+            this.ucProductDetails = new QL.Views.UCProductDetails();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnBrowse = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
-            // ucProductDetails1
+            // ucProductDetails
             // 
-            this.ucProductDetails1.Location = new System.Drawing.Point(0, 0);
-            this.ucProductDetails1.Name = "ucProductDetails1";
-            this.ucProductDetails1.Size = new System.Drawing.Size(1363, 553);
-            this.ucProductDetails1.TabIndex = 0;
+            this.ucProductDetails.Location = new System.Drawing.Point(0, 0);
+            this.ucProductDetails.Name = "ucProductDetails";
+            this.ucProductDetails.Size = new System.Drawing.Size(1363, 553);
+            this.ucProductDetails.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -82,7 +82,7 @@
             this.ClientSize = new System.Drawing.Size(1363, 552);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.ucProductDetails1);
+            this.Controls.Add(this.ucProductDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddProductView";
             this.Text = "AddProductForm";
@@ -92,7 +92,7 @@
 
         #endregion
 
-        private UCProductDetails ucProductDetails1;
+        private UCProductDetails ucProductDetails;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnBrowse;
     }
