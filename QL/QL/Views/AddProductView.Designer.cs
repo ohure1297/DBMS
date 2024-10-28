@@ -68,7 +68,7 @@
             this.btnBrowse.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
             this.btnBrowse.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(1091, 372);
+            this.btnBrowse.Location = new System.Drawing.Point(1089, 369);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(143, 58);
             this.btnBrowse.TabIndex = 87;

@@ -31,38 +31,38 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblReceiptView = new System.Windows.Forms.Label();
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Panel1.SuspendLayout();
+            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Panel1
+            // panelTop
             // 
-            this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel1.Controls.Add(this.btnAdd);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1159, 128);
-            this.guna2Panel1.TabIndex = 3;
+            this.panelTop.Controls.Add(this.lblSearch);
+            this.panelTop.Controls.Add(this.guna2TextBox1);
+            this.panelTop.Controls.Add(this.btnAdd);
+            this.panelTop.Controls.Add(this.lblReceiptView);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1159, 128);
+            this.panelTop.TabIndex = 3;
             // 
-            // label2
+            // lblSearch
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(725, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Search";
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(725, 19);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(50, 16);
+            this.lblSearch.TabIndex = 3;
+            this.lblSearch.Text = "Search";
             // 
             // guna2TextBox1
             // 
@@ -104,15 +104,15 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add New";
             // 
-            // label1
+            // lblReceiptView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ReceiptsView";
+            this.lblReceiptView.AutoSize = true;
+            this.lblReceiptView.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReceiptView.Location = new System.Drawing.Point(45, 9);
+            this.lblReceiptView.Name = "lblReceiptView";
+            this.lblReceiptView.Size = new System.Drawing.Size(179, 38);
+            this.lblReceiptView.TabIndex = 0;
+            this.lblReceiptView.Text = "ReceiptsView";
             // 
             // dgvCategory
             // 
@@ -202,14 +202,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1159, 571);
             this.Controls.Add(this.dgvCategory);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReceiptsView";
             this.Text = "ReceiptsView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ReceiptsView_Load);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.ResumeLayout(false);
 
@@ -217,11 +217,11 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Panel panelTop;
+        private System.Windows.Forms.Label lblSearch;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblReceiptView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCategory;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;

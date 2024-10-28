@@ -42,10 +42,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -55,7 +53,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1345, 136);
+            this.panelTop.Size = new System.Drawing.Size(1363, 136);
             this.panelTop.TabIndex = 73;
             // 
             // lblProductDetails
@@ -80,7 +78,7 @@
             this.btnClose.FillColor = System.Drawing.Color.Crimson;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1065, 23);
+            this.btnClose.Location = new System.Drawing.Point(1094, 468);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 85;
@@ -251,20 +249,11 @@
             this.lblId.TabIndex = 74;
             this.lblId.Text = "Id";
             // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.btnClose);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 409);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1345, 96);
-            this.guna2Panel1.TabIndex = 86;
-            // 
             // UCProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.ptbProductImg);
             this.Controls.Add(this.tbxSellPrice);
@@ -278,11 +267,10 @@
             this.Controls.Add(this.tbxId);
             this.Controls.Add(this.lblId);
             this.Name = "UCProductDetails";
-            this.Size = new System.Drawing.Size(1345, 505);
+            this.Size = new System.Drawing.Size(1363, 550);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,6 +292,5 @@
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblId;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }
