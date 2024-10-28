@@ -135,6 +135,7 @@
             this.btn_discount.Size = new System.Drawing.Size(220, 56);
             this.btn_discount.TabIndex = 6;
             this.btn_discount.Text = "Discount";
+            this.btn_discount.Click += new System.EventHandler(this.btn_discount_Click);
             // 
             // label1
             // 

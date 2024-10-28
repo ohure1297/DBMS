@@ -59,9 +59,15 @@ namespace QL
             AddControls(new StockReceiptsView());
         }
 
+        private void btn_discount_Click(object sender, EventArgs e)
+        {
+            AddControls(new DiscountView());
+        }
         private void btn_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        
     }
 }
