@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QL.Views
 {
-    public partial class ImportAddView : Form
+    public partial class StockReceiptAddView : Form
     {
-        public ImportAddView()
+        public StockReceiptAddView()
         {
             InitializeComponent();
         }

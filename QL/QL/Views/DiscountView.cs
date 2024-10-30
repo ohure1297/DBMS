@@ -21,5 +21,11 @@ namespace QL.Views
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            DiscountAddView view = new DiscountAddView();   
+            view.Show();
+        }
     }
 }

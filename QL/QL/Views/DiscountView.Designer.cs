@@ -183,6 +183,7 @@
             this.btnAdd.Size = new System.Drawing.Size(126, 45);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add New";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblDiscountView
             // 

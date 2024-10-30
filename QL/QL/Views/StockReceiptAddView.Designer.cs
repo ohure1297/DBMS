@@ -1,6 +1,6 @@
 ﻿namespace QL.Views
 {
-    partial class ImportAddView
+    partial class StockReceiptAddView
     {
         /// <summary>
         /// Required designer variable.
