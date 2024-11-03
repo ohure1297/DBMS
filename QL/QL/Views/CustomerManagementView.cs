@@ -24,8 +24,7 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            EmployeeAddView view = new EmployeeAddView();   
-            view.Show();
+            
         }
 
         private void dgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
