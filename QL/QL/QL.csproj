@@ -56,8 +56,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuaHangTienLoiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuaHangTienLoiDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\StockReceiptDAO.cs" />
     <Compile Include="Models\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -77,7 +83,7 @@
     <Compile Include="UCProduct.Designer.cs">
       <DependentUpon>UCProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DonNhap.cs" />
+    <Compile Include="Models\PhieuNhap.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Receipt.cs" />
@@ -252,6 +258,17 @@
     <EmbeddedResource Include="Views\StockReceiptsView.resx">
       <DependentUpon>StockReceiptsView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CuaHangTienLoiDataSet.xsc">
+      <DependentUpon>CuaHangTienLoiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CuaHangTienLoiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CuaHangTienLoiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CuaHangTienLoiDataSet.xss">
+      <DependentUpon>CuaHangTienLoiDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

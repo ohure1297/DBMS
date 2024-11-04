@@ -22,7 +22,7 @@ namespace QL
 
             MainForm form = new MainForm();
             form.Show();
-            this.Hide();
+            //this.Hide();
             
         }
     }

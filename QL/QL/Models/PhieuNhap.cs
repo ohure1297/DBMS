@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace QL.Models
 {
-    public class DonNhap
+    public class PhieuNhap
     {
-        private string maDonNhap;
+        private string maPhieuNhap;
         private DateTime ngayNhap;
 
-        public string MaDonNhap { get => maDonNhap; set => maDonNhap = value; }
+        public string MaPhieuNhap { get => maPhieuNhap; set => maPhieuNhap = value; }
         public DateTime NgayNhap { get => ngayNhap; set => ngayNhap = value; }
 
-        public DonNhap(string maDonNhap, DateTime ngayNhap)
+        public PhieuNhap(string maPhieuNhap, DateTime ngayNhap)
         {
-            MaDonNhap = maDonNhap;
+            MaPhieuNhap = maPhieuNhap;
             NgayNhap = ngayNhap;
         }
     }

@@ -39,12 +39,14 @@
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnFindStockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.pannelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // pannelTop
             // 
+            this.pannelTop.Controls.Add(this.btnFindStockReceipt);
             this.pannelTop.Controls.Add(this.lblSearch);
             this.pannelTop.Controls.Add(this.tbxSearch);
             this.pannelTop.Controls.Add(this.btnAdd);
@@ -173,6 +175,7 @@
             this.dgvCategory.ThemeStyle.RowsStyle.Height = 50;
             this.dgvCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
             this.dgvCategory.Click += new System.EventHandler(this.dgvCategory_Click);
             // 
             // dgvEdit
@@ -194,6 +197,25 @@
             this.dgvDelete.Name = "dgvDelete";
             this.dgvDelete.ReadOnly = true;
             this.dgvDelete.Width = 50;
+            // 
+            // btnFindStockReceipt
+            // 
+            this.btnFindStockReceipt.Animated = true;
+            this.btnFindStockReceipt.AutoRoundedCorners = true;
+            this.btnFindStockReceipt.BorderRadius = 21;
+            this.btnFindStockReceipt.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFindStockReceipt.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFindStockReceipt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFindStockReceipt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFindStockReceipt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnFindStockReceipt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFindStockReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnFindStockReceipt.Location = new System.Drawing.Point(1011, 61);
+            this.btnFindStockReceipt.Name = "btnFindStockReceipt";
+            this.btnFindStockReceipt.Size = new System.Drawing.Size(89, 45);
+            this.btnFindStockReceipt.TabIndex = 5;
+            this.btnFindStockReceipt.Text = "Search";
+            this.btnFindStockReceipt.Click += new System.EventHandler(this.btnFindStockReceipt_Click);
             // 
             // StockReceiptsView
             // 
@@ -225,5 +247,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvCategory;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
+        private Guna.UI2.WinForms.Guna2Button btnFindStockReceipt;
     }
 }
