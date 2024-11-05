@@ -10,7 +10,6 @@ namespace QL.Models
 {
     public class DBConnection
     {
-        
         SqlConnection conn = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True");
         public SqlConnection getConnection
         {
@@ -19,6 +18,7 @@ namespace QL.Models
                 return conn;
             }
         }
+
         public void openConnection()
         {
             if (conn.State == ConnectionState.Closed)

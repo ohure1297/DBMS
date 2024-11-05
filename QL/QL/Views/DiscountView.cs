@@ -46,7 +46,7 @@ namespace QL.Views
             else if (cbFindDisCount.Text.Equals("Theo Tên Khuyến Mãi"))
             {
                 dgvCategory.DataSource = dao.FindDiscountByName(tbxSearch.Text);
-            }    
+            }
         }
     }
 }

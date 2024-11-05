@@ -33,7 +33,6 @@ namespace QL.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
