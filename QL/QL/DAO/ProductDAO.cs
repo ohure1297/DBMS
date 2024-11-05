@@ -43,6 +43,35 @@ namespace QL.DAO
             return dt;
         }
 
+        public DataTable DataTable_ProductOnSaleScreen()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM V_DsSanPhamBanHang";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return dt;
+        }
+
         public Product DataTable_DetailProduct(string p)
         {
             Product product = null;

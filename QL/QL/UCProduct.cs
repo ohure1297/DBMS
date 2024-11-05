@@ -12,9 +12,17 @@ namespace GiaoDien
 {
     public partial class UCProduct : UserControl
     {
+        public Label LblName { get => lblName; set => lblName = value; }
+        public Label LblCurrentPrice { get => lblCurrentPrice; set => lblCurrentPrice = value; }
+        public Label LblPrice { get => lblPrice; set => lblPrice = value; }
+        public Label LblDiscount { get => lblDiscount; set => lblDiscount = value; }
+
+
         public UCProduct()
         {
             InitializeComponent();
         }
+
+
     }
 }
