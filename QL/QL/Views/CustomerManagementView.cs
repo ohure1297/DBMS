@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,39 +13,28 @@ namespace QL.Views
 {
     public partial class CustomerManagementView : Form
     {
+        readonly CustomerDAO customerDAO = new CustomerDAO();
         public CustomerManagementView()
         {
             InitializeComponent();
         }
 
-        private void EmployeesView_Load(object sender, EventArgs e)
+        private void CustomerManagementView_Load(object sender, EventArgs e)
         {
-
+            dgv_Customer.DataSource = customerDAO.DataTable_Customer();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void Searchbutton_CustomerManagement_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void dgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (cbSearchOptions.Text.Equals("Tên"))
+            {
+                dgv_Customer.DataSource = customerDAO.DataTable_SearchByName(tbxSearch.Text);
+            }
+            else if (cbSearchOptions.Text.Equals("SĐT"))
+            {
+                MessageBox.Show("1");
+                dgv_Customer.DataSource = customerDAO.DataTable_SearchBySDT(tbxSearch.Text);
+            }
         }
     }
 }

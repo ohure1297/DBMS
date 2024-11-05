@@ -87,7 +87,7 @@ namespace QL.DAO
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT * FROM F_SearchByName(@Name)";
+                    string query = "SELECT * FROM F_ProductSearchByName(@Name)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
