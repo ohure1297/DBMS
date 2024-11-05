@@ -61,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CuaHangTienLoiDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DiscountDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\StockReceiptDAO.cs" />
@@ -83,7 +84,7 @@
     <Compile Include="UCProduct.Designer.cs">
       <DependentUpon>UCProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\PhieuNhap.cs" />
+    <Compile Include="Models\StockReceipt.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Receipt.cs" />

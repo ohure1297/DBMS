@@ -15,47 +15,29 @@ namespace QL.Views
 {
     public partial class StockReceiptsView : Form
     {
-        DBConnection dbCon;
-        StockReceiptDAO stockreceiptDAO;
+        StockReceiptDAO dao = new StockReceiptDAO();
         public StockReceiptsView()
         {
             InitializeComponent();
         }
 
-        private void dgvCategory_Click(object sender, EventArgs e)
-        {
-            DetailStockReceiptView view = new DetailStockReceiptView();
-            view.Show();
-        }
-
         private void StockReceiptsView_Load(object sender, EventArgs e)
         {
             try
-            {
-                dbCon = new DBConnection();
-                dbCon.openConnection();
-
-                stockreceiptDAO = new StockReceiptDAO();
-
-                dgvCategory.DataSource = stockreceiptDAO.LoadStockReceipt();
+            { 
+                dgvCategory.DataSource = dao.LoadStockReceipts();
             }
             catch (Exception  ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            dbCon.closeConnection();
         }
 
         private void btnFindStockReceipt_Click(object sender, EventArgs e)
         {
             try
             {
-                dbCon = new DBConnection();
-                dbCon.openConnection();
-
-                stockreceiptDAO = new StockReceiptDAO();
-
-                dgvCategory.DataSource = stockreceiptDAO.FindStockReceipt(tbxSearch.Text);
+                dgvCategory.DataSource = dao.FindStockReceipt(tbxSearch.Text);
             }
             catch (SqlException ex)
             {
@@ -68,8 +50,12 @@ namespace QL.Views
 
         private void dgvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DetailStockReceiptView view = new DetailStockReceiptView();
-            view.Show();
+            if (e.RowIndex >= 0)
+            {
+                string maPhieuNhap = dgvCategory.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
+                DetailStockReceiptView fChiTietHoaDon = new DetailStockReceiptView(maPhieuNhap);
+                fChiTietHoaDon.ShowDialog();
+            }
         }
     }
 }
