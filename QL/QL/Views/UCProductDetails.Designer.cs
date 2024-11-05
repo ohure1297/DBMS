@@ -83,6 +83,7 @@
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 85;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ptbProductImg
             // 
@@ -267,7 +268,7 @@
             this.Controls.Add(this.tbxId);
             this.Controls.Add(this.lblId);
             this.Name = "UCProductDetails";
-            this.Size = new System.Drawing.Size(1363, 550);
+            this.Size = new System.Drawing.Size(1363, 598);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).EndInit();
