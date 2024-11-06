@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QL.Models;
+using QL.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,18 +13,24 @@ using System.Windows.Forms;
 namespace GiaoDien
 {
     public partial class UCProduct : UserControl
-    {
-        public Label LblName { get => lblName; set => lblName = value; }
-        public Label LblCurrentPrice { get => lblCurrentPrice; set => lblCurrentPrice = value; }
-        public Label LblPrice { get => lblPrice; set => lblPrice = value; }
-        public Label LblDiscount { get => lblDiscount; set => lblDiscount = value; }
+    { 
+        public event EventHandler onSelect = null;
 
+        public string ProductId; 
+        public string ProductName { get => lblName.Text; set => lblName.Text = value; }
+        public string CurrentPrice { get => lblCurrentPrice.Text; set => lblCurrentPrice.Text = value; }
+        public string Price { get => lblPrice.Text; set => lblPrice.Text = value; }
+        public string Discount { get => lblDiscount.Text; set => lblDiscount.Text = value; }
 
+        private void ptbProductImg_Click(object sender, EventArgs e)
+        {
+            onSelect?.Invoke(this, e);
+        }
         public UCProduct()
         {
             InitializeComponent();
         }
 
-
+        
     }
 }

@@ -32,12 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbSearchOptions = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Searchbutton_CustomerManagement = new Guna.UI2.WinForms.Guna2Button();
             this.tbxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd_CustomerManagement = new Guna.UI2.WinForms.Guna2Button();
             this.CustomerManagementLabel = new System.Windows.Forms.Label();
             this.dgv_Customer = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cbSearchOptions = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Customer)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,27 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1647, 128);
             this.guna2Panel1.TabIndex = 5;
+            // 
+            // cbSearchOptions
+            // 
+            this.cbSearchOptions.AutoRoundedCorners = true;
+            this.cbSearchOptions.BackColor = System.Drawing.Color.Transparent;
+            this.cbSearchOptions.BorderRadius = 17;
+            this.cbSearchOptions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSearchOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchOptions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSearchOptions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbSearchOptions.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbSearchOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbSearchOptions.ItemHeight = 30;
+            this.cbSearchOptions.Items.AddRange(new object[] {
+            "Tên",
+            "SĐT"});
+            this.cbSearchOptions.Location = new System.Drawing.Point(544, 70);
+            this.cbSearchOptions.Name = "cbSearchOptions";
+            this.cbSearchOptions.Size = new System.Drawing.Size(142, 36);
+            this.cbSearchOptions.StartIndex = 0;
+            this.cbSearchOptions.TabIndex = 4;
             // 
             // Searchbutton_CustomerManagement
             // 
@@ -175,26 +196,6 @@
             this.dgv_Customer.ThemeStyle.RowsStyle.Height = 24;
             this.dgv_Customer.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_Customer.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // cbSearchOptions
-            // 
-            this.cbSearchOptions.AutoRoundedCorners = true;
-            this.cbSearchOptions.BackColor = System.Drawing.Color.Transparent;
-            this.cbSearchOptions.BorderRadius = 17;
-            this.cbSearchOptions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbSearchOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchOptions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbSearchOptions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbSearchOptions.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbSearchOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbSearchOptions.ItemHeight = 30;
-            this.cbSearchOptions.Items.AddRange(new object[] {
-            "Tên",
-            "SĐT"});
-            this.cbSearchOptions.Location = new System.Drawing.Point(544, 70);
-            this.cbSearchOptions.Name = "cbSearchOptions";
-            this.cbSearchOptions.Size = new System.Drawing.Size(142, 36);
-            this.cbSearchOptions.TabIndex = 4;
             // 
             // CustomerManagementView
             // 

@@ -1,5 +1,6 @@
 ﻿using GiaoDien;
 using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,41 +18,89 @@ namespace QL.Views
     {
 
         private ProductDAO productDAO = new ProductDAO();
+
+        private DataTable product = new DataTable();
         public SellingView()
         {
             InitializeComponent();
         }
 
-        private void SellingView_Load(object sender, EventArgs e)
+
+        private void LoadProductUC(DataTable productTable)
         {
-            DataTable product = productDAO.DataTable_ProductOnSaleScreen();
-            foreach(DataRow row in product.Rows)
+            flowPanelSanPham.Controls.Clear();
+
+            foreach (DataRow row in productTable.Rows)
             {
-                if(row["MaSPham"] != null)
+                MessageBox.Show(row["MaSPham"].ToString());
+                if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
-                    uCProduct.LblName.Text = row["TenSPham"].ToString();
-                    uCProduct.LblCurrentPrice.Text = row["GiaSauKhuyenMai"].ToString() + "đ";
-                    
+
+                    uCProduct.ProductId = row["MaSPham"].ToString();
+                    uCProduct.ProductName = row["TenSPham"].ToString();
+                    uCProduct.CurrentPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
+
 
                     if (int.Parse(row["GiaBanDuocKhuyenMai"].ToString()) != 0)
                     {
-                        uCProduct.LblPrice.Text = row["GiaBan"].ToString() + "đ";
-                        uCProduct.LblDiscount.Text = "-" + row["MucKhuyenMai"].ToString() + "%";
+                        uCProduct.Price = row["GiaBan"].ToString() + "đ";
+                        uCProduct.Discount = "-" + row["MucKhuyenMai"].ToString() + "%";
 
                     }
                     else
                     {
-                        uCProduct.LblPrice.Text = "";
-                        uCProduct.LblDiscount.Text = "";
+                        uCProduct.Price = "";
+                        uCProduct.Discount = "";
                     }
- 
-                        
-                    flowPanelSanPham.Controls.Add(uCProduct); 
 
-                }    
-                
+                    uCProduct.onSelect += (obj, ee) =>
+                    {
+                        UCProduct prodUC = (UCProduct)obj;
+                        foreach (DataGridViewRow receiptRow in dgvHoaDon.Rows)
+                        {
+                            if (receiptRow.Cells["Id"].Value != null && receiptRow.Cells["Id"].Value.ToString().Equals(prodUC.ProductId))
+                            {
+                                MessageBox.Show("Đã có sản phẩm trong hóa đơn", "Đã tồn tại sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
+                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice);
+                    };
+
+                    flowPanelSanPham.Controls.Add(uCProduct);
+                }
+
+               
+
+            }         
+        }
+        private void SellingView_Load(object sender, EventArgs e)
+        {
+            product = productDAO.DataTable_ProductOnSaleScreen();
+            LoadProductUC(product);   
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchVal = tbx_Search.Text;
+            string filter = cbFilter.Text;
+            MessageBox.Show(searchVal + " " + filter);
+            if (filter.Equals("Tên SP"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchByName(searchVal);
             }    
+            else if (filter.Equals("Mã SP"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchById(searchVal);
+            }
+            LoadProductUC(product);
+        }
+
+        private void PtbProductImg_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

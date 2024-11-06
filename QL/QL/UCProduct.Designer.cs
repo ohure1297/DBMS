@@ -44,6 +44,7 @@
             this.ptbProductImg.Size = new System.Drawing.Size(261, 225);
             this.ptbProductImg.TabIndex = 0;
             this.ptbProductImg.TabStop = false;
+            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
             // lblName
             // 
@@ -97,7 +98,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.ptbProductImg);
             this.Name = "UCProduct";
-            this.Size = new System.Drawing.Size(263, 348);
+            this.Size = new System.Drawing.Size(263, 352);
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
