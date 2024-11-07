@@ -32,21 +32,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSearch_Receipt = new Guna.UI2.WinForms.Guna2Button();
+            this.txtSearchReceipt = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblReceiptView = new System.Windows.Forms.Label();
-            this.dgvReceipt = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceipt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.btnSearch_Receipt);
+            this.panelTop.Controls.Add(this.txtSearchReceipt);
             this.panelTop.Controls.Add(this.lblSearch);
-            this.panelTop.Controls.Add(this.guna2TextBox1);
             this.panelTop.Controls.Add(this.btnAdd);
             this.panelTop.Controls.Add(this.lblReceiptView);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -54,6 +56,48 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1159, 128);
             this.panelTop.TabIndex = 3;
+            // 
+            // btnSearch_Receipt
+            // 
+            this.btnSearch_Receipt.BorderColor = System.Drawing.Color.Aquamarine;
+            this.btnSearch_Receipt.BorderRadius = 23;
+            this.btnSearch_Receipt.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch_Receipt.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch_Receipt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch_Receipt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch_Receipt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnSearch_Receipt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSearch_Receipt.ForeColor = System.Drawing.Color.White;
+            this.btnSearch_Receipt.Location = new System.Drawing.Point(1023, 61);
+            this.btnSearch_Receipt.Name = "btnSearch_Receipt";
+            this.btnSearch_Receipt.PressedColor = System.Drawing.Color.Transparent;
+            this.btnSearch_Receipt.Size = new System.Drawing.Size(78, 45);
+            this.btnSearch_Receipt.TabIndex = 6;
+            this.btnSearch_Receipt.Text = "Search";
+            this.btnSearch_Receipt.Click += new System.EventHandler(this.btnSearch_Receipt_Click);
+            // 
+            // txtSearchReceipt
+            // 
+            this.txtSearchReceipt.BorderRadius = 23;
+            this.txtSearchReceipt.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.txtSearchReceipt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchReceipt.DefaultText = "";
+            this.txtSearchReceipt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchReceipt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchReceipt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchReceipt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchReceipt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchReceipt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchReceipt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchReceipt.Location = new System.Drawing.Point(761, 58);
+            this.txtSearchReceipt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearchReceipt.Name = "txtSearchReceipt";
+            this.txtSearchReceipt.PasswordChar = '\0';
+            this.txtSearchReceipt.PlaceholderText = "Search here";
+            this.txtSearchReceipt.SelectedText = "";
+            this.txtSearchReceipt.Size = new System.Drawing.Size(229, 48);
+            this.txtSearchReceipt.TabIndex = 5;
+            this.txtSearchReceipt.TextChanged += new System.EventHandler(this.txtSearchReceipt_TextChanged);
             // 
             // lblSearch
             // 
@@ -63,28 +107,6 @@
             this.lblSearch.Size = new System.Drawing.Size(50, 16);
             this.lblSearch.TabIndex = 3;
             this.lblSearch.Text = "Search";
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderRadius = 23;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(730, 61);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "Search here";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(275, 48);
-            this.guna2TextBox1.TabIndex = 2;
             // 
             // btnAdd
             // 
@@ -114,13 +136,13 @@
             this.lblReceiptView.TabIndex = 0;
             this.lblReceiptView.Text = "ReceiptsView";
             // 
-            // dgvReceipt
+            // dgvCategory
             // 
-            this.dgvReceipt.AllowUserToAddRows = false;
-            this.dgvReceipt.AllowUserToDeleteRows = false;
+            this.dgvCategory.AllowUserToAddRows = false;
+            this.dgvCategory.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvReceipt.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -130,9 +152,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReceipt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvReceipt.ColumnHeadersHeight = 70;
-            this.dgvReceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCategory.ColumnHeadersHeight = 70;
+            this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvEdit,
             this.dgvDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -142,38 +164,39 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReceipt.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvReceipt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReceipt.Location = new System.Drawing.Point(26, 153);
-            this.dgvReceipt.Name = "dgvReceipt";
-            this.dgvReceipt.ReadOnly = true;
-            this.dgvReceipt.RowHeadersVisible = false;
-            this.dgvReceipt.RowHeadersWidth = 51;
-            this.dgvReceipt.RowTemplate.Height = 50;
-            this.dgvReceipt.Size = new System.Drawing.Size(1102, 376);
-            this.dgvReceipt.TabIndex = 4;
-            this.dgvReceipt.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReceipt.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvReceipt.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvReceipt.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvReceipt.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvReceipt.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReceipt.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReceipt.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvReceipt.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvReceipt.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReceipt.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvReceipt.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvReceipt.ThemeStyle.HeaderStyle.Height = 70;
-            this.dgvReceipt.ThemeStyle.ReadOnly = true;
-            this.dgvReceipt.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvReceipt.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvReceipt.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReceipt.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvReceipt.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvReceipt.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvReceipt.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvReceipt.Click += new System.EventHandler(this.dgvCategory_Click);
+            this.dgvCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCategory.Location = new System.Drawing.Point(26, 153);
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.ReadOnly = true;
+            this.dgvCategory.RowHeadersVisible = false;
+            this.dgvCategory.RowHeadersWidth = 51;
+            this.dgvCategory.RowTemplate.Height = 50;
+            this.dgvCategory.Size = new System.Drawing.Size(1102, 376);
+            this.dgvCategory.TabIndex = 4;
+            this.dgvCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvCategory.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvCategory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvCategory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvCategory.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCategory.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCategory.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvCategory.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCategory.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCategory.ThemeStyle.HeaderStyle.Height = 70;
+            this.dgvCategory.ThemeStyle.ReadOnly = true;
+            this.dgvCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCategory.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvCategory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
+            this.dgvCategory.Click += new System.EventHandler(this.dgvCategory_Click);
             // 
             // dgvEdit
             // 
@@ -201,7 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1159, 571);
-            this.Controls.Add(this.dgvReceipt);
+            this.Controls.Add(this.dgvCategory);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReceiptsView";
@@ -210,7 +233,7 @@
             this.Load += new System.EventHandler(this.ReceiptsView_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReceipt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,11 +242,12 @@
 
         private Guna.UI2.WinForms.Guna2Panel panelTop;
         private System.Windows.Forms.Label lblSearch;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lblReceiptView;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvReceipt;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvCategory;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchReceipt;
+        private Guna.UI2.WinForms.Guna2Button btnSearch_Receipt;
     }
 }
