@@ -78,7 +78,7 @@
             this.btnClose.FillColor = System.Drawing.Color.Crimson;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1089, 516);
+            this.btnClose.Location = new System.Drawing.Point(1086, 506);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 98;

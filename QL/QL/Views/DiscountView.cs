@@ -29,7 +29,7 @@ namespace QL.Views
         {
             try
             {
-                dgvCategory.DataSource = dao.LoadDiscountTable();
+                dgvDiscount.DataSource = dao.LoadDiscountTable();
             }
             catch (Exception ex)
             {
@@ -41,11 +41,11 @@ namespace QL.Views
         {
             if (cbFindDisCount.Text.Equals("Theo Mã Khuyến Mãi"))
             {
-                dgvCategory.DataSource = dao.FindDiscountByID(tbxSearch.Text);
+                dgvDiscount.DataSource = dao.FindDiscountByID(tbxSearch.Text);
             }
             else if (cbFindDisCount.Text.Equals("Theo Tên Khuyến Mãi"))
             {
-                dgvCategory.DataSource = dao.FindDiscountByName(tbxSearch.Text);
+                dgvDiscount.DataSource = dao.FindDiscountByName(tbxSearch.Text);
             }
         }
     }
