@@ -25,7 +25,7 @@ namespace QL.Views
         {
             try
             { 
-                dgvCategory.DataSource = dao.LoadStockReceipts();
+                dgvStockReceipt.DataSource = dao.LoadStockReceipts();
             }
             catch (Exception  ex)
             {
@@ -37,7 +37,7 @@ namespace QL.Views
         {
             try
             {
-                dgvCategory.DataSource = dao.FindStockReceipt(tbxSearch.Text);
+                dgvStockReceipt.DataSource = dao.FindStockReceipt(tbxSearch.Text);
             }
             catch (SqlException ex)
             {
@@ -52,7 +52,7 @@ namespace QL.Views
         {
             if (e.RowIndex >= 0)
             {
-                string maPhieuNhap = dgvCategory.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
+                string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
                 DetailStockReceiptView fChiTietHoaDon = new DetailStockReceiptView(maPhieuNhap);
                 fChiTietHoaDon.ShowDialog();
             }

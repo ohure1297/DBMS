@@ -27,5 +27,7 @@ namespace QL.Views
         {
             btnAdd.Hide();
         }
+
+       
     }
 }
