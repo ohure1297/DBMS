@@ -247,7 +247,7 @@
             this.clbProductIds.FormattingEnabled = true;
             this.clbProductIds.Location = new System.Drawing.Point(20, 476);
             this.clbProductIds.Name = "clbProductIds";
-            this.clbProductIds.Size = new System.Drawing.Size(260, 104);
+            this.clbProductIds.Size = new System.Drawing.Size(260, 129);
             this.clbProductIds.TabIndex = 88;
             // 
             // lbDisCountVal
@@ -307,6 +307,7 @@
             this.Name = "DiscountAddView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DiscountAddView";
+            this.Load += new System.EventHandler(this.DiscountAddView_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelBottom.ResumeLayout(false);

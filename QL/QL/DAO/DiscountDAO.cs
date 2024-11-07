@@ -32,7 +32,7 @@ namespace QL.DAO
 
                 return discountTable;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -83,7 +83,7 @@ namespace QL.DAO
                 cmd.Parameters.AddWithValue("@NgHetHan", discount.Nghethan);
                 cmd.Parameters.AddWithValue("@MucKhuyenMai", discount.Muckhuyenmai);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Thêm dịch vụ thành công");
+                //MessageBox.Show("Thêm khuyến mãi thành công");
             }
             catch (SqlException ex)
             {
@@ -97,6 +97,30 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
 
+        }
+
+        public void AddDiscountedProduct(string maKM, string maSP)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_ThemSanPhamDuocApDungKhuyenMai", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaSPham", maSP);
+                cmd.Parameters.AddWithValue("@MaKhuyenMai", maKM);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
     }
 }
