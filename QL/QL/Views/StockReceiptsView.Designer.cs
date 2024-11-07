@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pannelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnFindStockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
@@ -39,7 +40,6 @@
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnFindStockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.pannelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,25 @@
             this.pannelTop.Name = "pannelTop";
             this.pannelTop.Size = new System.Drawing.Size(1141, 128);
             this.pannelTop.TabIndex = 6;
+            // 
+            // btnFindStockReceipt
+            // 
+            this.btnFindStockReceipt.Animated = true;
+            this.btnFindStockReceipt.AutoRoundedCorners = true;
+            this.btnFindStockReceipt.BorderRadius = 21;
+            this.btnFindStockReceipt.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFindStockReceipt.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFindStockReceipt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFindStockReceipt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFindStockReceipt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnFindStockReceipt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFindStockReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnFindStockReceipt.Location = new System.Drawing.Point(1011, 61);
+            this.btnFindStockReceipt.Name = "btnFindStockReceipt";
+            this.btnFindStockReceipt.Size = new System.Drawing.Size(89, 45);
+            this.btnFindStockReceipt.TabIndex = 5;
+            this.btnFindStockReceipt.Text = "Search";
+            this.btnFindStockReceipt.Click += new System.EventHandler(this.btnFindStockReceipt_Click);
             // 
             // lblSearch
             // 
@@ -105,6 +124,7 @@
             this.btnAdd.Size = new System.Drawing.Size(126, 45);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add New";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblStockReceiptView
             // 
@@ -196,25 +216,6 @@
             this.dgvDelete.Name = "dgvDelete";
             this.dgvDelete.ReadOnly = true;
             this.dgvDelete.Width = 50;
-            // 
-            // btnFindStockReceipt
-            // 
-            this.btnFindStockReceipt.Animated = true;
-            this.btnFindStockReceipt.AutoRoundedCorners = true;
-            this.btnFindStockReceipt.BorderRadius = 21;
-            this.btnFindStockReceipt.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFindStockReceipt.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFindStockReceipt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFindStockReceipt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFindStockReceipt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
-            this.btnFindStockReceipt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFindStockReceipt.ForeColor = System.Drawing.Color.White;
-            this.btnFindStockReceipt.Location = new System.Drawing.Point(1011, 61);
-            this.btnFindStockReceipt.Name = "btnFindStockReceipt";
-            this.btnFindStockReceipt.Size = new System.Drawing.Size(89, 45);
-            this.btnFindStockReceipt.TabIndex = 5;
-            this.btnFindStockReceipt.Text = "Search";
-            this.btnFindStockReceipt.Click += new System.EventHandler(this.btnFindStockReceipt_Click);
             // 
             // StockReceiptsView
             // 
