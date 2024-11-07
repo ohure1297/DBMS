@@ -80,6 +80,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ReceiptInfo.cs" />
+    <Compile Include="Models\Discount.cs" />
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -57,5 +57,11 @@ namespace QL.Views
                 fChiTietHoaDon.ShowDialog();
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            StockReceiptAddView addStock = new StockReceiptAddView();
+            addStock.ShowDialog();
+        }
     }
 }
