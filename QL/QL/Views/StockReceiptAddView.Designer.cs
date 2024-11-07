@@ -185,8 +185,9 @@
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // ImportAddView
+            // StockReceiptAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -201,7 +202,7 @@
             this.Controls.Add(this.lblProductId);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ImportAddView";
+            this.Name = "StockReceiptAddView";
             this.Text = "ImportAddForm";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

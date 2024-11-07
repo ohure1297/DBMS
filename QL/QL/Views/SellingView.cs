@@ -101,7 +101,6 @@ namespace QL.Views
         {
             string searchVal = tbx_Search.Text;
             string filter = cbFilter.Text;
-            MessageBox.Show(searchVal + " " + filter);
             if (filter.Equals("Tên SP"))
             {
                 product = productDAO.DataTable_ProductOnScreenSearchByName(searchVal);
@@ -138,6 +137,10 @@ namespace QL.Views
 
         }
 
-        
+        private void CheckButton_SellingView_Click(object sender, EventArgs e)
+        {
+            string phoneNum = tbxPhoneNum.Text;
+            
+        }
     }
 }
