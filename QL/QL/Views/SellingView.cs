@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +33,25 @@ namespace QL.Views
 
             foreach (DataRow row in productTable.Rows)
             {
-                //MessageBox.Show(row["MaSPham"].ToString());
+                MessageBox.Show(row["MaSPham"].ToString());
                 if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
 
+                    if (String.IsNullOrEmpty(row["HinhAnh"].ToString()))
+                    {
+                        uCProduct.ProductImage = null;
+                    }
+
+                    else
+                    {
+                        byte[] img = (byte[])(row["HinhAnh"]);
+                        MemoryStream ms = new MemoryStream(img);
+                        uCProduct.ProductImage = Image.FromStream(ms);
+                    }
+                    
+
+                    
                     uCProduct.ProductId = row["MaSPham"].ToString();
                     uCProduct.ProductName = row["TenSPham"].ToString();
                     uCProduct.CurrentPrice = row["GiaSauKhuyenMai"].ToString() + "đ";

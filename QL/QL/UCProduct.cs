@@ -16,7 +16,9 @@ namespace GiaoDien
     { 
         public event EventHandler onSelect = null;
 
-        public string ProductId; 
+        public string ProductId;
+
+        public Image ProductImage { get => ptbProductImg.Image; set => ptbProductImg.Image = value; }
         public string ProductName { get => lblName.Text; set => lblName.Text = value; }
         public string CurrentPrice { get => lblCurrentPrice.Text; set => lblCurrentPrice.Text = value; }
         public string Price { get => lblPrice.Text; set => lblPrice.Text = value; }
