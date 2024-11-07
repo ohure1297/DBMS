@@ -138,6 +138,10 @@ namespace QL.Views
 
         }
 
-        
+        private void CheckButton_SellingView_Click(object sender, EventArgs e)
+        {
+            string phoneNum = tbxPhoneNum.Text;
+            
+        }
     }
 }
