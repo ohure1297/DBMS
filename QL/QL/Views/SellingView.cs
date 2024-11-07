@@ -42,7 +42,7 @@ namespace QL.Views
                     uCProduct.CurrentPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
 
 
-                    if (int.Parse(row["GiaBanDuocKhuyenMai"].ToString()) != 0)
+                    if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
                     {
                         uCProduct.Price = row["GiaBan"].ToString() + "đ";
                         uCProduct.Discount = "-" + row["MucKhuyenMai"].ToString() + "%";
