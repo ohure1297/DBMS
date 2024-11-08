@@ -13,7 +13,7 @@ namespace QL.DAO
     public class ProductDAO
     {
         DBConnection db = new DBConnection();
-
+        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;Encrypt=True";
 
         public DataTable DataTable_Product()
         {
