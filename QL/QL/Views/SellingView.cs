@@ -144,16 +144,26 @@ namespace QL.Views
         private void CheckButton_SellingView_Click(object sender, EventArgs e)
         {
             string phoneNum = tbxPhoneNum.Text;
-            //if(String.IsNullOrWhiteSpace(phoneNum))
-                //lblThongBao.Text = "Chưa nhập thông tin khách hàng"
+            if(String.IsNullOrWhiteSpace(phoneNum))
+            {
+                lblThongBao.Text = "Chưa nhập thông tin khách hàng";
+                return;
+            }    
+                
             customer = customerDAO.DataTable_SearchBySDT(phoneNum);
+
             if (customer.Rows.Count == 0) 
             {
                 lblThongBao.Text = "Chưa có thông tin khách hàng này";
+                tbxCustomerName.Text = string.Empty;
+                tbxPoint.Text = string.Empty;
+
             }
             else
             {
-
+                lblThongBao.Text = string.Empty;
+                tbxCustomerName.Text = customer.Rows[0]["TenKhachHang"].ToString();
+                tbxPoint.Text = customer.Rows[0]["DiemTichLuy"].ToString();
             }    
             
 
