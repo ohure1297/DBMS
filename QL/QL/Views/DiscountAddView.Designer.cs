@@ -42,10 +42,10 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panelBottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnUpdateDiscount = new Guna.UI2.WinForms.Guna2Button();
             this.clbProductIds = new System.Windows.Forms.CheckedListBox();
             this.lbDisCountVal = new System.Windows.Forms.Label();
             this.tbxDiscountval = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnUpdateDiscount = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.SuspendLayout();
@@ -244,6 +244,24 @@
             this.panelBottom.Size = new System.Drawing.Size(653, 129);
             this.panelBottom.TabIndex = 61;
             // 
+            // btnUpdateDiscount
+            // 
+            this.btnUpdateDiscount.AutoRoundedCorners = true;
+            this.btnUpdateDiscount.BorderRadius = 28;
+            this.btnUpdateDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
+            this.btnUpdateDiscount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpdateDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateDiscount.Location = new System.Drawing.Point(48, 33);
+            this.btnUpdateDiscount.Name = "btnUpdateDiscount";
+            this.btnUpdateDiscount.Size = new System.Drawing.Size(143, 58);
+            this.btnUpdateDiscount.TabIndex = 4;
+            this.btnUpdateDiscount.Text = "Save";
+            this.btnUpdateDiscount.Click += new System.EventHandler(this.btnUpdateDiscount_Click);
+            // 
             // clbProductIds
             // 
             this.clbProductIds.FormattingEnabled = true;
@@ -283,24 +301,6 @@
             this.tbxDiscountval.SelectedText = "";
             this.tbxDiscountval.Size = new System.Drawing.Size(239, 48);
             this.tbxDiscountval.TabIndex = 90;
-            // 
-            // btnUpdateDiscount
-            // 
-            this.btnUpdateDiscount.AutoRoundedCorners = true;
-            this.btnUpdateDiscount.BorderRadius = 28;
-            this.btnUpdateDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUpdateDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUpdateDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
-            this.btnUpdateDiscount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnUpdateDiscount.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateDiscount.Location = new System.Drawing.Point(48, 33);
-            this.btnUpdateDiscount.Name = "btnUpdateDiscount";
-            this.btnUpdateDiscount.Size = new System.Drawing.Size(143, 58);
-            this.btnUpdateDiscount.TabIndex = 4;
-            this.btnUpdateDiscount.Text = "Save";
-            this.btnUpdateDiscount.Click += new System.EventHandler(this.btnUpdateDiscount_Click);
             // 
             // DiscountAddView
             // 

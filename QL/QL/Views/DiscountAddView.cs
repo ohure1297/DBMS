@@ -36,28 +36,37 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (clbProductIds.CheckedItems.Count > 0)
+            Discount discount = new Discount()
             {
-                Discount discount = new Discount(tbxId.Text, tbxName.Text, dtpStartDate.Value, dtpEndDate.Value, (float)Convert.ToDecimal(tbxDiscountval.Text));
-                DiscountDAO discountDAO = new DiscountDAO();
-                discountDAO.AddDiscount(discount);
+                Makhuyenmai = tbxId.Text,
+                Tenkhuyenmai = tbxName.Text,
+                Ngbatdau = dtpStartDate.Value,
+                Nghethan = dtpEndDate.Value,
+                Muckhuyenmai = (float)Convert.ToDecimal(tbxDiscountval.Text)
+            };
 
+            DiscountDAO discountDAO = new DiscountDAO();
+            int result = discountDAO.AddDiscount(discount);
+
+            if (result > 0 && clbProductIds.CheckedItems.Count > 0)
+            {
                 foreach (var item in clbProductIds.Items)
                 {
                     string maSP = item.ToString();
                     discountDAO.AddDiscountedProduct(discount.Makhuyenmai, maSP);
                 }
+                discountDAO.LoadDiscountTable();
             }
             else
             {
-                MessageBox.Show("Hãy chọn sản phẩm được áp dụng khuyến mãi");
+                return;
             }
         }
 
         private void DiscountAddView_Load(object sender, EventArgs e)
         {
             Dbcon.openConnection();
-            SqlCommand cmd = new SqlCommand("SELECT MaSPham from SANPHAM", Dbcon.getConnection);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsSanPhamChuaKhuyenMai", Dbcon.getConnection);
 
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
