@@ -12,7 +12,8 @@ namespace QL.DAO
 {
     public class ProductDAO
     {
-        private static string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
+        DBConnection db = new DBConnection();
+
 
         
         public DataTable DataTable_Product()
@@ -21,25 +22,23 @@ namespace QL.DAO
 
             string query = "SELECT * FROM V_DsSanPham";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
+                db.openConnection();
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            
 
             return dt;
         }
@@ -50,25 +49,24 @@ namespace QL.DAO
 
             string query = "SELECT * FROM V_DsSanPhamBanHang";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            try
             {
-                try
-                {
-                    conn.Open();
+                db.openConnection();
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            
 
             return dt;
         }
@@ -78,33 +76,32 @@ namespace QL.DAO
             Product product = null;
             string query = "Select * From F_GetDetailProduct(@MaSPham)";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            
+            using (SqlCommand command = new SqlCommand(query, db.getConnection))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                command.Parameters.AddWithValue("@MaSPham", p);
+
+                db.openConnection();
+                            
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    command.Parameters.AddWithValue("@MaSPham", p);
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    if (reader.Read())
                     {
-                        if (reader.Read())
+                        product = new Product
                         {
-                            product = new Product
-                            {
-                                MaSP = (string)reader["MaSPham"],
-                                TenSP = (string)reader["TenSPham"],
-                                HinhAnh = (string)reader["HinhAnh"],
-                                NhaSanXuat = (string)reader["NhaSanXuat"],
-                                GiaBan = (int)reader["GiaBan"],
-                                TonKho = (int)reader["TonKho"],
-                                NhomSanPham = (string)reader["NhomSPham"]
-                            };
+                            MaSP = (string)reader["MaSPham"],
+                            TenSP = (string)reader["TenSPham"],
+                            HinhAnh = (string)reader["HinhAnh"],
+                            NhaSanXuat = (string)reader["NhaSanXuat"],
+                            GiaBan = (int)reader["GiaBan"],
+                            TonKho = (int)reader["TonKho"],
+                            NhomSanPham = (string)reader["NhomSPham"]
+                        };
 
-                        }
                     }
                 }
             }
+            
 
             return product;
         }
@@ -115,22 +112,21 @@ namespace QL.DAO
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                
+                string query = "SELECT * FROM F_ProductSearchByName(@Name)";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    string query = "SELECT * FROM F_ProductSearchByName(@Name)";
+                    command.Parameters.AddWithValue("@Name", searchStr);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    db.openConnection();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@Name", searchStr);
-
-                        connection.Open();
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -147,22 +143,21 @@ namespace QL.DAO
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                
+                string query = "SELECT * FROM fn_ProductOnScreenSearchByName(@Name)";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    string query = "SELECT * FROM fn_ProductOnScreenSearchByName(@Name)";
+                    command.Parameters.AddWithValue("@Name", searchStr);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    db.openConnection();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@Name", searchStr);
-
-                        connection.Open();
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -178,22 +173,20 @@ namespace QL.DAO
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                string query = "SELECT * FROM fn_ProductOnScreenSearchById(@Id)";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    string query = "SELECT * FROM fn_ProductOnScreenSearchById(@Id)";
+                    command.Parameters.AddWithValue("@Id", searchStr);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    db.openConnection();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@Id", searchStr);
-
-                        connection.Open();
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
+                
             }
             catch (Exception ex)
             {
