@@ -43,13 +43,13 @@ namespace QL.Views
                 DetailProductView detailView = new DetailProductView(dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString());  
                 detailView.Show();
             }
-            else if (dgvProduct.Columns[e.ColumnIndex].HeaderText != "Xóa")
+            else if (dgvProduct.Columns[e.ColumnIndex].HeaderText == "Xóa")
             {
                 Product product = new Product()
                 {
                     MaSP = dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString()
                 };
-
+                MessageBox.Show("nhấn Xóa");
                 productDAO.DeleteProduct(product);
             }
         }

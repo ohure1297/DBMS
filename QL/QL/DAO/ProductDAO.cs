@@ -13,7 +13,7 @@ namespace QL.DAO
     public class ProductDAO
     {
         DBConnection db = new DBConnection();
-        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;Encrypt=True";
+        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
 
         public DataTable DataTable_Product()
         {
@@ -297,26 +297,26 @@ namespace QL.DAO
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "EXEC [dbo].[Proc_DeleteProduct] @Ma = @MaSPham;";
+                    string query = "EXEC [dbo].[Proc_DeteleProduct] @Ma = @MaSPham;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Add parameters to the command
+                     
                         command.Parameters.AddWithValue("@MaSPham", product.MaSP);
                         
 
-                        // Open connection and execute the command
+                      
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        // Display success message
+                   
                         MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+               
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
