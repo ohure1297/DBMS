@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QL.DAO;
+using QL.Models;
 
 namespace QL.Views
 {
@@ -21,7 +22,9 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DiscountAddView view = new DiscountAddView();   
+            DiscountAddView view = new DiscountAddView();
+            view.btnUpdateDiscount.Enabled = false;
+            view.btnAdd.BringToFront();
             view.Show();
         }
 
@@ -29,7 +32,7 @@ namespace QL.Views
         {
             try
             {
-                dgvCategory.DataSource = dao.LoadDiscountTable();
+                dgvDiscount.DataSource = dao.LoadDiscountTable();
             }
             catch (Exception ex)
             {
@@ -41,11 +44,34 @@ namespace QL.Views
         {
             if (cbFindDisCount.Text.Equals("Theo Mã Khuyến Mãi"))
             {
-                dgvCategory.DataSource = dao.FindDiscountByID(tbxSearch.Text);
+                dgvDiscount.DataSource = dao.FindDiscountByID(tbxSearch.Text);
             }
             else if (cbFindDisCount.Text.Equals("Theo Tên Khuyến Mãi"))
             {
-                dgvCategory.DataSource = dao.FindDiscountByName(tbxSearch.Text);
+                dgvDiscount.DataSource = dao.FindDiscountByName(tbxSearch.Text);
+            }
+        }
+
+        private void dgvDiscount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Update
+            if (dgvDiscount.CurrentCell.OwningColumn.Name == "dgvUpdate")
+            {
+                string makhuyenmai = dgvDiscount.Rows[e.RowIndex].Cells["MaKhuyenMai"].Value.ToString();
+                Discount discount = dao.LoadDisCountInfo(makhuyenmai);
+
+                DiscountAddView discountview = new DiscountAddView(discount);
+                discountview.LoadDiscount();
+                discountview.btnAdd.Enabled = false;
+                discountview.Show();
+            }
+
+            //Delete
+            else if (dgvDiscount.CurrentCell.OwningColumn.Name == "dgvDelete")
+            {
+                string makhuyenmai = dgvDiscount.Rows[e.RowIndex].Cells["MaKhuyenMai"].Value.ToString();
+                dao.DeleteDisCount(makhuyenmai);
+                dgvDiscount.DataSource = dao.LoadDiscountTable();
             }
         }
     }

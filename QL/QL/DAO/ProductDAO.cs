@@ -14,11 +14,41 @@ namespace QL.DAO
     {
         private static string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
 
+        
         public DataTable DataTable_Product()
         {
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM V_DsSanPham";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable DataTable_ProductOnSaleScreen()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM V_DsSanPhamBanHang";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -109,6 +139,71 @@ namespace QL.DAO
 
             return dt;
         }
+
+
+        public DataTable DataTable_ProductOnScreenSearchByName(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM fn_ProductOnScreenSearchByName(@Name)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", searchStr);
+
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
+        public DataTable DataTable_ProductOnScreenSearchById(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT * FROM fn_ProductOnScreenSearchById(@Id)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", searchStr);
+
+                        connection.Open();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
+
 
         //public DataTable Data_Filter(string filter)
         //{

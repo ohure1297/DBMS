@@ -28,75 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.ptbProductImg = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblCurrentPrice = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2PictureBox1
+            // ptbProductImg
             // 
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(246, 225);
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
+            this.ptbProductImg.ImageRotate = 0F;
+            this.ptbProductImg.Location = new System.Drawing.Point(3, 3);
+            this.ptbProductImg.Name = "ptbProductImg";
+            this.ptbProductImg.Size = new System.Drawing.Size(261, 225);
+            this.ptbProductImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbProductImg.TabIndex = 0;
+            this.ptbProductImg.TabStop = false;
+            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên Sản Phẩm";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(4, 231);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(118, 23);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Tên Sản Phẩm";
             // 
-            // label2
+            // lblPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 284);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Giá gốc ";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(5, 314);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(73, 23);
+            this.lblPrice.TabIndex = 2;
+            this.lblPrice.Text = "Giá gốc ";
             // 
-            // label3
+            // lblCurrentPrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 259);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Giá hiện tại";
+            this.lblCurrentPrice.AutoSize = true;
+            this.lblCurrentPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPrice.Location = new System.Drawing.Point(3, 269);
+            this.lblCurrentPrice.Name = "lblCurrentPrice";
+            this.lblCurrentPrice.Size = new System.Drawing.Size(110, 28);
+            this.lblCurrentPrice.TabIndex = 3;
+            this.lblCurrentPrice.Text = "Giá hiện tại";
             // 
-            // label4
+            // lblDiscount
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Tomato;
-            this.label4.Location = new System.Drawing.Point(83, 284);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "% khuyến mãi";
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscount.ForeColor = System.Drawing.Color.Tomato;
+            this.lblDiscount.Location = new System.Drawing.Point(68, 314);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(117, 23);
+            this.lblDiscount.TabIndex = 4;
+            this.lblDiscount.Text = "% khuyến mãi";
             // 
             // UCProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2PictureBox1);
-            this.MaximumSize = new System.Drawing.Size(255, 307);
-            this.MinimumSize = new System.Drawing.Size(255, 307);
+            this.Controls.Add(this.lblDiscount);
+            this.Controls.Add(this.lblCurrentPrice);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.ptbProductImg);
             this.Name = "UCProduct";
-            this.Size = new System.Drawing.Size(253, 305);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.Size = new System.Drawing.Size(263, 352);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,10 +108,10 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        public Guna.UI2.WinForms.Guna2PictureBox ptbProductImg;
+        public System.Windows.Forms.Label lblName;
+        public System.Windows.Forms.Label lblPrice;
+        public System.Windows.Forms.Label lblCurrentPrice;
+        public System.Windows.Forms.Label lblDiscount;
     }
 }

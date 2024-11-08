@@ -16,9 +16,17 @@ namespace QL.Views
     public partial class DiscountAddView : Form
     {
         DBConnection Dbcon = new DBConnection();
+        Discount discount = null;
+        DiscountDAO discountDAO = new DiscountDAO();
         public DiscountAddView()
         {
             InitializeComponent();
+        }
+
+        public DiscountAddView(Discount discount)
+        {
+            InitializeComponent();
+            this.discount = discount;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -56,6 +64,29 @@ namespace QL.Views
             {
                 clbProductIds.Items.Add(reader["MaSPham"].ToString());
             }
+        }
+
+        public void LoadDiscount()
+        {
+            tbxId.Text = discount.Makhuyenmai.ToString();
+            tbxName.Text = discount.Tenkhuyenmai.ToString();
+            dtpStartDate.Value = discount.Ngbatdau;
+            dtpEndDate.Value = discount.Nghethan;
+            tbxDiscountval.Text = discount.Muckhuyenmai.ToString();
+        }
+
+        private void btnUpdateDiscount_Click(object sender, EventArgs e)
+        {
+            Discount discountupdate = new Discount
+            {
+                Makhuyenmai = tbxId.Text,
+                Tenkhuyenmai = tbxName.Text,
+                Ngbatdau = dtpStartDate.Value,
+                Nghethan = dtpEndDate.Value,
+                Muckhuyenmai = (float)Convert.ToDecimal(tbxDiscountval.Text),
+
+            };
+            discountDAO.UpdateDiscount(discountupdate);
         }
     }
 }

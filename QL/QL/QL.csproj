@@ -80,6 +80,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Discount.cs" />
+    <Compile Include="Models\ReceiptInfo.cs" />
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,12 +165,6 @@
     <Compile Include="Views\DetailProductView.Designer.cs">
       <DependentUpon>DetailProductView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UCProductDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UCProductDetails.Designer.cs">
-      <DependentUpon>UCProductDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,14 +235,14 @@
     <EmbeddedResource Include="Views\EmployeeAddView.resx">
       <DependentUpon>EmployeeAddView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeDetailView.resx">
+      <DependentUpon>EmployeeDetailView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeesView.resx">
       <DependentUpon>EmployeesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\StockReceiptAddView.resx">
       <DependentUpon>StockReceiptAddView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UCProductDetails.resx">
-      <DependentUpon>UCProductDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductsView.resx">
       <DependentUpon>ProductsView.cs</DependentUpon>

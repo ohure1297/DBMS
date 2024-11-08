@@ -122,5 +122,89 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
+
+        public Discount LoadDisCountInfo(string makhuyenmai)
+        {
+            Discount discount = null;
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM V_DsKhuyenMai WHERE MaKhuyenMai = '{makhuyenmai}'", dbCon.getConnection);
+
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        discount = new Discount()
+                        {
+                            Makhuyenmai = reader["MaKhuyenMai"].ToString(),
+                            Tenkhuyenmai = reader["TenKhuyenMai"].ToString(),
+                            Ngbatdau = Convert.ToDateTime(reader["NgBatDau"].ToString()),
+                            Nghethan = Convert.ToDateTime(reader["NgHetHan"].ToString()),
+                            Muckhuyenmai = (float)Convert.ToDecimal(reader["MucKhuyenMai"])
+                        };
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return discount;
+        }
+
+        public void DeleteDisCount(string makhuyenmai)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XoaKhuyenMai", dbCon.getConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaKhuyenMai", makhuyenmai);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+        public void UpdateDiscount(Discount discount)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_SuaKhuyenMai", dbCon.getConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaKhuyenMai", discount.Makhuyenmai);
+                cmd.Parameters.AddWithValue("@TenKhuyenMai", discount.Tenkhuyenmai);
+                cmd.Parameters.AddWithValue("@NgBatDau", discount.Ngbatdau);
+                cmd.Parameters.AddWithValue("@NgHetHan", discount.Nghethan);
+                cmd.Parameters.AddWithValue("@MucKhuyenMai", discount.Muckhuyenmai);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
     }
 }
