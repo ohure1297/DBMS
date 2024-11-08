@@ -87,6 +87,30 @@ namespace QL.DAO
             }
         }
 
+        public void EditReceiptInfo(ReceiptInfo receiptInfo)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_ThemSanPhamVaoChiTietHoaDon", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaSP", receiptInfo.MaSanPham);
+                cmd.Parameters.AddWithValue("@SoLuong", receiptInfo.SoLuong);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
 
     }
 }

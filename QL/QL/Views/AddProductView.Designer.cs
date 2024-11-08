@@ -43,6 +43,8 @@
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.tbxQuantity = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,7 @@
             this.btnClose.FillColor = System.Drawing.Color.Crimson;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1058, 499);
+            this.btnClose.Location = new System.Drawing.Point(1087, 499);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 98;
@@ -95,6 +97,7 @@
             this.ptbProductImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbProductImg.TabIndex = 97;
             this.ptbProductImg.TabStop = false;
+            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
             // tbxSellPrice
             // 
@@ -109,7 +112,7 @@
             this.tbxSellPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxSellPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSellPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxSellPrice.Location = new System.Drawing.Point(730, 283);
+            this.tbxSellPrice.Location = new System.Drawing.Point(720, 218);
             this.tbxSellPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxSellPrice.Name = "tbxSellPrice";
             this.tbxSellPrice.PasswordChar = '\0';
@@ -122,7 +125,7 @@
             // 
             this.lblSellPrice.AutoSize = true;
             this.lblSellPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellPrice.Location = new System.Drawing.Point(737, 236);
+            this.lblSellPrice.Location = new System.Drawing.Point(727, 171);
             this.lblSellPrice.Name = "lblSellPrice";
             this.lblSellPrice.Size = new System.Drawing.Size(91, 28);
             this.lblSellPrice.TabIndex = 95;
@@ -172,9 +175,12 @@
             this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.cbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbCategory.ItemHeight = 30;
+            this.cbCategory.Items.AddRange(new object[] {
+            "Thực phẩm"});
             this.cbCategory.Location = new System.Drawing.Point(409, 221);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(198, 36);
+            this.cbCategory.StartIndex = 0;
             this.cbCategory.TabIndex = 92;
             // 
             // lblCategory
@@ -267,6 +273,39 @@
             this.btnAdd.Size = new System.Drawing.Size(143, 58);
             this.btnAdd.TabIndex = 99;
             this.btnAdd.Text = "Add new";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // tbxQuantity
+            // 
+            this.tbxQuantity.AutoRoundedCorners = true;
+            this.tbxQuantity.BorderRadius = 23;
+            this.tbxQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxQuantity.DefaultText = "";
+            this.tbxQuantity.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxQuantity.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxQuantity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxQuantity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxQuantity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxQuantity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxQuantity.Location = new System.Drawing.Point(720, 350);
+            this.tbxQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxQuantity.Name = "tbxQuantity";
+            this.tbxQuantity.PasswordChar = '\0';
+            this.tbxQuantity.PlaceholderText = "";
+            this.tbxQuantity.SelectedText = "";
+            this.tbxQuantity.Size = new System.Drawing.Size(229, 48);
+            this.tbxQuantity.TabIndex = 101;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(727, 303);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 28);
+            this.label1.TabIndex = 100;
+            this.label1.Text = "Quantity";
             // 
             // AddProductView
             // 
@@ -274,6 +313,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1304, 614);
+            this.Controls.Add(this.tbxQuantity);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.btnClose);
@@ -316,5 +357,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblId;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2TextBox tbxQuantity;
+        private System.Windows.Forms.Label label1;
     }
 }

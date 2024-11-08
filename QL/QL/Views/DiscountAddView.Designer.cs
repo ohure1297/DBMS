@@ -42,6 +42,7 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panelBottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnUpdateDiscount = new Guna.UI2.WinForms.Guna2Button();
             this.clbProductIds = new System.Windows.Forms.CheckedListBox();
             this.lbDisCountVal = new System.Windows.Forms.Label();
             this.tbxDiscountval = new Guna.UI2.WinForms.Guna2TextBox();
@@ -234,6 +235,7 @@
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.btnUpdateDiscount);
             this.panelBottom.Controls.Add(this.btnClose);
             this.panelBottom.Controls.Add(this.btnAdd);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -242,12 +244,30 @@
             this.panelBottom.Size = new System.Drawing.Size(653, 129);
             this.panelBottom.TabIndex = 61;
             // 
+            // btnUpdateDiscount
+            // 
+            this.btnUpdateDiscount.AutoRoundedCorners = true;
+            this.btnUpdateDiscount.BorderRadius = 28;
+            this.btnUpdateDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
+            this.btnUpdateDiscount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpdateDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateDiscount.Location = new System.Drawing.Point(48, 33);
+            this.btnUpdateDiscount.Name = "btnUpdateDiscount";
+            this.btnUpdateDiscount.Size = new System.Drawing.Size(143, 58);
+            this.btnUpdateDiscount.TabIndex = 4;
+            this.btnUpdateDiscount.Text = "Save";
+            this.btnUpdateDiscount.Click += new System.EventHandler(this.btnUpdateDiscount_Click);
+            // 
             // clbProductIds
             // 
             this.clbProductIds.FormattingEnabled = true;
             this.clbProductIds.Location = new System.Drawing.Point(20, 476);
             this.clbProductIds.Name = "clbProductIds";
-            this.clbProductIds.Size = new System.Drawing.Size(260, 104);
+            this.clbProductIds.Size = new System.Drawing.Size(260, 129);
             this.clbProductIds.TabIndex = 88;
             // 
             // lbDisCountVal
@@ -307,6 +327,7 @@
             this.Name = "DiscountAddView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DiscountAddView";
+            this.Load += new System.EventHandler(this.DiscountAddView_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelBottom.ResumeLayout(false);
@@ -316,23 +337,23 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2TextBox tbxName;
         private System.Windows.Forms.Label lblName;
-        private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblDiscountID;
         private System.Windows.Forms.Label lblDiscountDetails;
         private Guna.UI2.WinForms.Guna2Panel panelTop;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label lblStartDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Label lblProductIds;
-        private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Panel panelBottom;
         private System.Windows.Forms.CheckedListBox clbProductIds;
         private System.Windows.Forms.Label lbDisCountVal;
-        private Guna.UI2.WinForms.Guna2TextBox tbxDiscountval;
+        public Guna.UI2.WinForms.Guna2TextBox tbxName;
+        public Guna.UI2.WinForms.Guna2TextBox tbxId;
+        public Guna.UI2.WinForms.Guna2DateTimePicker dtpStartDate;
+        public Guna.UI2.WinForms.Guna2DateTimePicker dtpEndDate;
+        public Guna.UI2.WinForms.Guna2TextBox tbxDiscountval;
+        public Guna.UI2.WinForms.Guna2Button btnUpdateDiscount;
+        public Guna.UI2.WinForms.Guna2Button btnAdd;
     }
 }

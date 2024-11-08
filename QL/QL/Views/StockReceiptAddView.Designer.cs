@@ -30,14 +30,14 @@
         {
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.lblImportDetails = new System.Windows.Forms.Label();
-            this.dtpImportDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.lblImportDate = new System.Windows.Forms.Label();
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.tbxProductId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblProductId = new System.Windows.Forms.Label();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.tbxProductId = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblImportDate = new System.Windows.Forms.Label();
+            this.dtpImportDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,32 +61,6 @@
             this.lblImportDetails.Size = new System.Drawing.Size(183, 38);
             this.lblImportDetails.TabIndex = 1;
             this.lblImportDetails.Text = "ImportDetails";
-            // 
-            // dtpImportDate
-            // 
-            this.dtpImportDate.AutoRoundedCorners = true;
-            this.dtpImportDate.BorderRadius = 17;
-            this.dtpImportDate.Checked = true;
-            this.dtpImportDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
-            this.dtpImportDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpImportDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpImportDate.Location = new System.Drawing.Point(56, 392);
-            this.dtpImportDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpImportDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpImportDate.Name = "dtpImportDate";
-            this.dtpImportDate.Size = new System.Drawing.Size(261, 36);
-            this.dtpImportDate.TabIndex = 28;
-            this.dtpImportDate.Value = new System.DateTime(2024, 10, 26, 11, 4, 6, 290);
-            // 
-            // lblImportDate
-            // 
-            this.lblImportDate.AutoSize = true;
-            this.lblImportDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImportDate.Location = new System.Drawing.Point(54, 341);
-            this.lblImportDate.Name = "lblImportDate";
-            this.lblImportDate.Size = new System.Drawing.Size(111, 28);
-            this.lblImportDate.TabIndex = 27;
-            this.lblImportDate.Text = "Importdate";
             // 
             // tbxId
             // 
@@ -119,28 +93,6 @@
             this.lblId.Size = new System.Drawing.Size(29, 28);
             this.lblId.TabIndex = 25;
             this.lblId.Text = "Id";
-            // 
-            // tbxProductId
-            // 
-            this.tbxProductId.AutoRoundedCorners = true;
-            this.tbxProductId.BorderRadius = 23;
-            this.tbxProductId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxProductId.DefaultText = "";
-            this.tbxProductId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxProductId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxProductId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxProductId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxProductId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxProductId.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbxProductId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxProductId.Location = new System.Drawing.Point(48, 268);
-            this.tbxProductId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxProductId.Name = "tbxProductId";
-            this.tbxProductId.PasswordChar = '\0';
-            this.tbxProductId.PlaceholderText = "";
-            this.tbxProductId.SelectedText = "";
-            this.tbxProductId.Size = new System.Drawing.Size(229, 48);
-            this.tbxProductId.TabIndex = 24;
             // 
             // lblProductId
             // 
@@ -187,6 +139,54 @@
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // tbxProductId
+            // 
+            this.tbxProductId.AutoRoundedCorners = true;
+            this.tbxProductId.BorderRadius = 23;
+            this.tbxProductId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxProductId.DefaultText = "";
+            this.tbxProductId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxProductId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxProductId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxProductId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxProductId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxProductId.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxProductId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxProductId.Location = new System.Drawing.Point(48, 268);
+            this.tbxProductId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxProductId.Name = "tbxProductId";
+            this.tbxProductId.PasswordChar = '\0';
+            this.tbxProductId.PlaceholderText = "";
+            this.tbxProductId.SelectedText = "";
+            this.tbxProductId.Size = new System.Drawing.Size(229, 48);
+            this.tbxProductId.TabIndex = 24;
+            // 
+            // lblImportDate
+            // 
+            this.lblImportDate.AutoSize = true;
+            this.lblImportDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImportDate.Location = new System.Drawing.Point(54, 341);
+            this.lblImportDate.Name = "lblImportDate";
+            this.lblImportDate.Size = new System.Drawing.Size(111, 28);
+            this.lblImportDate.TabIndex = 27;
+            this.lblImportDate.Text = "Importdate";
+            // 
+            // dtpImportDate
+            // 
+            this.dtpImportDate.AutoRoundedCorners = true;
+            this.dtpImportDate.BorderRadius = 17;
+            this.dtpImportDate.Checked = true;
+            this.dtpImportDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
+            this.dtpImportDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpImportDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpImportDate.Location = new System.Drawing.Point(56, 392);
+            this.dtpImportDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpImportDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpImportDate.Name = "dtpImportDate";
+            this.dtpImportDate.Size = new System.Drawing.Size(261, 36);
+            this.dtpImportDate.TabIndex = 28;
+            this.dtpImportDate.Value = new System.DateTime(2024, 10, 26, 11, 4, 6, 290);
+            // 
             // StockReceiptAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -215,13 +215,13 @@
 
         private Guna.UI2.WinForms.Guna2Panel panelTop;
         private System.Windows.Forms.Label lblImportDetails;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpImportDate;
-        private System.Windows.Forms.Label lblImportDate;
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblId;
-        private Guna.UI2.WinForms.Guna2TextBox tbxProductId;
         private System.Windows.Forms.Label lblProductId;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnClose;
+        private Guna.UI2.WinForms.Guna2TextBox tbxProductId;
+        private System.Windows.Forms.Label lblImportDate;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpImportDate;
     }
 }

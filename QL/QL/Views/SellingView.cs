@@ -197,9 +197,15 @@ namespace QL.Views
 
         private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (dgvHoaDon.Columns[e.ColumnIndex].Name == "Qty")
             {
-                MessageBox.Show(dgvHoaDon.Rows[e.RowIndex]);
+                string productPriceStr = dgvHoaDon.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                productPriceStr = productPriceStr.Remove(productPriceStr.Length - 1);
+                int productPrice = int.Parse(productPriceStr);
+                int quan = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value.ToString());
+                MessageBox.Show(productPrice.ToString());
+                dgvHoaDon.Rows[e.RowIndex].Cells["Total"].Value = quan * productPrice + "đ";
             }
         }
     }

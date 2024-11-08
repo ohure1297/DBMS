@@ -13,7 +13,7 @@ namespace QL.DAO
     public class ProductDAO
     {
         DBConnection db = new DBConnection();
-
+        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;";
 
         public DataTable DataTable_Product()
         {
@@ -92,7 +92,7 @@ namespace QL.DAO
 
                                 MaSP = (string)reader["MaSPham"],
                                 TenSP = (string)reader["TenSPham"],
-                                HinhAnh = (string)reader["HinhAnh"],
+                                HinhAnh = (byte[])reader["HinhAnh"],
                                 NhaSanXuat = (string)reader["NhaSanXuat"],
                                 GiaBan = (int)reader["GiaBan"],
                                 TonKho = (int)reader["TonKho"],
@@ -245,6 +245,83 @@ namespace QL.DAO
 
         //    return dt;
         //}
+
+        public void Add_Product(Product product)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[Proc_AddNewProduct] " +
+                                   "@MaSPham = @Ma, " +
+                                   "@TenSPham = @Ten, " +
+                                   "@HinhAnh = @Anh, " +
+                                   "@NhaSanXuat = @NSX, " +
+                                   "@GiaBan = @Gia, " +
+                                   "@TonKho = @SL, " +
+                                   "@TinhTrang = @TrangThai, " +
+                                   "@NhomSPham = @NhomSP;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Add parameters to the command
+                        command.Parameters.AddWithValue("@Ma", product.MaSP);
+                        command.Parameters.AddWithValue("@Ten", product.TenSP);
+
+                        // Assuming the product.HinhAnh is a byte[] representing the image
+                        command.Parameters.AddWithValue("@Anh", product.HinhAnh);
+
+                        command.Parameters.AddWithValue("@NSX", product.NhaSanXuat);
+                        command.Parameters.AddWithValue("@Gia", product.GiaBan);
+                        command.Parameters.AddWithValue("@SL", product.TonKho);
+                        command.Parameters.AddWithValue("@TrangThai", product.TinhTrang);
+                        command.Parameters.AddWithValue("@NhomSP", product.NhomSanPham);
+
+                        // Open connection and execute the command
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[Proc_DeteleProduct] @Ma = @MaSPham;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                     
+                        command.Parameters.AddWithValue("@MaSPham", product.MaSP);
+                        
+
+                      
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                   
+                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 }

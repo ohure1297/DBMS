@@ -48,25 +48,25 @@
             this.lblPhoneNum = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.panelHoaDon = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelThongTin = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblTongTien = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTienThoi = new System.Windows.Forms.Label();
-            this.lblSoTienThoi = new System.Windows.Forms.Label();
-            this.lblSoTienTongCong = new System.Windows.Forms.Label();
             this.tbxTienKhachDua = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblSoTienTongCong = new System.Windows.Forms.Label();
+            this.lblSoTienThoi = new System.Windows.Forms.Label();
+            this.lblTienThoi = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTongTien = new System.Windows.Forms.Label();
+            this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
+            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelKhachHang.SuspendLayout();
             this.panelHoaDon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panelThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // panelKhachHang
@@ -348,51 +348,91 @@
             this.panelHoaDon.Size = new System.Drawing.Size(620, 530);
             this.panelHoaDon.TabIndex = 2;
             // 
-            // btnPay
+            // panelThongTin
             // 
-            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPay.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPay.FillColor = System.Drawing.Color.YellowGreen;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(0, 479);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(620, 51);
-            this.btnPay.TabIndex = 63;
-            this.btnPay.Text = "Pay";
+            this.panelThongTin.Controls.Add(this.tbxTienKhachDua);
+            this.panelThongTin.Controls.Add(this.lblSoTienTongCong);
+            this.panelThongTin.Controls.Add(this.lblSoTienThoi);
+            this.panelThongTin.Controls.Add(this.lblTienThoi);
+            this.panelThongTin.Controls.Add(this.label1);
+            this.panelThongTin.Controls.Add(this.lblTongTien);
+            this.panelThongTin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelThongTin.Location = new System.Drawing.Point(0, 315);
+            this.panelThongTin.Name = "panelThongTin";
+            this.panelThongTin.Size = new System.Drawing.Size(620, 164);
+            this.panelThongTin.TabIndex = 65;
             // 
-            // Total
+            // tbxTienKhachDua
             // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
+            this.tbxTienKhachDua.AutoRoundedCorners = true;
+            this.tbxTienKhachDua.BorderRadius = 16;
+            this.tbxTienKhachDua.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxTienKhachDua.DefaultText = "";
+            this.tbxTienKhachDua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxTienKhachDua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxTienKhachDua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxTienKhachDua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxTienKhachDua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxTienKhachDua.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxTienKhachDua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxTienKhachDua.Location = new System.Drawing.Point(174, 10);
+            this.tbxTienKhachDua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxTienKhachDua.Name = "tbxTienKhachDua";
+            this.tbxTienKhachDua.PasswordChar = '\0';
+            this.tbxTienKhachDua.PlaceholderText = "";
+            this.tbxTienKhachDua.SelectedText = "";
+            this.tbxTienKhachDua.Size = new System.Drawing.Size(229, 35);
+            this.tbxTienKhachDua.TabIndex = 69;
             // 
-            // Price
+            // lblSoTienTongCong
             // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
+            this.lblSoTienTongCong.AutoSize = true;
+            this.lblSoTienTongCong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoTienTongCong.Location = new System.Drawing.Point(370, 59);
+            this.lblSoTienTongCong.Name = "lblSoTienTongCong";
+            this.lblSoTienTongCong.Size = new System.Drawing.Size(24, 28);
+            this.lblSoTienTongCong.TabIndex = 73;
+            this.lblSoTienTongCong.Text = "đ";
             // 
-            // Qty
+            // lblSoTienThoi
             // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
+            this.lblSoTienThoi.AutoSize = true;
+            this.lblSoTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoTienThoi.Location = new System.Drawing.Point(370, 113);
+            this.lblSoTienThoi.Name = "lblSoTienThoi";
+            this.lblSoTienThoi.Size = new System.Drawing.Size(24, 28);
+            this.lblSoTienThoi.TabIndex = 72;
+            this.lblSoTienThoi.Text = "đ";
             // 
-            // ProductName
+            // lblTienThoi
             // 
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
+            this.lblTienThoi.AutoSize = true;
+            this.lblTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTienThoi.Location = new System.Drawing.Point(6, 113);
+            this.lblTienThoi.Name = "lblTienThoi";
+            this.lblTienThoi.Size = new System.Drawing.Size(88, 28);
+            this.lblTienThoi.TabIndex = 71;
+            this.lblTienThoi.Text = "Tiền thối";
             // 
-            // Id
+            // label1
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 28);
+            this.label1.TabIndex = 70;
+            this.label1.Text = "Tiền khách đưa";
+            // 
+            // lblTongTien
+            // 
+            this.lblTongTien.AutoSize = true;
+            this.lblTongTien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.Location = new System.Drawing.Point(6, 59);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Size = new System.Drawing.Size(100, 28);
+            this.lblTongTien.TabIndex = 69;
+            this.lblTongTien.Text = "Tổng tiền ";
             // 
             // dgvHoaDon
             // 
@@ -456,19 +496,21 @@
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
             // 
-            // panelThongTin
+            // btnPay
             // 
-            this.panelThongTin.Controls.Add(this.tbxTienKhachDua);
-            this.panelThongTin.Controls.Add(this.lblSoTienTongCong);
-            this.panelThongTin.Controls.Add(this.lblSoTienThoi);
-            this.panelThongTin.Controls.Add(this.lblTienThoi);
-            this.panelThongTin.Controls.Add(this.label1);
-            this.panelThongTin.Controls.Add(this.lblTongTien);
-            this.panelThongTin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelThongTin.Location = new System.Drawing.Point(0, 315);
-            this.panelThongTin.Name = "panelThongTin";
-            this.panelThongTin.Size = new System.Drawing.Size(620, 164);
-            this.panelThongTin.TabIndex = 65;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPay.FillColor = System.Drawing.Color.YellowGreen;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Location = new System.Drawing.Point(0, 479);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(620, 51);
+            this.btnPay.TabIndex = 63;
+            this.btnPay.Text = "Pay";
             // 
             // flowPanelSanPham
             // 
@@ -478,77 +520,39 @@
             this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
             this.flowPanelSanPham.TabIndex = 3;
             // 
-            // lblTongTien
+            // Id
             // 
-            this.lblTongTien.AutoSize = true;
-            this.lblTongTien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTien.Location = new System.Drawing.Point(6, 59);
-            this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(100, 28);
-            this.lblTongTien.TabIndex = 69;
-            this.lblTongTien.Text = "Tổng tiền ";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
-            // label1
+            // ProductName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 28);
-            this.label1.TabIndex = 70;
-            this.label1.Text = "Tiền khách đưa";
+            this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             // 
-            // lblTienThoi
+            // Qty
             // 
-            this.lblTienThoi.AutoSize = true;
-            this.lblTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTienThoi.Location = new System.Drawing.Point(6, 113);
-            this.lblTienThoi.Name = "lblTienThoi";
-            this.lblTienThoi.Size = new System.Drawing.Size(88, 28);
-            this.lblTienThoi.TabIndex = 71;
-            this.lblTienThoi.Text = "Tiền thối";
+            this.Qty.HeaderText = "Qty";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
             // 
-            // lblSoTienThoi
+            // Price
             // 
-            this.lblSoTienThoi.AutoSize = true;
-            this.lblSoTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoTienThoi.Location = new System.Drawing.Point(370, 113);
-            this.lblSoTienThoi.Name = "lblSoTienThoi";
-            this.lblSoTienThoi.Size = new System.Drawing.Size(24, 28);
-            this.lblSoTienThoi.TabIndex = 72;
-            this.lblSoTienThoi.Text = "đ";
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
-            // lblSoTienTongCong
+            // Total
             // 
-            this.lblSoTienTongCong.AutoSize = true;
-            this.lblSoTienTongCong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoTienTongCong.Location = new System.Drawing.Point(370, 59);
-            this.lblSoTienTongCong.Name = "lblSoTienTongCong";
-            this.lblSoTienTongCong.Size = new System.Drawing.Size(24, 28);
-            this.lblSoTienTongCong.TabIndex = 73;
-            this.lblSoTienTongCong.Text = "đ";
-            // 
-            // tbxTienKhachDua
-            // 
-            this.tbxTienKhachDua.AutoRoundedCorners = true;
-            this.tbxTienKhachDua.BorderRadius = 16;
-            this.tbxTienKhachDua.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxTienKhachDua.DefaultText = "";
-            this.tbxTienKhachDua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxTienKhachDua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxTienKhachDua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxTienKhachDua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxTienKhachDua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxTienKhachDua.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbxTienKhachDua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxTienKhachDua.Location = new System.Drawing.Point(174, 10);
-            this.tbxTienKhachDua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxTienKhachDua.Name = "tbxTienKhachDua";
-            this.tbxTienKhachDua.PasswordChar = '\0';
-            this.tbxTienKhachDua.PlaceholderText = "";
-            this.tbxTienKhachDua.SelectedText = "";
-            this.tbxTienKhachDua.Size = new System.Drawing.Size(229, 35);
-            this.tbxTienKhachDua.TabIndex = 69;
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // SellingView
             // 
@@ -568,9 +572,9 @@
             this.panelKhachHang.ResumeLayout(false);
             this.panelKhachHang.PerformLayout();
             this.panelHoaDon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.panelThongTin.ResumeLayout(false);
             this.panelThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,11 +599,6 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Label lblThongBao;
         private Guna.UI2.WinForms.Guna2DataGridView dgvHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private Guna.UI2.WinForms.Guna2Panel panelThongTin;
         private System.Windows.Forms.FlowLayoutPanel flowPanelSanPham;
         private System.Windows.Forms.Label lblSoTienTongCong;
@@ -608,5 +607,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTongTien;
         private Guna.UI2.WinForms.Guna2TextBox tbxTienKhachDua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }
