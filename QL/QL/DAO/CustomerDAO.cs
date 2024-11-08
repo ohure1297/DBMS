@@ -18,8 +18,6 @@ namespace QL.DAO
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM V_DSKhachHang";
-
-            
             try
             {
                 db.openConnection();
@@ -47,14 +45,14 @@ namespace QL.DAO
 
             try
             {
-                
+
+                db.openConnection();
+
                 string query = "SELECT * FROM F_CustomerSearchByName(@Name)";
 
                 using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
                     command.Parameters.AddWithValue("@Name", searchStr);
-
-                    db.openConnection();
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
@@ -77,13 +75,17 @@ namespace QL.DAO
 
             try
             {
-                
+
+                db.openConnection();
+
                 string query = "SELECT * FROM F_CustomerSearchBySDT(@SDT)";
 
                 using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
                     command.Parameters.AddWithValue("@SDT", searchStr);
+
                     db.openConnection();
+
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {

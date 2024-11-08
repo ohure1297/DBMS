@@ -66,6 +66,7 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\StockReceiptDAO.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -80,6 +81,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ReceiptInfo.cs" />
+    <Compile Include="Models\Discount.cs" />
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>

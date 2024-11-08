@@ -15,7 +15,6 @@ namespace QL.DAO
         DBConnection db = new DBConnection();
 
 
-        
         public DataTable DataTable_Product()
         {
             DataTable dt = new DataTable();
@@ -49,7 +48,6 @@ namespace QL.DAO
 
             string query = "SELECT * FROM V_DsSanPhamBanHang";
 
-            
             try
             {
                 db.openConnection();
@@ -75,33 +73,42 @@ namespace QL.DAO
         {
             Product product = null;
             string query = "Select * From F_GetDetailProduct(@MaSPham)";
-
             
-            using (SqlCommand command = new SqlCommand(query, db.getConnection))
-            {
-                command.Parameters.AddWithValue("@MaSPham", p);
 
-                db.openConnection();
-                            
-                using (SqlDataReader reader = command.ExecuteReader())
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    if (reader.Read())
+                    command.Parameters.AddWithValue("@MaSPham", p);
+
+                    db.openConnection();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        product = new Product
+                        if (reader.Read())
                         {
-                            MaSP = (string)reader["MaSPham"],
-                            TenSP = (string)reader["TenSPham"],
-                            HinhAnh = (string)reader["HinhAnh"],
-                            NhaSanXuat = (string)reader["NhaSanXuat"],
-                            GiaBan = (int)reader["GiaBan"],
-                            TonKho = (int)reader["TonKho"],
-                            NhomSanPham = (string)reader["NhomSPham"]
-                        };
+                            product = new Product
+                            {
+
+                                MaSP = (string)reader["MaSPham"],
+                                TenSP = (string)reader["TenSPham"],
+                                HinhAnh = (string)reader["HinhAnh"],
+                                NhaSanXuat = (string)reader["NhaSanXuat"],
+                                GiaBan = (int)reader["GiaBan"],
+                                TonKho = (int)reader["TonKho"],
+                                NhomSanPham = (string)reader["NhomSPham"]
+                            };
+                        }
 
                     }
                 }
             }
             
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+         
 
             return product;
         }
@@ -112,6 +119,9 @@ namespace QL.DAO
 
             try
             {
+
+                db.openConnection();
+
                 
                 string query = "SELECT * FROM F_ProductSearchByName(@Name)";
 
@@ -119,7 +129,9 @@ namespace QL.DAO
                 {
                     command.Parameters.AddWithValue("@Name", searchStr);
 
+
                     db.openConnection();
+
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
@@ -143,7 +155,9 @@ namespace QL.DAO
 
             try
             {
-                
+
+                db.openConnection();
+
                 string query = "SELECT * FROM fn_ProductOnScreenSearchByName(@Name)";
 
                 using (SqlCommand command = new SqlCommand(query, db.getConnection))
@@ -175,11 +189,12 @@ namespace QL.DAO
             {
                 string query = "SELECT * FROM fn_ProductOnScreenSearchById(@Id)";
 
+                db.openConnection();
+
+
                 using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
                     command.Parameters.AddWithValue("@Id", searchStr);
-
-                    db.openConnection();
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {

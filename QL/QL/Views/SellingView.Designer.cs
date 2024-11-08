@@ -232,7 +232,11 @@
             this.cbx_DungDiem.CheckMarkColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cbx_DungDiem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_DungDiem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbx_DungDiem.Location = new System.Drawing.Point(1025, 113);
+
+       
+
+            this.cbx_DungDiem.Location = new System.Drawing.Point(1025, 109);
+
             this.cbx_DungDiem.Name = "cbx_DungDiem";
             this.cbx_DungDiem.Size = new System.Drawing.Size(144, 35);
             this.cbx_DungDiem.TabIndex = 59;
@@ -289,7 +293,7 @@
             this.tbxPhoneNum.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxPhoneNum.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxPhoneNum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxPhoneNum.Location = new System.Drawing.Point(1025, 40);
+            this.tbxPhoneNum.Location = new System.Drawing.Point(1012, 40);
             this.tbxPhoneNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPhoneNum.Name = "tbxPhoneNum";
             this.tbxPhoneNum.PasswordChar = '\0';
@@ -450,6 +454,13 @@
             this.lblThongBao.Name = "lblThongBao";
             this.lblThongBao.Size = new System.Drawing.Size(0, 17);
             this.lblThongBao.TabIndex = 68;
+
+            this.lblThongBao.Location = new System.Drawing.Point(1022, 79);
+            this.lblThongBao.Name = "lblThongBao";
+            this.lblThongBao.Size = new System.Drawing.Size(15, 17);
+            this.lblThongBao.TabIndex = 68;
+            this.lblThongBao.Text = "a";
+
             // 
             // SellingView
             // 
