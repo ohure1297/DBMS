@@ -22,6 +22,8 @@ namespace QL.Views
 
         private CustomerDAO customerDAO = new CustomerDAO();
 
+        private ReceiptDAO receiptDAO = new ReceiptDAO();
+
         private DataTable product = new DataTable();
 
         private DataTable customer = new DataTable();
@@ -42,6 +44,12 @@ namespace QL.Views
                 {
                     UCProduct uCProduct = new UCProduct();
 
+                    string productId = row["MaSPham"].ToString();
+                    string productName = row["TenSPham"].ToString();
+                    string currPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
+                    string price = row["GiaBan"].ToString() + "đ";
+                    string discount = "-" + row["MucKhuyenMai"].ToString() + "%";
+
                     if (String.IsNullOrWhiteSpace(row["HinhAnh"].ToString()))
                     {
                         uCProduct.ProductImage = null;
@@ -56,21 +64,21 @@ namespace QL.Views
                     
 
                     
-                    uCProduct.ProductId = row["MaSPham"].ToString();
-                    uCProduct.ProductName = row["TenSPham"].ToString();
-                    uCProduct.CurrentPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
+                    uCProduct.ProductId = productId;
+                    uCProduct.ProductName = productName;
+                    uCProduct.CurrentPrice = currPrice;
 
 
                     if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
                     {
-                        uCProduct.Price = row["GiaBan"].ToString() + "đ";
-                        uCProduct.Discount = "-" + row["MucKhuyenMai"].ToString() + "%";
+                        uCProduct.Price = price;
+                        uCProduct.Discount = discount;
 
                     }
                     else
                     {
-                        uCProduct.Price = "";
-                        uCProduct.Discount = "";
+                        uCProduct.Price = string.Empty;
+                        uCProduct.Discount = string.Empty;
                     }
 
                     uCProduct.onSelect += (obj, ee) =>
@@ -85,7 +93,15 @@ namespace QL.Views
                             }
                         }
 
-                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice);
+
+
+
+                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice, prodUC.CurrentPrice);
+
+                        ReceiptInfo receiptInfo = new ReceiptInfo(prodUC.ProductId, 1);
+                        receiptDAO.AddReceiptInfo(receiptInfo);
+
+
                     };
 
                     flowPanelSanPham.Controls.Add(uCProduct);
@@ -97,6 +113,8 @@ namespace QL.Views
         }
         private void SellingView_Load(object sender, EventArgs e)
         {
+            Receipt receipt = new Receipt("Chưa thanh toán");
+            receiptDAO.AddReceipt(receipt);
             product = productDAO.DataTable_ProductOnSaleScreen();
             LoadProductUC(product);   
         }
@@ -150,13 +168,14 @@ namespace QL.Views
                 return;
             }    
                 
-            customer = customerDAO.DataTable_SearchBySDT(phoneNum);
+            customer = customerDAO.DataTable_CheckIfExists(phoneNum);
 
             if (customer.Rows.Count == 0) 
             {
-                lblThongBao.Text = "Chưa có thông tin khách hàng này";
+                lblThongBao.Text = string.Empty;
                 tbxCustomerName.Text = string.Empty;
                 tbxPoint.Text = string.Empty;
+                tbxPhoneNum.Text = string.Empty;
 
             }
             else
@@ -168,6 +187,20 @@ namespace QL.Views
             
 
             
+        }
+
+        private void AddNewButton_SellingView_Click(object sender, EventArgs e)
+        {
+            //string 
+            //if(String.IsNullOrWhiteSpace())
+        }
+
+        private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHoaDon.Columns[e.ColumnIndex].Name == "Qty")
+            {
+                MessageBox.Show(dgvHoaDon.Rows[e.RowIndex]);
+            }
         }
     }
 }

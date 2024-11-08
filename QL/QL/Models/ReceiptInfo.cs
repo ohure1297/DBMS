@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace QL.Models
             MaSanPham = maSanPham;
             SoLuong = soLuong;
             ThanhTien = thanhTien;
+        }
+
+        public ReceiptInfo(string maSanPham, int soLuong)
+        {
+            MaSanPham = maSanPham;
+            SoLuong = soLuong;
         }
 
         public ReceiptInfo() { }    

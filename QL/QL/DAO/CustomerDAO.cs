@@ -39,6 +39,40 @@ namespace QL.DAO
             return dt;
         }
 
+        public DataTable DataTable_CheckIfExists(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+
+                db.openConnection();
+
+                string query = "sp_KiemtraKhachHangDaTonTai";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SDT", searchStr);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Errors[0].Class == 16)
+                {
+                    MessageBox.Show(ex.Message, "Đã tồn tại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
+            }
+
+            return dt;
+        }
+
         public DataTable DataTable_SearchByName(string searchStr)
         {
             DataTable dt = new DataTable();
