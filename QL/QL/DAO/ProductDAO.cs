@@ -246,7 +246,6 @@ namespace QL.DAO
 
         public void Add_Product(Product product)
         {
-            MessageBox.Show(product.TinhTrang);
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -292,7 +291,35 @@ namespace QL.DAO
             }
         }
 
+        public void DeleteProduct(Product product)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[Proc_DeteleProduct] @Ma = @MaSPham;";
 
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                     
+                        command.Parameters.AddWithValue("@MaSPham", product.MaSP);
+                        
+
+                      
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                   
+                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 }

@@ -15,7 +15,7 @@ namespace QL.Views
 {
     public partial class ProductsView : Form
     {
-        private ProductDAO product = new ProductDAO();
+        private ProductDAO productDAO = new ProductDAO();
         public ProductsView()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace QL.Views
 
         private void ProductsView_Load(object sender, EventArgs e)
         {
-            dgvProduct.DataSource = product.DataTable_Product();
+            dgvProduct.DataSource = productDAO.DataTable_Product();
             //MessageBox.Show(dgvProduct[0, 2].Value.ToString());
         }
 
@@ -43,7 +43,15 @@ namespace QL.Views
                 DetailProductView detailView = new DetailProductView(dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString());  
                 detailView.Show();
             }
-
+            else if (dgvProduct.Columns[e.ColumnIndex].HeaderText == "Xóa")
+            {
+                Product product = new Product()
+                {
+                    MaSP = dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString()
+                };
+                MessageBox.Show("nhấn Xóa");
+                productDAO.DeleteProduct(product);
+            }
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,7 +62,7 @@ namespace QL.Views
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            dgvProduct.DataSource = product.DataTable_ProductSearchByName(tbxSearch.Text);
+            dgvProduct.DataSource = productDAO.DataTable_ProductSearchByName(tbxSearch.Text);
         }
     }
 }
