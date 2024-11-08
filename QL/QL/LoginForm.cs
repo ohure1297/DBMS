@@ -12,6 +12,7 @@ namespace QL
 {
     public partial class LoginForm : Form
     {
+        
         public LoginForm()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace QL
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
 
+            
             MainForm form = new MainForm();
             form.Show();
             //this.Hide();

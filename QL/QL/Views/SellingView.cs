@@ -20,7 +20,11 @@ namespace QL.Views
 
         private ProductDAO productDAO = new ProductDAO();
 
+        private CustomerDAO customerDAO = new CustomerDAO();
+
         private DataTable product = new DataTable();
+
+        private DataTable customer = new DataTable();
         public SellingView()
         {
             InitializeComponent();
@@ -33,12 +37,12 @@ namespace QL.Views
 
             foreach (DataRow row in productTable.Rows)
             {
-                MessageBox.Show(row["MaSPham"].ToString());
+                //MessageBox.Show(row["MaSPham"].ToString());
                 if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
 
-                    if (String.IsNullOrEmpty(row["HinhAnh"].ToString()))
+                    if (String.IsNullOrWhiteSpace(row["HinhAnh"].ToString()))
                     {
                         uCProduct.ProductImage = null;
                     }
@@ -101,7 +105,6 @@ namespace QL.Views
         {
             string searchVal = tbx_Search.Text;
             string filter = cbFilter.Text;
-            MessageBox.Show(searchVal + " " + filter);
             if (filter.Equals("Tên SP"))
             {
                 product = productDAO.DataTable_ProductOnScreenSearchByName(searchVal);
@@ -138,6 +141,33 @@ namespace QL.Views
 
         }
 
-        
+        private void CheckButton_SellingView_Click(object sender, EventArgs e)
+        {
+            string phoneNum = tbxPhoneNum.Text;
+            if(String.IsNullOrWhiteSpace(phoneNum))
+            {
+                lblThongBao.Text = "Chưa nhập thông tin khách hàng";
+                return;
+            }    
+                
+            customer = customerDAO.DataTable_SearchBySDT(phoneNum);
+
+            if (customer.Rows.Count == 0) 
+            {
+                lblThongBao.Text = "Chưa có thông tin khách hàng này";
+                tbxCustomerName.Text = string.Empty;
+                tbxPoint.Text = string.Empty;
+
+            }
+            else
+            {
+                lblThongBao.Text = string.Empty;
+                tbxCustomerName.Text = customer.Rows[0]["TenKhachHang"].ToString();
+                tbxPoint.Text = customer.Rows[0]["DiemTichLuy"].ToString();
+            }    
+            
+
+            
+        }
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QL.DAO;
+using QL.Models;
 
 namespace QL.Views
 {
@@ -20,6 +22,13 @@ namespace QL.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Discount discount = new Discount(tbxId.Text, tbxName.Text, dtpStartDate.Value, dtpEndDate.Value, (float)Convert.ToDecimal(tbxDiscountval.Text));
+            DiscountDAO discountDAO = new DiscountDAO();
+            discountDAO.AddDiscount(discount);
         }
     }
 }
