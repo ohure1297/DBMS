@@ -33,6 +33,22 @@ namespace QL.Views
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            StockReceiptAddView addStock = new StockReceiptAddView();
+            addStock.ShowDialog();
+        }
+
+        private void dgvStockReceipt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
+                DetailStockReceiptView chitiet = new DetailStockReceiptView(maPhieuNhap);
+                chitiet.ShowDialog();
+            }
+        }
+
         private void btnFindStockReceipt_Click(object sender, EventArgs e)
         {
             try
@@ -46,22 +62,6 @@ namespace QL.Views
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-        private void dgvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
-                DetailStockReceiptView fChiTietHoaDon = new DetailStockReceiptView(maPhieuNhap);
-                fChiTietHoaDon.ShowDialog();
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            StockReceiptAddView addStock = new StockReceiptAddView();
-            addStock.ShowDialog();
         }
     }
 }
