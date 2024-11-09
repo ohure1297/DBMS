@@ -15,7 +15,7 @@ namespace QL.Views
 {
     public partial class StockReceiptsView : Form
     {
-        StockReceiptDAO dao = new StockReceiptDAO();
+        StockReceiptDAO stockdao = new StockReceiptDAO();
         public StockReceiptsView()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace QL.Views
         {
             try
             { 
-                dgvStockReceipt.DataSource = dao.LoadStockReceipts();
+                dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
             }
             catch (Exception  ex)
             {
@@ -41,7 +41,14 @@ namespace QL.Views
 
         private void dgvStockReceipt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (dgvStockReceipt.Columns[e.ColumnIndex].Name == "colConfirm")
+            {
+                bool isChecked = dgvStockReceipt.Rows[e.RowIndex].Cells["colConfirm"].Value != null
+                         && (bool)dgvStockReceipt.Rows[e.RowIndex].Cells["colConfirm"].Value;
+
+                dgvStockReceipt.Rows[e.RowIndex].Cells["colConfirm"].Value = !isChecked;
+            }
+            else
             {
                 string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
                 DetailStockReceiptView chitiet = new DetailStockReceiptView(maPhieuNhap);
@@ -53,7 +60,7 @@ namespace QL.Views
         {
             try
             {
-                dgvStockReceipt.DataSource = dao.FindStockReceipt(tbxSearch.Text);
+                dgvStockReceipt.DataSource = stockdao.FindStockReceipt(tbxSearch.Text);
             }
             catch (SqlException ex)
             {
@@ -61,6 +68,28 @@ namespace QL.Views
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void btnStockReceiptConfirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgvStockReceipt.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["colConfirm"].Value) == true)
+                    {
+                        string maPhieuNhap = row.Cells["MaPhieuNhap"].Value.ToString();
+                        string maNV = "NV001"; 
+
+                        stockdao.ConfirmStockReceipt(maPhieuNhap, maNV);
+                    }
+                }
+                dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

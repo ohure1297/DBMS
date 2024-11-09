@@ -10,18 +10,18 @@ namespace QL.Models
     {
         private string stockReceiptID;
         private string status;
-        private int totalPrice;
+        private string employeeID;
 
         public string StockReceiptID { get => stockReceiptID; set => stockReceiptID = value; }
 
         public string Status { get => status; set => status = value; }
-        public int TotalPrice { get => totalPrice; set => totalPrice = value; }
+        public string EmployeeID { get => employeeID; set => employeeID = value; }
 
-        public StockReceipt(string stockReceiptID, string status, int totalPrice)
+        public StockReceipt(string stockReceiptID, string status, string employeeID)
         {
             StockReceiptID = stockReceiptID;
             Status = status;
-            TotalPrice = totalPrice;
+            EmployeeID = employeeID;
         }
     }
 }
