@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,15 @@ namespace QL.Views
 
         private void DetailProductView_Load(object sender, EventArgs e)
         {
+            
             Product product = productDAO.DataTable_DetailProduct(productID);
             tbxId.Text = product.MaSP;
             tbxName.Text = product.TenSP;
             tbxProvider.Text = product.NhaSanXuat;
             tbxSellPrice.Text = product.GiaBan.ToString();
             tbxCategory.Text = product.NhomSanPham;
+            MemoryStream ms = new MemoryStream(product.HinhAnh);
+            ptbProductImg.Image = Image.FromStream(ms);
 
         }
     }

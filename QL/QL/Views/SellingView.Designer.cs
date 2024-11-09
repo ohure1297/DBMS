@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelKhachHang = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblThongBao = new System.Windows.Forms.Label();
             this.lblSearch = new System.Windows.Forms.Label();
             this.lbFilter = new System.Windows.Forms.Label();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -47,16 +48,24 @@
             this.lblPhoneNum = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.panelHoaDon = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelThongTin = new Guna.UI2.WinForms.Guna2Panel();
+            this.tbxTienKhachDua = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblSoTienTongCong = new System.Windows.Forms.Label();
+            this.lblSoTienThoi = new System.Windows.Forms.Label();
+            this.lblTienThoi = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTongTien = new System.Windows.Forms.Label();
             this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
+            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
-            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
             this.panelKhachHang.SuspendLayout();
             this.panelHoaDon.SuspendLayout();
+            this.panelThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +74,7 @@
             this.panelKhachHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.panelKhachHang.BorderRadius = 5;
             this.panelKhachHang.BorderThickness = 2;
+            this.panelKhachHang.Controls.Add(this.lblThongBao);
             this.panelKhachHang.Controls.Add(this.lblSearch);
             this.panelKhachHang.Controls.Add(this.lbFilter);
             this.panelKhachHang.Controls.Add(this.cbFilter);
@@ -84,6 +94,16 @@
             this.panelKhachHang.Name = "panelKhachHang";
             this.panelKhachHang.Size = new System.Drawing.Size(1439, 160);
             this.panelKhachHang.TabIndex = 1;
+            // 
+            // lblThongBao
+            // 
+            this.lblThongBao.AutoSize = true;
+            this.lblThongBao.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongBao.ForeColor = System.Drawing.Color.Red;
+            this.lblThongBao.Location = new System.Drawing.Point(1022, 79);
+            this.lblThongBao.Name = "lblThongBao";
+            this.lblThongBao.Size = new System.Drawing.Size(0, 17);
+            this.lblThongBao.TabIndex = 68;
             // 
             // lblSearch
             // 
@@ -203,6 +223,7 @@
             this.AddNewButton_SellingView.Size = new System.Drawing.Size(131, 40);
             this.AddNewButton_SellingView.TabIndex = 61;
             this.AddNewButton_SellingView.Text = "Add New";
+            this.AddNewButton_SellingView.Click += new System.EventHandler(this.AddNewButton_SellingView_Click);
             // 
             // CheckButton_SellingView
             // 
@@ -218,6 +239,7 @@
             this.CheckButton_SellingView.Size = new System.Drawing.Size(131, 40);
             this.CheckButton_SellingView.TabIndex = 60;
             this.CheckButton_SellingView.Text = "Check";
+            this.CheckButton_SellingView.Click += new System.EventHandler(this.CheckButton_SellingView_Click);
             // 
             // cbx_DungDiem
             // 
@@ -229,7 +251,7 @@
             this.cbx_DungDiem.CheckMarkColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cbx_DungDiem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_DungDiem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cbx_DungDiem.Location = new System.Drawing.Point(1034, 82);
+            this.cbx_DungDiem.Location = new System.Drawing.Point(1025, 109);
             this.cbx_DungDiem.Name = "cbx_DungDiem";
             this.cbx_DungDiem.Size = new System.Drawing.Size(144, 35);
             this.cbx_DungDiem.TabIndex = 59;
@@ -286,7 +308,7 @@
             this.tbxPhoneNum.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxPhoneNum.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxPhoneNum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxPhoneNum.Location = new System.Drawing.Point(1025, 40);
+            this.tbxPhoneNum.Location = new System.Drawing.Point(1012, 40);
             this.tbxPhoneNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPhoneNum.Name = "tbxPhoneNum";
             this.tbxPhoneNum.PasswordChar = '\0';
@@ -317,6 +339,7 @@
             // 
             // panelHoaDon
             // 
+            this.panelHoaDon.Controls.Add(this.panelThongTin);
             this.panelHoaDon.Controls.Add(this.dgvHoaDon);
             this.panelHoaDon.Controls.Add(this.btnPay);
             this.panelHoaDon.Dock = System.Windows.Forms.DockStyle.Right;
@@ -325,18 +348,106 @@
             this.panelHoaDon.Size = new System.Drawing.Size(620, 530);
             this.panelHoaDon.TabIndex = 2;
             // 
+            // panelThongTin
+            // 
+            this.panelThongTin.Controls.Add(this.tbxTienKhachDua);
+            this.panelThongTin.Controls.Add(this.lblSoTienTongCong);
+            this.panelThongTin.Controls.Add(this.lblSoTienThoi);
+            this.panelThongTin.Controls.Add(this.lblTienThoi);
+            this.panelThongTin.Controls.Add(this.label1);
+            this.panelThongTin.Controls.Add(this.lblTongTien);
+            this.panelThongTin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelThongTin.Location = new System.Drawing.Point(0, 315);
+            this.panelThongTin.Name = "panelThongTin";
+            this.panelThongTin.Size = new System.Drawing.Size(620, 164);
+            this.panelThongTin.TabIndex = 65;
+            // 
+            // tbxTienKhachDua
+            // 
+            this.tbxTienKhachDua.AutoRoundedCorners = true;
+            this.tbxTienKhachDua.BorderRadius = 16;
+            this.tbxTienKhachDua.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxTienKhachDua.DefaultText = "";
+            this.tbxTienKhachDua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxTienKhachDua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxTienKhachDua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxTienKhachDua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxTienKhachDua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxTienKhachDua.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxTienKhachDua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxTienKhachDua.Location = new System.Drawing.Point(174, 10);
+            this.tbxTienKhachDua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxTienKhachDua.Name = "tbxTienKhachDua";
+            this.tbxTienKhachDua.PasswordChar = '\0';
+            this.tbxTienKhachDua.PlaceholderText = "";
+            this.tbxTienKhachDua.SelectedText = "";
+            this.tbxTienKhachDua.Size = new System.Drawing.Size(229, 35);
+            this.tbxTienKhachDua.TabIndex = 69;
+            // 
+            // lblSoTienTongCong
+            // 
+            this.lblSoTienTongCong.AutoSize = true;
+            this.lblSoTienTongCong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoTienTongCong.Location = new System.Drawing.Point(370, 59);
+            this.lblSoTienTongCong.Name = "lblSoTienTongCong";
+            this.lblSoTienTongCong.Size = new System.Drawing.Size(24, 28);
+            this.lblSoTienTongCong.TabIndex = 73;
+            this.lblSoTienTongCong.Text = "đ";
+            // 
+            // lblSoTienThoi
+            // 
+            this.lblSoTienThoi.AutoSize = true;
+            this.lblSoTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoTienThoi.Location = new System.Drawing.Point(370, 113);
+            this.lblSoTienThoi.Name = "lblSoTienThoi";
+            this.lblSoTienThoi.Size = new System.Drawing.Size(24, 28);
+            this.lblSoTienThoi.TabIndex = 72;
+            this.lblSoTienThoi.Text = "đ";
+            // 
+            // lblTienThoi
+            // 
+            this.lblTienThoi.AutoSize = true;
+            this.lblTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTienThoi.Location = new System.Drawing.Point(6, 113);
+            this.lblTienThoi.Name = "lblTienThoi";
+            this.lblTienThoi.Size = new System.Drawing.Size(88, 28);
+            this.lblTienThoi.TabIndex = 71;
+            this.lblTienThoi.Text = "Tiền thối";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 28);
+            this.label1.TabIndex = 70;
+            this.label1.Text = "Tiền khách đưa";
+            // 
+            // lblTongTien
+            // 
+            this.lblTongTien.AutoSize = true;
+            this.lblTongTien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.Location = new System.Drawing.Point(6, 59);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Size = new System.Drawing.Size(100, 28);
+            this.lblTongTien.TabIndex = 69;
+            this.lblTongTien.Text = "Tổng tiền ";
+            // 
             // dgvHoaDon
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvHoaDon.AllowUserToAddRows = false;
+            this.dgvHoaDon.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHoaDon.ColumnHeadersHeight = 50;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -345,14 +456,14 @@
             this.Qty,
             this.Price,
             this.Total});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHoaDon.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHoaDon.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
@@ -383,36 +494,7 @@
             this.dgvHoaDon.ThemeStyle.RowsStyle.Height = 24;
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
+            this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
             // 
             // btnPay
             // 
@@ -438,6 +520,40 @@
             this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
             this.flowPanelSanPham.TabIndex = 3;
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
             // SellingView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -456,6 +572,8 @@
             this.panelKhachHang.ResumeLayout(false);
             this.panelKhachHang.PerformLayout();
             this.panelHoaDon.ResumeLayout(false);
+            this.panelThongTin.ResumeLayout(false);
+            this.panelThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
 
@@ -473,18 +591,26 @@
         private System.Windows.Forms.Label lblPhoneNum;
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2Panel panelHoaDon;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvHoaDon;
         private Guna.UI2.WinForms.Guna2Button btnPay;
-        private System.Windows.Forms.FlowLayoutPanel flowPanelSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2TextBox tbx_Search;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;
         private System.Windows.Forms.Label lbFilter;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Label lblThongBao;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvHoaDon;
+        private Guna.UI2.WinForms.Guna2Panel panelThongTin;
+        private System.Windows.Forms.FlowLayoutPanel flowPanelSanPham;
+        private System.Windows.Forms.Label lblSoTienTongCong;
+        private System.Windows.Forms.Label lblSoTienThoi;
+        private System.Windows.Forms.Label lblTienThoi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTongTien;
+        private Guna.UI2.WinForms.Guna2TextBox tbxTienKhachDua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

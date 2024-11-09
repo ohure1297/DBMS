@@ -20,7 +20,13 @@ namespace QL.Views
 
         private ProductDAO productDAO = new ProductDAO();
 
+        private CustomerDAO customerDAO = new CustomerDAO();
+
+        private ReceiptDAO receiptDAO = new ReceiptDAO();
+
         private DataTable product = new DataTable();
+
+        private DataTable customer = new DataTable();
         public SellingView()
         {
             InitializeComponent();
@@ -33,12 +39,18 @@ namespace QL.Views
 
             foreach (DataRow row in productTable.Rows)
             {
-                MessageBox.Show(row["MaSPham"].ToString());
+                //MessageBox.Show(row["MaSPham"].ToString());
                 if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
 
-                    if (String.IsNullOrEmpty(row["HinhAnh"].ToString()))
+                    string productId = row["MaSPham"].ToString();
+                    string productName = row["TenSPham"].ToString();
+                    string currPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
+                    string price = row["GiaBan"].ToString() + "đ";
+                    string discount = "-" + row["MucKhuyenMai"].ToString() + "%";
+
+                    if (String.IsNullOrWhiteSpace(row["HinhAnh"].ToString()))
                     {
                         uCProduct.ProductImage = null;
                     }
@@ -52,21 +64,21 @@ namespace QL.Views
                     
 
                     
-                    uCProduct.ProductId = row["MaSPham"].ToString();
-                    uCProduct.ProductName = row["TenSPham"].ToString();
-                    uCProduct.CurrentPrice = row["GiaSauKhuyenMai"].ToString() + "đ";
+                    uCProduct.ProductId = productId;
+                    uCProduct.ProductName = productName;
+                    uCProduct.CurrentPrice = currPrice;
 
 
                     if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
                     {
-                        uCProduct.Price = row["GiaBan"].ToString() + "đ";
-                        uCProduct.Discount = "-" + row["MucKhuyenMai"].ToString() + "%";
+                        uCProduct.Price = price;
+                        uCProduct.Discount = discount;
 
                     }
                     else
                     {
-                        uCProduct.Price = "";
-                        uCProduct.Discount = "";
+                        uCProduct.Price = string.Empty;
+                        uCProduct.Discount = string.Empty;
                     }
 
                     uCProduct.onSelect += (obj, ee) =>
@@ -81,7 +93,15 @@ namespace QL.Views
                             }
                         }
 
-                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice);
+
+
+
+                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice, prodUC.CurrentPrice);
+
+                        ReceiptInfo receiptInfo = new ReceiptInfo(prodUC.ProductId, 1);
+                        receiptDAO.AddReceiptInfo(receiptInfo);
+
+
                     };
 
                     flowPanelSanPham.Controls.Add(uCProduct);
@@ -93,6 +113,8 @@ namespace QL.Views
         }
         private void SellingView_Load(object sender, EventArgs e)
         {
+            Receipt receipt = new Receipt("Chưa thanh toán");
+            receiptDAO.AddReceipt(receipt);
             product = productDAO.DataTable_ProductOnSaleScreen();
             LoadProductUC(product);   
         }
@@ -101,7 +123,6 @@ namespace QL.Views
         {
             string searchVal = tbx_Search.Text;
             string filter = cbFilter.Text;
-            MessageBox.Show(searchVal + " " + filter);
             if (filter.Equals("Tên SP"))
             {
                 product = productDAO.DataTable_ProductOnScreenSearchByName(searchVal);
@@ -138,6 +159,54 @@ namespace QL.Views
 
         }
 
-        
+        private void CheckButton_SellingView_Click(object sender, EventArgs e)
+        {
+            string phoneNum = tbxPhoneNum.Text;
+            if(String.IsNullOrWhiteSpace(phoneNum))
+            {
+                lblThongBao.Text = "Chưa nhập thông tin khách hàng";
+                return;
+            }    
+                
+            customer = customerDAO.DataTable_CheckIfExists(phoneNum);
+
+            if (customer.Rows.Count == 0) 
+            {
+                lblThongBao.Text = string.Empty;
+                tbxCustomerName.Text = string.Empty;
+                tbxPoint.Text = string.Empty;
+                tbxPhoneNum.Text = string.Empty;
+
+            }
+            else
+            {
+                lblThongBao.Text = string.Empty;
+                tbxCustomerName.Text = customer.Rows[0]["TenKhachHang"].ToString();
+                tbxPoint.Text = customer.Rows[0]["DiemTichLuy"].ToString();
+            }    
+            
+
+            
+        }
+
+        private void AddNewButton_SellingView_Click(object sender, EventArgs e)
+        {
+            //string 
+            //if(String.IsNullOrWhiteSpace())
+        }
+
+        private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (dgvHoaDon.Columns[e.ColumnIndex].Name == "Qty")
+            {
+                string productPriceStr = dgvHoaDon.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                productPriceStr = productPriceStr.Remove(productPriceStr.Length - 1);
+                int productPrice = int.Parse(productPriceStr);
+                int quan = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value.ToString());
+                MessageBox.Show(productPrice.ToString());
+                dgvHoaDon.Rows[e.RowIndex].Cells["Total"].Value = quan * productPrice + "đ";
+            }
+        }
     }
 }

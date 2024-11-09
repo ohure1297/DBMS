@@ -65,7 +65,9 @@
     <Compile Include="DAO\DiscountDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ReceiptDAO.cs" />
     <Compile Include="DAO\StockReceiptDAO.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>

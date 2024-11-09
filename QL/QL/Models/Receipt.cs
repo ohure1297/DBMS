@@ -14,9 +14,9 @@ namespace QL.Models
         private int tongTien;
         private int tienKhachDua;
         private int tienThoi;
-        private int tinhTrang;
+        private string tinhTrang;
 
-        public Receipt(string maHoaDon, DateTime ngayXuat, int tongTien, int tienKhachDua, int tienThoi, int tinhTrang)
+        public Receipt(string maHoaDon, DateTime ngayXuat, int tongTien, int tienKhachDua, int tienThoi, string tinhTrang)
         {
             MaHoaDon = maHoaDon;
             NgayXuat = ngayXuat;
@@ -26,13 +26,21 @@ namespace QL.Models
             TinhTrang = tinhTrang;
         }
 
-        public Receipt() { }
+        public Receipt(string tinhTrang)
+        {
+            TinhTrang = tinhTrang;
+        }
+
+        public Receipt() 
+        {
+
+        }
 
         public string MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
         public DateTime NgayXuat { get => ngayXuat; set => ngayXuat = value; }
         public int TongTien { get => tongTien; set => tongTien = value; }
         public int TienKhachDua { get => tienKhachDua; set => tienKhachDua = value; }
         public int TienThoi { get => tienThoi; set => tienThoi = value; }
-        public int TinhTrang { get => tinhTrang; set => tinhTrang = value; }
+        public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
     }
 }
