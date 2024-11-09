@@ -72,9 +72,64 @@ namespace QL.DAO
             return stockReceipt_table;
         }
 
-        //public DataTable AddStockReceipt(StockReceipt stockReceipt)
-        //{
-        //    dbCon.openConnection();
-        //}
+        public DataTable LoadStockProductList()
+        {
+            dbCon.openConnection();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsSanPhamNhap", dbCon.getConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable stockReceipt_table = new DataTable();
+            adapter.Fill(stockReceipt_table);
+
+            return stockReceipt_table;
+        }
+
+        public void AddStockReceipt(string maSP, int soluongnhap)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_ThemPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaSPham", maSP);
+                cmd.Parameters.AddWithValue("@SoLuongNhap", soluongnhap);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+        public void ConfirmStockReceipt(string maphieunhap, string maNV)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XacNhanPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
+                cmd.Parameters.AddWithValue("@MaNV", maNV);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
     }
 }
