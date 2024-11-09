@@ -14,24 +14,24 @@ namespace QL.Views
 {
     public partial class DetailReceiptView : Form
     {
-        DetailReceiptDAO detailReceiptDAO = new DetailReceiptDAO();
+        ReceiptDAO ReceiptDAO = new ReceiptDAO();
         private ReceiptDAO receiptDAO = new ReceiptDAO();
 
         public DetailReceiptView(string maHoaDon)
         {
             InitializeComponent();
             // Gọi hàm lấy thông tin chi tiết hóa đơn
-            DataTable dt = detailReceiptDAO.LayDanhSachChiTietHoaDon(maHoaDon);
+            DataTable dt = ReceiptDAO.LayDanhSachChiTietHoaDon(maHoaDon);
             if (dt != null)
             {
                 dgvCategory.DataSource = dt;
             }
+            dgvCategory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn column in dgvCategory.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Ví dụ căn giữa cho tất cả các cột
+            }
         }
-        //public DetailReceiptView()
-        //{
-        //    InitializeComponent();
-        //    DetailReceiptView(string);
-        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -1,8 +1,15 @@
-﻿using QL.Models;
+﻿using GiaoDien;
+using QL.DAO;
+using QL.Models;
+using QL.Views;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace QL.DAO
 {
@@ -55,7 +62,41 @@ namespace QL.DAO
                 db.closeConnection();
             }
         }
+        public DataTable LayDanhSachChiTietHoaDon(string maHoaDon)
+        {
+            try
+            {
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand("sp_LayChiTietHoaDon", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
 
     }
 }
+
+
+
+
+
+
+
+
+
+
 

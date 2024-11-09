@@ -35,8 +35,6 @@
             this.lblReceiptDetails = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
@@ -98,9 +96,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCategory.ColumnHeadersHeight = 70;
-            this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvEdit,
-            this.dgvDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,26 +137,6 @@
             this.dgvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
             this.dgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellContentClick);
             // 
-            // dgvEdit
-            // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.Width = 50;
-            // 
-            // dgvDelete
-            // 
-            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDelete.FillWeight = 50F;
-            this.dgvDelete.HeaderText = "";
-            this.dgvDelete.MinimumWidth = 50;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.ReadOnly = true;
-            this.dgvDelete.Width = 50;
-            // 
             // DetailReceiptView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -189,7 +164,5 @@
         private System.Windows.Forms.Label lblReceiptDetails;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2DataGridView dgvCategory;
-        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
 }

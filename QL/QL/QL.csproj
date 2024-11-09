@@ -62,7 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CuaHangTienLoiDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DAO\DetailReceiptDAO.cs" />
     <Compile Include="DAO\DiscountDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />

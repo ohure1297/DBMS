@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace QL.Views
 {
     public partial class EmployeesView : Form
     {
+        EmployeeDAO employeeDAO = new EmployeeDAO();
         public EmployeesView()
         {
             InitializeComponent();
@@ -20,12 +22,55 @@ namespace QL.Views
         private void EmployeesView_Load(object sender, EventArgs e)
         {
 
+            DataTable dt = employeeDAO.LayDanhSachNhanVien();
+            if (dt != null)
+            {
+                dgvEmployee.DataSource = dt;
+
+            }
+            else
+            {
+                MessageBox.Show("Không thể lấy danh sách nhân viên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            dgvEmployee.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn column in dgvEmployee.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Ví dụ căn giữa cho tất cả các cột
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EmployeeAddView view = new EmployeeAddView();   
             view.Show();
+            view.OnEmployeeAdded += RefreshEmployeeList;
+            RefreshEmployeeList();
+        }
+
+        private void dgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string maNV = dgvEmployee.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
+                EmployeeDetailView detailsForm = new EmployeeDetailView(this);
+                detailsForm.LoadEmployeeDetails(maNV);
+                detailsForm.ShowDialog();
+            }
+        }
+
+        public void RefreshEmployeeList()
+        {
+            DataTable dt = employeeDAO.LayDanhSachNhanVien();
+            if (dt != null)
+            {
+                dgvEmployee.DataSource = dt;
+            }
+        }
+
+        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

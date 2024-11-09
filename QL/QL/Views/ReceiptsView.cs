@@ -34,6 +34,11 @@ namespace QL.Views
                 MessageBox.Show("Không có hóa đơn nào để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //dgvCategory.DataSource = null;
             }
+            dgvCategory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn column in dgvCategory.Columns)
+            {
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Ví dụ căn giữa cho tất cả các cột
+            }
         }
 
         private void btnSearch_Receipt_Click(object sender, EventArgs e)

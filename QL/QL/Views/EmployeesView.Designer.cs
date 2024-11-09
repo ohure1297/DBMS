@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -37,8 +38,6 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblEmployeeView = new System.Windows.Forms.Label();
             this.dgvEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
@@ -133,9 +132,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmployee.ColumnHeadersHeight = 70;
-            this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvEdit,
-            this.dgvDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -174,26 +170,8 @@
             this.dgvEmployee.ThemeStyle.RowsStyle.Height = 50;
             this.dgvEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // dgvEdit
-            // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.Width = 50;
-            // 
-            // dgvDelete
-            // 
-            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDelete.FillWeight = 50F;
-            this.dgvDelete.HeaderText = "";
-            this.dgvDelete.MinimumWidth = 50;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.ReadOnly = true;
-            this.dgvDelete.Width = 50;
+            this.dgvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellClick);
+            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
             // 
             // EmployeesView
             // 
@@ -223,7 +201,5 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lblEmployeeView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvEmployee;
-        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
 }
