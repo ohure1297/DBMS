@@ -204,9 +204,8 @@ namespace QL.Views
                 productPriceStr = productPriceStr.Remove(productPriceStr.Length - 1);
                 int productPrice = int.Parse(productPriceStr);
                 int quan = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value.ToString());
-                MessageBox.Show(productPrice.ToString());
                 dgvHoaDon.Rows[e.RowIndex].Cells["Total"].Value = quan * productPrice + "đ";
-                receiptDAO.UpdateReceiptInfo(new ReceiptInfo(dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString(), quan));
+                receiptDAO.UpdateProductQuantity(new ReceiptInfo(dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString(), quan));
                 int tongTien = receiptDAO.ReturnReceiptTotalMoney();
                 lblSoTienTongCong.Text = tongTien.ToString() + "đ";
             }
@@ -217,7 +216,7 @@ namespace QL.Views
             if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
             {
                 int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
-                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Chưa Thanh Toán"));
+                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Đã thanh toán"));
                 receiptDAO.EndReceiptProcess();
                 lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
 

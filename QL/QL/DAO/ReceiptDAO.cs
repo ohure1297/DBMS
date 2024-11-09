@@ -160,13 +160,13 @@ namespace QL.DAO
 
 
 
-        public void UpdateReceiptInfo(ReceiptInfo receiptInfo)
+        public void UpdateProductQuantity(ReceiptInfo receiptInfo)
         {
             try
             {
                 dbCon.openConnection();
 
-                SqlCommand cmd = new SqlCommand("sp_SuaChiTietHoaDon", dbCon.getConnection);
+                SqlCommand cmd = new SqlCommand("sp_CapNhatSoLuongSanPham", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MaSPham", receiptInfo.MaSanPham);
                 cmd.Parameters.AddWithValue("@SoLuong", receiptInfo.SoLuong);
