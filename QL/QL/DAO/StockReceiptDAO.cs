@@ -71,5 +71,10 @@ namespace QL.DAO
 
             return stockReceipt_table;
         }
+
+        public DataTable AddStockReceipt(StockReceipt stockReceipt)
+        {
+            dbCon.openConnection();
+        }
     }
 }

@@ -74,5 +74,17 @@ namespace QL.Views
                 dgvDiscount.DataSource = dao.LoadDiscountTable();
             }
         }
+
+        private void btnValidDiscount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvDiscount.DataSource = dao.LoadValidDiscount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

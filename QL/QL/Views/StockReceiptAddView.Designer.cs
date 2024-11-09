@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.lblImportDetails = new System.Windows.Forms.Label();
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.lblProductId = new System.Windows.Forms.Label();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.tbxProductId = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblImportDate = new System.Windows.Forms.Label();
-            this.dtpImportDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dgvStockProductList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lbStockProductList = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStockProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -48,7 +50,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(364, 100);
+            this.panelTop.Size = new System.Drawing.Size(788, 100);
             this.panelTop.TabIndex = 16;
             // 
             // lblImportDetails
@@ -75,7 +77,7 @@
             this.tbxId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxId.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxId.Location = new System.Drawing.Point(48, 154);
+            this.tbxId.Location = new System.Drawing.Point(77, 103);
             this.tbxId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxId.Name = "tbxId";
             this.tbxId.PasswordChar = '\0';
@@ -88,21 +90,11 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(54, 112);
+            this.lblId.Location = new System.Drawing.Point(33, 103);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(29, 28);
             this.lblId.TabIndex = 25;
             this.lblId.Text = "Id";
-            // 
-            // lblProductId
-            // 
-            this.lblProductId.AutoSize = true;
-            this.lblProductId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductId.Location = new System.Drawing.Point(54, 227);
-            this.lblProductId.Name = "lblProductId";
-            this.lblProductId.Size = new System.Drawing.Size(100, 28);
-            this.lblProductId.TabIndex = 23;
-            this.lblProductId.Text = "ProductID";
             // 
             // btnAdd
             // 
@@ -115,7 +107,7 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(11, 457);
+            this.btnAdd.Location = new System.Drawing.Point(38, 457);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(143, 58);
             this.btnAdd.TabIndex = 4;
@@ -132,80 +124,92 @@
             this.btnClose.FillColor = System.Drawing.Color.Crimson;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(200, 457);
+            this.btnClose.Location = new System.Drawing.Point(569, 457);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tbxProductId
+            // dgvStockProductList
             // 
-            this.tbxProductId.AutoRoundedCorners = true;
-            this.tbxProductId.BorderRadius = 23;
-            this.tbxProductId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxProductId.DefaultText = "";
-            this.tbxProductId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxProductId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxProductId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxProductId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxProductId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxProductId.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbxProductId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxProductId.Location = new System.Drawing.Point(48, 268);
-            this.tbxProductId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxProductId.Name = "tbxProductId";
-            this.tbxProductId.PasswordChar = '\0';
-            this.tbxProductId.PlaceholderText = "";
-            this.tbxProductId.SelectedText = "";
-            this.tbxProductId.Size = new System.Drawing.Size(229, 48);
-            this.tbxProductId.TabIndex = 24;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStockProductList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStockProductList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStockProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStockProductList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvStockProductList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvStockProductList.Location = new System.Drawing.Point(38, 186);
+            this.dgvStockProductList.Name = "dgvStockProductList";
+            this.dgvStockProductList.RowHeadersVisible = false;
+            this.dgvStockProductList.RowHeadersWidth = 51;
+            this.dgvStockProductList.RowTemplate.Height = 24;
+            this.dgvStockProductList.Size = new System.Drawing.Size(674, 265);
+            this.dgvStockProductList.TabIndex = 27;
+            this.dgvStockProductList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStockProductList.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvStockProductList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvStockProductList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvStockProductList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvStockProductList.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStockProductList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStockProductList.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvStockProductList.ThemeStyle.ReadOnly = false;
+            this.dgvStockProductList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvStockProductList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvStockProductList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStockProductList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvStockProductList.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // lblImportDate
+            // lbStockProductList
             // 
-            this.lblImportDate.AutoSize = true;
-            this.lblImportDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImportDate.Location = new System.Drawing.Point(54, 341);
-            this.lblImportDate.Name = "lblImportDate";
-            this.lblImportDate.Size = new System.Drawing.Size(111, 28);
-            this.lblImportDate.TabIndex = 27;
-            this.lblImportDate.Text = "Importdate";
-            // 
-            // dtpImportDate
-            // 
-            this.dtpImportDate.AutoRoundedCorners = true;
-            this.dtpImportDate.BorderRadius = 17;
-            this.dtpImportDate.Checked = true;
-            this.dtpImportDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
-            this.dtpImportDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpImportDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpImportDate.Location = new System.Drawing.Point(56, 392);
-            this.dtpImportDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpImportDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpImportDate.Name = "dtpImportDate";
-            this.dtpImportDate.Size = new System.Drawing.Size(261, 36);
-            this.dtpImportDate.TabIndex = 28;
-            this.dtpImportDate.Value = new System.DateTime(2024, 10, 26, 11, 4, 6, 290);
+            this.lbStockProductList.AutoSize = true;
+            this.lbStockProductList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStockProductList.Location = new System.Drawing.Point(33, 155);
+            this.lbStockProductList.Name = "lbStockProductList";
+            this.lbStockProductList.Size = new System.Drawing.Size(115, 28);
+            this.lbStockProductList.TabIndex = 28;
+            this.lbStockProductList.Text = "Product List";
             // 
             // StockReceiptAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(364, 541);
+            this.ClientSize = new System.Drawing.Size(788, 541);
+            this.Controls.Add(this.lbStockProductList);
+            this.Controls.Add(this.dgvStockProductList);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dtpImportDate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblImportDate);
             this.Controls.Add(this.tbxId);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.tbxProductId);
-            this.Controls.Add(this.lblProductId);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StockReceiptAddView";
             this.Text = "ImportAddForm";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStockProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,11 +221,9 @@
         private System.Windows.Forms.Label lblImportDetails;
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.Label lblProductId;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Button btnClose;
-        private Guna.UI2.WinForms.Guna2TextBox tbxProductId;
-        private System.Windows.Forms.Label lblImportDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpImportDate;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvStockProductList;
+        private System.Windows.Forms.Label lbStockProductList;
     }
 }

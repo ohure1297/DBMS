@@ -41,6 +41,30 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
+
+        public DataTable LoadValidDiscount()
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsKhuyenMaiConHieuLuc", dbCon.getConnection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable discountTable = new DataTable();
+                adapter.Fill(discountTable);
+
+                return discountTable;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
         public DataTable FindDiscountByID(string makhuyenmai) 
         {
             dbCon.openConnection();
