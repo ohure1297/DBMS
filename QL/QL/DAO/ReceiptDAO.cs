@@ -96,6 +96,8 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("sp_HoanTatThanhToan", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
+
+                
             }
             catch (Exception ex)
             {
@@ -107,6 +109,31 @@ namespace QL.DAO
             }
 
         }
+
+        public void AccumulatePoints(string SDT)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_ThemTichDiem", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SDT", SDT);
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "AccumulatePoints");
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+
 
         public int ReturnReceiptTotalMoney()
         {
@@ -133,22 +160,18 @@ namespace QL.DAO
 
         public int ReturnChangedMoney()
         {
-            int tienThoi = 0;
+            int tienThoi = -1;
             try
             {
                 dbCon.openConnection();
                 SqlCommand cmd = new SqlCommand("SELECT TienThoi FROM v_LayTongTienVaTienThoiCuaHoaDonHienTai", dbCon.getConnection);
                 object result = cmd.ExecuteScalar();
                 if (result != DBNull.Value)
-                    tienThoi = Convert.ToInt32(result);
-                else
-                {
-                    MessageBox.Show("Chưa có sản phẩm nào để thanh toán", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }    
+                    tienThoi = Convert.ToInt32(result); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "ReturnChangedMoney");
+                MessageBox.Show(ex.Message + " ReturnChangedMoney");
             }
             finally
             {

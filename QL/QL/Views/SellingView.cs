@@ -1,4 +1,5 @@
 ﻿using GiaoDien;
+using Guna.UI2.WinForms;
 using QL.DAO;
 using QL.Models;
 using System;
@@ -33,9 +34,23 @@ namespace QL.Views
         }
 
 
-        private void LoadProductUC(DataTable productTable)
+        private void ClearEverything()
         {
             flowPanelSanPham.Controls.Clear();
+            dgvHoaDon.Rows.Clear();
+            tbxCustomerName.Text = string.Empty;
+            tbxPhoneNum.Text = string.Empty;
+            tbxPoint.Text = string.Empty;
+            tbxTienKhachDua.Text = string.Empty;
+            tbx_Search.Text = string.Empty;
+            lblSoTienTongCong.Text = string.Empty;
+            lblSoTienThoi.Text = string.Empty;
+             
+        }
+        
+        private void LoadProductUC(DataTable productTable)
+        {
+            ClearEverything();
 
             foreach (DataRow row in productTable.Rows)
             {
@@ -213,17 +228,26 @@ namespace QL.Views
 
         private void btnMoneyConfirm_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
+            if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text) && dgvHoaDon.Rows.Count > 0)
             {
                 int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
                 receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Đã thanh toán"));
                 receiptDAO.EndReceiptProcess();
-                lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                if(receiptDAO.ReturnChangedMoney() != -1)
+                    lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                else
+                    lblSoTienThoi.Text = string.Empty;
+                
+                //Tích điểm cho khách hàng nếu có nhập thông tin khách hàng
+                if(!String.IsNullOrWhiteSpace(tbxCustomerName.Text))
+                {
+                    receiptDAO.AccumulatePoints(tbxPhoneNum.Text);
+                }    
 
             }
             else
             {
-                MessageBox.Show("Chưa nhập số tiền khách hàng đưa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Chưa nhập số tiền khách hàng đưa hoặc chưa có sản phẩm nào trong hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -233,12 +257,7 @@ namespace QL.Views
             if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
             {           
                 MessageBox.Show("Đã thanh toán thành công");
-                dgvHoaDon.Rows.Clear();
-                tbxTienKhachDua.Text = string.Empty;
-                lblSoTienTongCong.Text = string.Empty;
-                lblSoTienThoi.Text = string.Empty;
                 SellingView_Load(sender, e);
-
             }
             else
             {

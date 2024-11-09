@@ -20,6 +20,7 @@ namespace QL.DAO
 
         public DataTable LoadDiscountTable()
         {
+            DataTable discountTable = new DataTable();
             try
             {
                 dbCon.openConnection();
@@ -27,19 +28,20 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsKhuyenMai", dbCon.getConnection);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable discountTable = new DataTable();
+                
                 adapter.Fill(discountTable);
 
-                return discountTable;
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                MessageBox.Show(ex.Message);    
             }
             finally
             {
                 dbCon.closeConnection();
             }
+            return discountTable;
         }
         public DataTable FindDiscountByID(string makhuyenmai) 
         {
