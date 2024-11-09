@@ -20,6 +20,7 @@ namespace QL.Models
         public DateTime Nghethan { get => nghethan; set => nghethan = value; }
         public float Muckhuyenmai { get => muckhuyenmai; set => muckhuyenmai = value; }
 
+        public Discount() { }
         public Discount (string makhuyenmai, string tenkhuyenmai, DateTime ngbatdau, DateTime nghethan, float muckhuyenmai)
         {
             Makhuyenmai = makhuyenmai;
