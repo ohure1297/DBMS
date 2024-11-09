@@ -56,13 +56,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
-            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
+            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnMoneyConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.panelKhachHang.SuspendLayout();
             this.panelHoaDon.SuspendLayout();
             this.panelThongTin.SuspendLayout();
@@ -350,6 +352,8 @@
             // 
             // panelThongTin
             // 
+            this.panelThongTin.Controls.Add(this.btnMoneyConfirm);
+            this.panelThongTin.Controls.Add(this.label2);
             this.panelThongTin.Controls.Add(this.tbxTienKhachDua);
             this.panelThongTin.Controls.Add(this.lblSoTienTongCong);
             this.panelThongTin.Controls.Add(this.lblSoTienThoi);
@@ -381,14 +385,14 @@
             this.tbxTienKhachDua.PasswordChar = '\0';
             this.tbxTienKhachDua.PlaceholderText = "";
             this.tbxTienKhachDua.SelectedText = "";
-            this.tbxTienKhachDua.Size = new System.Drawing.Size(229, 35);
+            this.tbxTienKhachDua.Size = new System.Drawing.Size(123, 35);
             this.tbxTienKhachDua.TabIndex = 69;
             // 
             // lblSoTienTongCong
             // 
             this.lblSoTienTongCong.AutoSize = true;
             this.lblSoTienTongCong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoTienTongCong.Location = new System.Drawing.Point(370, 59);
+            this.lblSoTienTongCong.Location = new System.Drawing.Point(304, 59);
             this.lblSoTienTongCong.Name = "lblSoTienTongCong";
             this.lblSoTienTongCong.Size = new System.Drawing.Size(24, 28);
             this.lblSoTienTongCong.TabIndex = 73;
@@ -398,7 +402,7 @@
             // 
             this.lblSoTienThoi.AutoSize = true;
             this.lblSoTienThoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoTienThoi.Location = new System.Drawing.Point(370, 113);
+            this.lblSoTienThoi.Location = new System.Drawing.Point(304, 113);
             this.lblSoTienThoi.Name = "lblSoTienThoi";
             this.lblSoTienThoi.Size = new System.Drawing.Size(24, 28);
             this.lblSoTienThoi.TabIndex = 72;
@@ -496,30 +500,6 @@
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
             // 
-            // btnPay
-            // 
-            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPay.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPay.FillColor = System.Drawing.Color.YellowGreen;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(0, 479);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(620, 51);
-            this.btnPay.TabIndex = 63;
-            this.btnPay.Text = "Pay";
-            // 
-            // flowPanelSanPham
-            // 
-            this.flowPanelSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanelSanPham.Location = new System.Drawing.Point(0, 160);
-            this.flowPanelSanPham.Name = "flowPanelSanPham";
-            this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
-            this.flowPanelSanPham.TabIndex = 3;
-            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -553,6 +533,57 @@
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
+            // 
+            // btnPay
+            // 
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPay.FillColor = System.Drawing.Color.YellowGreen;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Location = new System.Drawing.Point(0, 479);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(620, 51);
+            this.btnPay.TabIndex = 63;
+            this.btnPay.Text = "Pay";
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // flowPanelSanPham
+            // 
+            this.flowPanelSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanelSanPham.Location = new System.Drawing.Point(0, 160);
+            this.flowPanelSanPham.Name = "flowPanelSanPham";
+            this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
+            this.flowPanelSanPham.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(304, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 28);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "đ";
+            // 
+            // btnMoneyConfirm
+            // 
+            this.btnMoneyConfirm.BorderRadius = 20;
+            this.btnMoneyConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMoneyConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMoneyConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMoneyConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMoneyConfirm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoneyConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnMoneyConfirm.Location = new System.Drawing.Point(357, 17);
+            this.btnMoneyConfirm.Name = "btnMoneyConfirm";
+            this.btnMoneyConfirm.Size = new System.Drawing.Size(126, 38);
+            this.btnMoneyConfirm.TabIndex = 69;
+            this.btnMoneyConfirm.Text = "Confirm";
+            this.btnMoneyConfirm.Click += new System.EventHandler(this.btnMoneyConfirm_Click);
             // 
             // SellingView
             // 
@@ -612,5 +643,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button btnMoneyConfirm;
     }
 }

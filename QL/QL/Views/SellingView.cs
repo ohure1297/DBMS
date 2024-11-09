@@ -98,8 +98,9 @@ namespace QL.Views
 
                         dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice, prodUC.CurrentPrice);
 
-                        ReceiptInfo receiptInfo = new ReceiptInfo(prodUC.ProductId, 1);
-                        receiptDAO.AddReceiptInfo(receiptInfo);
+                        receiptDAO.AddReceiptInfo(new ReceiptInfo(prodUC.ProductId, 1));
+                        int tongTien = receiptDAO.ReturnReceiptTotalMoney();
+                        lblSoTienTongCong.Text = tongTien.ToString() + "đ";
 
 
                     };
@@ -113,8 +114,7 @@ namespace QL.Views
         }
         private void SellingView_Load(object sender, EventArgs e)
         {
-            Receipt receipt = new Receipt("Chưa thanh toán");
-            receiptDAO.AddReceipt(receipt);
+            receiptDAO.AddReceipt(new Receipt("Chưa thanh toán"));
             product = productDAO.DataTable_ProductOnSaleScreen();
             LoadProductUC(product);   
         }
@@ -206,7 +206,46 @@ namespace QL.Views
                 int quan = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value.ToString());
                 MessageBox.Show(productPrice.ToString());
                 dgvHoaDon.Rows[e.RowIndex].Cells["Total"].Value = quan * productPrice + "đ";
+                receiptDAO.UpdateReceiptInfo(new ReceiptInfo(dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString(), quan));
+                int tongTien = receiptDAO.ReturnReceiptTotalMoney();
+                lblSoTienTongCong.Text = tongTien.ToString() + "đ";
             }
         }
+
+        private void btnMoneyConfirm_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
+            {
+                int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
+                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Chưa Thanh Toán"));
+                receiptDAO.EndReceiptProcess();
+                lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+
+            }
+            else
+            {
+                MessageBox.Show("Chưa nhập số tiền khách hàng đưa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+
+            if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
+            {           
+                MessageBox.Show("Đã thanh toán thành công");
+                dgvHoaDon.Rows.Clear();
+                tbxTienKhachDua.Text = string.Empty;
+                lblSoTienTongCong.Text = string.Empty;
+                lblSoTienThoi.Text = string.Empty;
+                SellingView_Load(sender, e);
+
+            }
+            else
+            {
+                MessageBox.Show("Chưa nhập số tiền khách hàng đưa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
