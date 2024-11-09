@@ -43,7 +43,7 @@ namespace QL.Views
                 DetailProductView detailView = new DetailProductView(dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString());  
                 detailView.Show();
             }
-            else if (dgvProduct.Columns[e.ColumnIndex].HeaderText == "Xóa")
+            else if (dgvProduct.Columns[e.ColumnIndex].HeaderText.Equals("Xóa"))
             {
                 Product product = new Product()
                 {
@@ -51,6 +51,11 @@ namespace QL.Views
                 };
                 MessageBox.Show("nhấn Xóa");
                 productDAO.DeleteProduct(product);
+            }
+
+            else
+            {
+
             }
         }
 

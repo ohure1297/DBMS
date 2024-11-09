@@ -321,5 +321,51 @@ namespace QL.DAO
             }
         }
 
+        public void UpdateProduct(Product product)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[Proc_UpdateProduct] " +
+                                   "@MaSPham = @Ma, " +
+                                   "@TenSPham = @Ten, " +
+                                   "@HinhAnh = @Anh, " +
+                                   "@NhaSanXuat = @NSX, " +
+                                   "@GiaBan = @Gia, " +
+                                   "@TonKho = @SL, " +
+                                   "@TinhTrang = @TrangThai, " +
+                                   "@NhomSPham = @NhomSP;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Add parameters to the command
+                        command.Parameters.AddWithValue("@Ma", product.MaSP);
+                        command.Parameters.AddWithValue("@Ten", product.TenSP);
+
+                        // Assuming the product.HinhAnh is a byte[] representing the image
+                        command.Parameters.AddWithValue("@Anh", product.HinhAnh);
+
+                        command.Parameters.AddWithValue("@NSX", product.NhaSanXuat);
+                        command.Parameters.AddWithValue("@Gia", product.GiaBan);
+                        command.Parameters.AddWithValue("@SL", product.TonKho);
+                        command.Parameters.AddWithValue("@TrangThai", product.TinhTrang);
+                        command.Parameters.AddWithValue("@NhomSP", product.NhomSanPham);
+
+                        // Open connection and execute the command
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Sửa sản phẩm thành công.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

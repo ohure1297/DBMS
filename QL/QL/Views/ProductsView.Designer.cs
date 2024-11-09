@@ -168,6 +168,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProduct.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProduct.Enabled = false;
             this.dgvProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvProduct.Location = new System.Drawing.Point(42, 186);
             this.dgvProduct.Name = "dgvProduct";
@@ -175,6 +176,7 @@
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 50;
+            this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvProduct.Size = new System.Drawing.Size(1028, 478);
             this.dgvProduct.TabIndex = 5;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
