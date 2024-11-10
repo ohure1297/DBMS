@@ -41,7 +41,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.tbxCategory = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btn_edit = new Guna.UI2.WinForms.Guna2Button();
+            this.tbxQuantity = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +98,7 @@
             this.ptbProductImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbProductImg.TabIndex = 97;
             this.ptbProductImg.TabStop = false;
+            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
             // tbxSellPrice
             // 
@@ -110,7 +114,7 @@
             this.tbxSellPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxSellPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSellPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxSellPrice.Location = new System.Drawing.Point(741, 287);
+            this.tbxSellPrice.Location = new System.Drawing.Point(741, 220);
             this.tbxSellPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxSellPrice.Name = "tbxSellPrice";
             this.tbxSellPrice.PasswordChar = '\0';
@@ -123,7 +127,7 @@
             // 
             this.lblSellPrice.AutoSize = true;
             this.lblSellPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellPrice.Location = new System.Drawing.Point(748, 240);
+            this.lblSellPrice.Location = new System.Drawing.Point(748, 173);
             this.lblSellPrice.Name = "lblSellPrice";
             this.lblSellPrice.Size = new System.Drawing.Size(91, 28);
             this.lblSellPrice.TabIndex = 95;
@@ -238,28 +242,76 @@
             this.lblId.TabIndex = 87;
             this.lblId.Text = "Id";
             // 
-            // tbxCategory
+            // btn_edit
             // 
-            this.tbxCategory.AutoRoundedCorners = true;
-            this.tbxCategory.BorderRadius = 23;
-            this.tbxCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxCategory.DefaultText = "";
-            this.tbxCategory.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxCategory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxCategory.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxCategory.Enabled = false;
-            this.tbxCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxCategory.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbxCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxCategory.Location = new System.Drawing.Point(420, 220);
-            this.tbxCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxCategory.Name = "tbxCategory";
-            this.tbxCategory.PasswordChar = '\0';
-            this.tbxCategory.PlaceholderText = "";
-            this.tbxCategory.SelectedText = "";
-            this.tbxCategory.Size = new System.Drawing.Size(229, 48);
-            this.tbxCategory.TabIndex = 99;
+            this.btn_edit.AutoRoundedCorners = true;
+            this.btn_edit.BorderRadius = 28;
+            this.btn_edit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_edit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_edit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_edit.FillColor = System.Drawing.Color.SteelBlue;
+            this.btn_edit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_edit.ForeColor = System.Drawing.Color.White;
+            this.btn_edit.Location = new System.Drawing.Point(892, 506);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(143, 58);
+            this.btn_edit.TabIndex = 100;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // tbxQuantity
+            // 
+            this.tbxQuantity.AutoRoundedCorners = true;
+            this.tbxQuantity.BorderRadius = 23;
+            this.tbxQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxQuantity.DefaultText = "";
+            this.tbxQuantity.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxQuantity.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxQuantity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxQuantity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxQuantity.Enabled = false;
+            this.tbxQuantity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxQuantity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxQuantity.Location = new System.Drawing.Point(741, 354);
+            this.tbxQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxQuantity.Name = "tbxQuantity";
+            this.tbxQuantity.PasswordChar = '\0';
+            this.tbxQuantity.PlaceholderText = "";
+            this.tbxQuantity.SelectedText = "";
+            this.tbxQuantity.Size = new System.Drawing.Size(229, 48);
+            this.tbxQuantity.TabIndex = 102;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(748, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 28);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "Quantity";
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.AutoRoundedCorners = true;
+            this.cbCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cbCategory.BorderRadius = 17;
+            this.cbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.cbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbCategory.ItemHeight = 30;
+            this.cbCategory.Items.AddRange(new object[] {
+            "Thực phẩm"});
+            this.cbCategory.Location = new System.Drawing.Point(420, 220);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(198, 36);
+            this.cbCategory.StartIndex = 0;
+            this.cbCategory.TabIndex = 103;
             // 
             // DetailProductView
             // 
@@ -267,7 +319,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1345, 600);
-            this.Controls.Add(this.tbxCategory);
+            this.Controls.Add(this.cbCategory);
+            this.Controls.Add(this.tbxQuantity);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ptbProductImg);
@@ -308,6 +363,9 @@
         private System.Windows.Forms.Label lblName;
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
         private System.Windows.Forms.Label lblId;
-        private Guna.UI2.WinForms.Guna2TextBox tbxCategory;
+        private Guna.UI2.WinForms.Guna2Button btn_edit;
+        private Guna.UI2.WinForms.Guna2TextBox tbxQuantity;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbCategory;
     }
 }
