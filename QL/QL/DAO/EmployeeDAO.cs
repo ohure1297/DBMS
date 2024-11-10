@@ -111,9 +111,9 @@ namespace QL.DAO
                 int result = cmd.ExecuteNonQuery();
                 return result > 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin ");
+                MessageBox.Show("Hãy nhập đầy đủ thông tin");
                 return false;
             }
             finally
