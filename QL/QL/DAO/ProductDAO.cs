@@ -325,34 +325,34 @@ namespace QL.DAO
 
         public void UpdateProduct(Product product)
         {
+            MessageBox.Show(product.MaSP);
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string query = "EXEC [dbo].[Proc_UpdateProduct] " +
-                                   "@MaSPham = @Ma, " +
-                                   "@TenSPham = @Ten, " +
-                                   "@HinhAnh = @Anh, " +
-                                   "@NhaSanXuat = @NSX, " +
-                                   "@GiaBan = @Gia, " +
-                                   "@TonKho = @SL, " +
-                                   "@TinhTrang = @TrangThai, " +
-                                   "@NhomSPham = @NhomSP;";
+               "@MaSPham, " +
+               "@TenSPham, " +
+               "@HinhAnh, " +
+               "@NhaSanXuat, " +
+               "@GiaBan, " +
+               "@TonKho, " +
+               "@NhomSPham;";
+
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Add parameters to the command
-                        command.Parameters.AddWithValue("@Ma", product.MaSP);
-                        command.Parameters.AddWithValue("@Ten", product.TenSP);
+                        command.Parameters.AddWithValue("@MaSPham", product.MaSP);
+                        command.Parameters.AddWithValue("@TenSPham", product.TenSP);
 
                         // Assuming the product.HinhAnh is a byte[] representing the image
-                        command.Parameters.AddWithValue("@Anh", product.HinhAnh);
+                        command.Parameters.AddWithValue("@HinhAnh", product.HinhAnh);
 
-                        command.Parameters.AddWithValue("@NSX", product.NhaSanXuat);
-                        command.Parameters.AddWithValue("@Gia", product.GiaBan);
-                        command.Parameters.AddWithValue("@SL", product.TonKho);
-                        command.Parameters.AddWithValue("@TrangThai", product.TinhTrang);
-                        command.Parameters.AddWithValue("@NhomSP", product.NhomSanPham);
+                        command.Parameters.AddWithValue("@NhaSanXuat", product.NhaSanXuat);
+                        command.Parameters.AddWithValue("@GiaBan", product.GiaBan);
+                        command.Parameters.AddWithValue("@TonKho", product.TonKho);
+                        command.Parameters.AddWithValue("@NhomSPham", product.NhomSanPham);
 
                         // Open connection and execute the command
                         connection.Open();

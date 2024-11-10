@@ -53,10 +53,6 @@ namespace QL.Views
                 productDAO.DeleteProduct(product);
             }
 
-            else
-            {
-
-            }
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
