@@ -35,5 +35,10 @@ namespace QL.Views
                 dgv_Customer.DataSource = customerDAO.DataTable_SearchBySDT(tbxSearch.Text);
             }
         }
+
+        private void btnAdd_CustomerManagement_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

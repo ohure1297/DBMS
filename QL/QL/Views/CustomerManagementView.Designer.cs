@@ -134,6 +134,7 @@
             this.btnAdd_CustomerManagement.Size = new System.Drawing.Size(126, 45);
             this.btnAdd_CustomerManagement.TabIndex = 1;
             this.btnAdd_CustomerManagement.Text = "Add New";
+            this.btnAdd_CustomerManagement.Click += new System.EventHandler(this.btnAdd_CustomerManagement_Click);
             // 
             // CustomerManagementLabel
             // 
