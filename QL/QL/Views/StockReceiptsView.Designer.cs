@@ -42,6 +42,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.colConfirm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.pannelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockReceipt)).BeginInit();
             this.SuspendLayout();
@@ -177,7 +178,8 @@
             this.dgvStockReceipt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStockReceipt.ColumnHeadersHeight = 70;
             this.dgvStockReceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colConfirm});
+            this.colConfirm,
+            this.colDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -249,6 +251,19 @@
             this.colConfirm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colConfirm.Width = 80;
             // 
+            // colDelete
+            // 
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colDelete.FillWeight = 50F;
+            this.colDelete.HeaderText = "Xóa";
+            this.colDelete.Image = global::QL.Properties.Resources.bin;
+            this.colDelete.MinimumWidth = 50;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colDelete.Width = 80;
+            // 
             // StockReceiptsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -282,5 +297,6 @@
         private Guna.UI2.WinForms.Guna2Button btnFindStockReceipt;
         private Guna.UI2.WinForms.Guna2Button btnStockReceiptConfirm;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colConfirm;
+        private System.Windows.Forms.DataGridViewImageColumn colDelete;
     }
 }

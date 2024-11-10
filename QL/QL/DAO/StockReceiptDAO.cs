@@ -131,5 +131,27 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
+
+        public void DeleteStocReceipt(string maphieunhap)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XoaPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
     }
 }

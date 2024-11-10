@@ -48,6 +48,12 @@ namespace QL.Views
 
                 dgvStockReceipt.Rows[e.RowIndex].Cells["colConfirm"].Value = !isChecked;
             }
+            else if (dgvStockReceipt.Columns[e.ColumnIndex].Name == "colDelete")
+            {
+                string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
+                stockdao.DeleteStocReceipt(maPhieuNhap);
+                dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
+            }
             else
             {
                 string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
