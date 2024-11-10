@@ -87,29 +87,29 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
-        public DataTable LoadReceipts()
-        {
-            try
-            {
-                dbCon.openConnection();
+        //public DataTable LoadReceipts()
+        //{
+        //    try
+        //    {
+        //        dbCon.openConnection();
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsHoaDon", dbCon.getConnection);
+        //        SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsHoaDon", dbCon.getConnection);
 
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable stockReceipt_table = new DataTable();
-                adapter.Fill(stockReceipt_table);
+        //        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //        DataTable stockReceipt_table = new DataTable();
+        //        adapter.Fill(stockReceipt_table);
 
-                return stockReceipt_table;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            finally
-            {
-                dbCon.closeConnection();
-            }
-        }
+        //        return stockReceipt_table;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        dbCon.closeConnection();
+        //    }
+        //}
         
         public void AddReceipt(Receipt receipt)
         {
