@@ -32,20 +32,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pannelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnStockReceiptConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.btnFindStockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblStockReceiptView = new System.Windows.Forms.Label();
             this.dgvStockReceipt = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colConfirm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.pannelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockReceipt)).BeginInit();
             this.SuspendLayout();
             // 
             // pannelTop
             // 
+            this.pannelTop.Controls.Add(this.btnStockReceiptConfirm);
             this.pannelTop.Controls.Add(this.btnFindStockReceipt);
             this.pannelTop.Controls.Add(this.lblSearch);
             this.pannelTop.Controls.Add(this.tbxSearch);
@@ -56,6 +60,25 @@
             this.pannelTop.Name = "pannelTop";
             this.pannelTop.Size = new System.Drawing.Size(1141, 128);
             this.pannelTop.TabIndex = 6;
+            // 
+            // btnStockReceiptConfirm
+            // 
+            this.btnStockReceiptConfirm.Animated = true;
+            this.btnStockReceiptConfirm.AutoRoundedCorners = true;
+            this.btnStockReceiptConfirm.BorderRadius = 21;
+            this.btnStockReceiptConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStockReceiptConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStockReceiptConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStockReceiptConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStockReceiptConfirm.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnStockReceiptConfirm.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnStockReceiptConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnStockReceiptConfirm.Location = new System.Drawing.Point(180, 61);
+            this.btnStockReceiptConfirm.Name = "btnStockReceiptConfirm";
+            this.btnStockReceiptConfirm.Size = new System.Drawing.Size(126, 45);
+            this.btnStockReceiptConfirm.TabIndex = 5;
+            this.btnStockReceiptConfirm.Text = "Confirm";
+            this.btnStockReceiptConfirm.Click += new System.EventHandler(this.btnStockReceiptConfirm_Click);
             // 
             // btnFindStockReceipt
             // 
@@ -71,8 +94,8 @@
             this.btnFindStockReceipt.ForeColor = System.Drawing.Color.White;
             this.btnFindStockReceipt.Location = new System.Drawing.Point(1011, 61);
             this.btnFindStockReceipt.Name = "btnFindStockReceipt";
-            this.btnFindStockReceipt.Size = new System.Drawing.Size(89, 45);
-            this.btnFindStockReceipt.TabIndex = 5;
+            this.btnFindStockReceipt.Size = new System.Drawing.Size(126, 45);
+            this.btnFindStockReceipt.TabIndex = 4;
             this.btnFindStockReceipt.Text = "Search";
             this.btnFindStockReceipt.Click += new System.EventHandler(this.btnFindStockReceipt_Click);
             // 
@@ -124,6 +147,7 @@
             this.btnAdd.Size = new System.Drawing.Size(126, 45);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add New";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblStockReceiptView
             // 
@@ -154,8 +178,8 @@
             this.dgvStockReceipt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStockReceipt.ColumnHeadersHeight = 70;
             this.dgvStockReceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvEdit,
-            this.dgvDelete});
+            this.colConfirm,
+            this.colDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -194,27 +218,51 @@
             this.dgvStockReceipt.ThemeStyle.RowsStyle.Height = 50;
             this.dgvStockReceipt.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStockReceipt.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvStockReceipt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
+            this.dgvStockReceipt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockReceipt_CellClick);
             // 
-            // dgvEdit
+            // dataGridViewImageColumn1
             // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.Width = 50;
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.MinimumWidth = 50;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 50;
             // 
-            // dgvDelete
+            // dataGridViewImageColumn2
             // 
-            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDelete.FillWeight = 50F;
-            this.dgvDelete.HeaderText = "";
-            this.dgvDelete.MinimumWidth = 50;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.ReadOnly = true;
-            this.dgvDelete.Width = 50;
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.FillWeight = 50F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn2.MinimumWidth = 50;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 50;
+            // 
+            // colConfirm
+            // 
+            this.colConfirm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colConfirm.FillWeight = 50F;
+            this.colConfirm.HeaderText = "Xác Nhận";
+            this.colConfirm.MinimumWidth = 50;
+            this.colConfirm.Name = "colConfirm";
+            this.colConfirm.ReadOnly = true;
+            this.colConfirm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colConfirm.Width = 80;
+            // 
+            // colDelete
+            // 
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colDelete.FillWeight = 50F;
+            this.colDelete.HeaderText = "Xóa";
+            this.colDelete.Image = global::QL.Properties.Resources.bin;
+            this.colDelete.MinimumWidth = 50;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colDelete.Width = 80;
             // 
             // StockReceiptsView
             // 
@@ -244,8 +292,11 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lblStockReceiptView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStockReceipt;
-        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Guna.UI2.WinForms.Guna2Button btnFindStockReceipt;
+        private Guna.UI2.WinForms.Guna2Button btnStockReceiptConfirm;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colConfirm;
+        private System.Windows.Forms.DataGridViewImageColumn colDelete;
     }
 }

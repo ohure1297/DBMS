@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,31 +12,62 @@ namespace QL.DAO
 {
     public class CustomerDAO
     {
-        private static string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True";
+        DBConnection db = new DBConnection();
         public DataTable DataTable_Customer()
         {
             DataTable dt = new DataTable();
 
             string query = "SELECT * FROM V_DSKhachHang";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
+                db.openConnection();
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            
+
+            return dt;
+        }
+
+        public DataTable DataTable_CheckIfExists(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+
+                db.openConnection();
+
+                string query = "sp_KiemtraKhachHangDaTonTai";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SDT", searchStr);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
                 }
+
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Errors[0].Class == 16)
+                {
+                    MessageBox.Show(ex.Message, "Đã tồn tại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }    
             }
 
             return dt;
@@ -47,22 +79,21 @@ namespace QL.DAO
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+
+                db.openConnection();
+
+                string query = "SELECT * FROM F_CustomerSearchByName(@Name)";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    string query = "SELECT * FROM F_CustomerSearchByName(@Name)";
+                    command.Parameters.AddWithValue("@Name", searchStr);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@Name", searchStr);
-
-                        connection.Open();
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -78,21 +109,24 @@ namespace QL.DAO
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+
+                db.openConnection();
+
+                string query = "SELECT * FROM F_CustomerSearchBySDT(@SDT)";
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
                 {
-                    string query = "SELECT * FROM F_CustomerSearchBySDT(@SDT)";
+                    command.Parameters.AddWithValue("@SDT", searchStr);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    db.openConnection();
+
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@SDT", searchStr);
-                        connection.Open();
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
+                        adapter.Fill(dt);
                     }
                 }
+                
             }
             catch (Exception ex)
             {

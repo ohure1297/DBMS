@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using QL.Models;
 
@@ -19,6 +19,7 @@ namespace QL.DAO
 
         public DataTable LoadStockReceipts()
         {
+            DataTable stockReceipt_table = new DataTable();
             try
             {
                 dbCon.openConnection();
@@ -26,19 +27,20 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsPhieuNhap", dbCon.getConnection);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable stockReceipt_table = new DataTable();
+                stockReceipt_table = new DataTable();
                 adapter.Fill(stockReceipt_table);
 
                 return stockReceipt_table;
             }
             catch (Exception ex)
             {
-                return null;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 dbCon.closeConnection();
             }
+            return stockReceipt_table;
         }
         public DataTable FindStockReceipt(string maPhieuNhap)
         {
@@ -68,6 +70,88 @@ namespace QL.DAO
             adapter.Fill(stockReceipt_table);
 
             return stockReceipt_table;
+        }
+
+        public DataTable LoadStockProductList()
+        {
+            dbCon.openConnection();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsSanPhamNhap", dbCon.getConnection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable stockReceipt_table = new DataTable();
+            adapter.Fill(stockReceipt_table);
+
+            return stockReceipt_table;
+        }
+
+        public void AddStockReceipt(string maSP, int soluongnhap)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_ThemPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaSPham", maSP);
+                cmd.Parameters.AddWithValue("@SoLuongNhap", soluongnhap);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+        public void ConfirmStockReceipt(string maphieunhap, string maNV)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XacNhanPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
+                cmd.Parameters.AddWithValue("@MaNV", maNV);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+        public void DeleteStocReceipt(string maphieunhap)
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XoaPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
     }
 }

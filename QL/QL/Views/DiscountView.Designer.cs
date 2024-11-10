@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDiscount = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvUpdate = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.lblDiscountView = new System.Windows.Forms.Label();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
@@ -41,6 +41,7 @@
             this.cbFindDisCount = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnFindDisCount = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnValidDiscount = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             this.dgvDiscount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDiscount.ColumnHeadersHeight = 70;
             this.dgvDiscount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvEdit,
+            this.dgvUpdate,
             this.dgvDelete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -104,22 +105,25 @@
             this.dgvDiscount.ThemeStyle.RowsStyle.Height = 50;
             this.dgvDiscount.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDiscount.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvDiscount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiscount_CellClick);
             // 
-            // dgvEdit
+            // dgvUpdate
             // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.Width = 50;
+            this.dgvUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvUpdate.FillWeight = 50F;
+            this.dgvUpdate.HeaderText = "";
+            this.dgvUpdate.Image = global::QL.Properties.Resources.pencil;
+            this.dgvUpdate.MinimumWidth = 50;
+            this.dgvUpdate.Name = "dgvUpdate";
+            this.dgvUpdate.ReadOnly = true;
+            this.dgvUpdate.Width = 50;
             // 
             // dgvDelete
             // 
             this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvDelete.FillWeight = 50F;
             this.dgvDelete.HeaderText = "";
+            this.dgvDelete.Image = global::QL.Properties.Resources.bin;
             this.dgvDelete.MinimumWidth = 50;
             this.dgvDelete.Name = "dgvDelete";
             this.dgvDelete.ReadOnly = true;
@@ -226,6 +230,7 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.btnValidDiscount);
             this.panelTop.Controls.Add(this.btnFindDisCount);
             this.panelTop.Controls.Add(this.cbFindDisCount);
             this.panelTop.Controls.Add(this.lblSearch);
@@ -237,6 +242,25 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1141, 130);
             this.panelTop.TabIndex = 5;
+            // 
+            // btnValidDiscount
+            // 
+            this.btnValidDiscount.Animated = true;
+            this.btnValidDiscount.AutoRoundedCorners = true;
+            this.btnValidDiscount.BorderRadius = 21;
+            this.btnValidDiscount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidDiscount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnValidDiscount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnValidDiscount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnValidDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnValidDiscount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnValidDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnValidDiscount.Location = new System.Drawing.Point(174, 61);
+            this.btnValidDiscount.Name = "btnValidDiscount";
+            this.btnValidDiscount.Size = new System.Drawing.Size(126, 45);
+            this.btnValidDiscount.TabIndex = 6;
+            this.btnValidDiscount.Text = "Valid";
+            this.btnValidDiscount.Click += new System.EventHandler(this.btnValidDiscount_Click);
             // 
             // DiscountView
             // 
@@ -261,9 +285,8 @@
 
         #endregion
 
+        //private Guna.UI2.WinForms.Guna2DataGridView dgvCategory;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDiscount;
-        private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
         private System.Windows.Forms.Label lblDiscountView;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2TextBox tbxSearch;
@@ -271,5 +294,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbFindDisCount;
         private Guna.UI2.WinForms.Guna2Button btnFindDisCount;
         private Guna.UI2.WinForms.Guna2Panel panelTop;
+        private System.Windows.Forms.DataGridViewImageColumn dgvUpdate;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
+        private Guna.UI2.WinForms.Guna2Button btnValidDiscount;
     }
 }

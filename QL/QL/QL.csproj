@@ -67,6 +67,7 @@
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ReceiptDAO.cs" />
     <Compile Include="DAO\StockReceiptDAO.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -80,6 +81,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Discount.cs" />
     <Compile Include="Models\ReceiptInfo.cs" />
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
@@ -280,6 +282,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
