@@ -113,7 +113,7 @@ namespace QL.DAO
             }
             catch (Exception)
             {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin ");
+                MessageBox.Show("Hãy nhập đầy đủ thông tin");
                 return false;
             }
             finally
