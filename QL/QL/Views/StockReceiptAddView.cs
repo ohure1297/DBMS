@@ -51,9 +51,10 @@ namespace QL.Views
                     {
                         maSP = dgvStockProductList.Rows[index].Cells["MaSPham"].Value.ToString();
                         soluongnhap = Convert.ToInt32(dgvStockProductList.Rows[index].Cells["colProductNumber"].Value);
+
+                        stockDAO.AddStockReceipt(maSP, soluongnhap);
                     }
                 }
-                stockDAO.AddStockReceipt(maSP, soluongnhap);
             }
             catch (SqlException ex)
             {
@@ -72,13 +73,25 @@ namespace QL.Views
                          && (bool)dgvStockProductList.Rows[e.RowIndex].Cells["colChooseProduct"].Value;
 
                 dgvStockProductList.Rows[e.RowIndex].Cells["colChooseProduct"].Value = !isChecked;
-                dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value = 1;
+                //dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value = 1;
 
                 index = e.RowIndex;
             }
-            else
+        }
+
+        private void dgvStockProductList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvStockProductList.Columns[e.ColumnIndex].Name == "colProductNumber" && e.RowIndex >= 0)
             {
-                index = 0;
+                soluongnhap = Convert.ToInt32(dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value);
+            }
+        }
+
+        private void dgvStockProductList_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvStockProductList.IsCurrentCellDirty)
+            {
+                dgvStockProductList.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
     }

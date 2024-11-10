@@ -36,9 +36,9 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.dgvStockProductList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lbStockProductList = new System.Windows.Forms.Label();
             this.colChooseProduct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colProductNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbStockProductList = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockProductList)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +157,18 @@
             this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvStockProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockProductList_CellClick);
+            this.dgvStockProductList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockProductList_CellValueChanged);
+            this.dgvStockProductList.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvStockProductList_CurrentCellDirtyStateChanged);
+            // 
+            // lbStockProductList
+            // 
+            this.lbStockProductList.AutoSize = true;
+            this.lbStockProductList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStockProductList.Location = new System.Drawing.Point(33, 103);
+            this.lbStockProductList.Name = "lbStockProductList";
+            this.lbStockProductList.Size = new System.Drawing.Size(115, 28);
+            this.lbStockProductList.TabIndex = 28;
+            this.lbStockProductList.Text = "Product List";
             // 
             // colChooseProduct
             // 
@@ -171,16 +183,7 @@
             this.colProductNumber.HeaderText = "Chọn số lượng nhập";
             this.colProductNumber.MinimumWidth = 6;
             this.colProductNumber.Name = "colProductNumber";
-            // 
-            // lbStockProductList
-            // 
-            this.lbStockProductList.AutoSize = true;
-            this.lbStockProductList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStockProductList.Location = new System.Drawing.Point(33, 103);
-            this.lbStockProductList.Name = "lbStockProductList";
-            this.lbStockProductList.Size = new System.Drawing.Size(115, 28);
-            this.lbStockProductList.TabIndex = 28;
-            this.lbStockProductList.Text = "Product List";
+            this.colProductNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // StockReceiptAddView
             // 
