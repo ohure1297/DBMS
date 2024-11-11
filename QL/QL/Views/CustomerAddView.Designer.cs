@@ -35,7 +35,7 @@
             this.lblSDT = new System.Windows.Forms.Label();
             this.tbxSDT = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNew = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,29 +142,30 @@
             this.btnClose.TabIndex = 104;
             this.btnClose.Text = "Close";
             // 
-            // btnEdit
+            // btnNew
             // 
-            this.btnEdit.AutoRoundedCorners = true;
-            this.btnEdit.BorderRadius = 28;
-            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(109, 380);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(143, 58);
-            this.btnEdit.TabIndex = 105;
-            this.btnEdit.Text = "New";
+            this.btnNew.AutoRoundedCorners = true;
+            this.btnNew.BorderRadius = 28;
+            this.btnNew.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNew.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNew.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNew.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNew.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.Location = new System.Drawing.Point(109, 380);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(143, 58);
+            this.btnNew.TabIndex = 105;
+            this.btnNew.Text = "New";
+
             // 
             // CustomerAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblName);
@@ -192,6 +193,6 @@
         private System.Windows.Forms.Label lblSDT;
         private Guna.UI2.WinForms.Guna2TextBox tbxSDT;
         private Guna.UI2.WinForms.Guna2Button btnClose;
-        private Guna.UI2.WinForms.Guna2Button btnEdit;
+        private Guna.UI2.WinForms.Guna2Button btnNew;
     }
 }

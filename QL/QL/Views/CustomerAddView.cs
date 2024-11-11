@@ -16,5 +16,7 @@ namespace QL.Views
         {
             InitializeComponent();
         }
+
+        
     }
 }
