@@ -30,6 +30,7 @@ namespace QL.DAO
                 stockReceipt_table = new DataTable();
                 adapter.Fill(stockReceipt_table);
 
+                MessageBox.Show("Xóa Phiếu Nhập Thành Công");
                 return stockReceipt_table;
             }
             catch (Exception ex)
@@ -121,7 +122,7 @@ namespace QL.DAO
             }
         }
 
-        public void AddStockReceipt(string maSP, int soluongnhap)
+        public void AddStockReceipt(List<StockReceiptProducts> selectedProducts)
         {
             try
             {
@@ -129,10 +130,29 @@ namespace QL.DAO
 
                 SqlCommand cmd = new SqlCommand("sp_ThemPhieuNhap", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaSPham", maSP);
-                cmd.Parameters.AddWithValue("@SoLuongNhap", soluongnhap);
+
+                DataTable productList = new DataTable();
+                productList.Columns.Add("MaSPham", typeof(string));
+                productList.Columns.Add("SoLuongNhap", typeof(int));
+
+                foreach (var product in selectedProducts)
+                {
+                    if (product.MaSPham == null)
+                    {
+                        productList.Rows.Add(DBNull.Value, product.SoLuongNhap);
+                    }
+                    else
+                    {
+                        productList.Rows.Add(product.MaSPham, product.SoLuongNhap);
+                    }
+                }
+
+                SqlParameter tvpParam = cmd.Parameters.AddWithValue("@DanhSachSanPham", productList);
+                tvpParam.SqlDbType = SqlDbType.Structured;
+                tvpParam.TypeName = "DanhSachSanPhamNhap";
 
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm Phiếu Nhập Thành Công");
 
             }
             catch (Exception ex)
