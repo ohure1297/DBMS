@@ -92,6 +92,7 @@ namespace QL.Views
                     }
                 }
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
+                MessageBox.Show("Xác Nhận Phiếu Nhập Thành Công");
             }
             catch (SqlException ex)
             {

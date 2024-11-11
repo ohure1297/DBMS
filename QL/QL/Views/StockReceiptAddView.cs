@@ -16,9 +16,8 @@ namespace QL.Views
     public partial class StockReceiptAddView : Form
     {
         StockReceiptDAO stockDAO = new StockReceiptDAO();
-        string maSP = null;
-        int soluongnhap;
-        int index;
+        StockReceiptProducts product1;
+        List<StockReceiptProducts> productsList = new List<StockReceiptProducts>();
         public StockReceiptAddView()
         {
             InitializeComponent();
@@ -49,13 +48,21 @@ namespace QL.Views
                 {
                     if (Convert.ToBoolean(row.Cells["colChooseProduct"].Value) == true)
                     {
-                        maSP = dgvStockProductList.Rows[index].Cells["MaSPham"].Value.ToString();
-                        soluongnhap = Convert.ToInt32(dgvStockProductList.Rows[index].Cells["colProductNumber"].Value);
-
-                        stockDAO.AddStockReceipt(maSP, soluongnhap);
+                        StockReceiptProducts product = new StockReceiptProducts
+                        {
+                            MaSPham = dgvStockProductList.Rows[row.Index].Cells["MaSPham"].Value.ToString(),
+                            SoLuongNhap = Convert.ToInt32(dgvStockProductList.Rows[row.Index].Cells["colProductNumber"].Value)
+                        };
+                        productsList.Add(product);
+                    }
+                    else
+                    {
+                        continue;
                     }
                 }
+                stockDAO.AddStockReceipt(productsList);
             }
+
             catch (SqlException ex)
             {
                 if (ex.Errors[0].Class == 16)
@@ -73,17 +80,7 @@ namespace QL.Views
                          && (bool)dgvStockProductList.Rows[e.RowIndex].Cells["colChooseProduct"].Value;
 
                 dgvStockProductList.Rows[e.RowIndex].Cells["colChooseProduct"].Value = !isChecked;
-                //dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value = 1;
-
-                index = e.RowIndex;
-            }
-        }
-
-        private void dgvStockProductList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvStockProductList.Columns[e.ColumnIndex].Name == "colProductNumber" && e.RowIndex >= 0)
-            {
-                soluongnhap = Convert.ToInt32(dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value);
+                dgvStockProductList.Rows[e.RowIndex].Cells["colProductNumber"].Value = 1;
             }
         }
 
