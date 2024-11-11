@@ -237,7 +237,7 @@ namespace QL.DAO
                 using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
                 {
                     cmd.Parameters.AddWithValue("@SDT", SDT);
-                    
+
 
                     cmd.ExecuteNonQuery();
                 }
@@ -250,6 +250,31 @@ namespace QL.DAO
             {
                 db.closeConnection();
             }
+        }
+
+        public void UsePoint(Customer customer)
+        {
+            
+            try
+            {
+                db.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_SuDungDiemKhachHang", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "Use Point");
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+            
         }
 
     }

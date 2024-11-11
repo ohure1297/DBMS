@@ -49,6 +49,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.panelHoaDon = new Guna.UI2.WinForms.Guna2Panel();
             this.panelThongTin = new Guna.UI2.WinForms.Guna2Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbxTienKhachDua = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblSoTienTongCong = new System.Windows.Forms.Label();
             this.lblSoTienThoi = new System.Windows.Forms.Label();
@@ -56,15 +57,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
+            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
-            this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnMoneyConfirm = new Guna.UI2.WinForms.Guna2Button();
+            this.DelColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelKhachHang.SuspendLayout();
             this.panelHoaDon.SuspendLayout();
             this.panelThongTin.SuspendLayout();
@@ -263,6 +263,7 @@
             this.cbx_DungDiem.UncheckedState.BorderThickness = 0;
             this.cbx_DungDiem.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbx_DungDiem.UseVisualStyleBackColor = false;
+            this.cbx_DungDiem.CheckedChanged += new System.EventHandler(this.cbx_DungDiem_CheckedChanged);
             // 
             // tbxCustomerName
             // 
@@ -352,7 +353,6 @@
             // 
             // panelThongTin
             // 
-            this.panelThongTin.Controls.Add(this.btnMoneyConfirm);
             this.panelThongTin.Controls.Add(this.label2);
             this.panelThongTin.Controls.Add(this.tbxTienKhachDua);
             this.panelThongTin.Controls.Add(this.lblSoTienTongCong);
@@ -365,6 +365,16 @@
             this.panelThongTin.Name = "panelThongTin";
             this.panelThongTin.Size = new System.Drawing.Size(620, 164);
             this.panelThongTin.TabIndex = 65;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(304, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 28);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "đ";
             // 
             // tbxTienKhachDua
             // 
@@ -459,7 +469,8 @@
             this.ProductName,
             this.Qty,
             this.Price,
-            this.Total});
+            this.Total,
+            this.DelColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -474,7 +485,7 @@
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.RowHeadersVisible = false;
             this.dgvHoaDon.RowHeadersWidth = 51;
-            this.dgvHoaDon.RowTemplate.Height = 24;
+            this.dgvHoaDon.RowTemplate.Height = 50;
             this.dgvHoaDon.Size = new System.Drawing.Size(620, 479);
             this.dgvHoaDon.TabIndex = 64;
             this.dgvHoaDon.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -495,44 +506,11 @@
             this.dgvHoaDon.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvHoaDon.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvHoaDon.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvHoaDon.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvHoaDon.ThemeStyle.RowsStyle.Height = 50;
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHoaDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
             // 
             // btnPay
             // 
@@ -559,31 +537,52 @@
             this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
             this.flowPanelSanPham.TabIndex = 3;
             // 
-            // label2
+            // Id
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(304, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 28);
-            this.label2.TabIndex = 74;
-            this.label2.Text = "đ";
+            this.Id.FillWeight = 87.91444F;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
-            // btnMoneyConfirm
+            // ProductName
             // 
-            this.btnMoneyConfirm.BorderRadius = 20;
-            this.btnMoneyConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMoneyConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMoneyConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMoneyConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMoneyConfirm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoneyConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnMoneyConfirm.Location = new System.Drawing.Point(357, 17);
-            this.btnMoneyConfirm.Name = "btnMoneyConfirm";
-            this.btnMoneyConfirm.Size = new System.Drawing.Size(126, 38);
-            this.btnMoneyConfirm.TabIndex = 69;
-            this.btnMoneyConfirm.Text = "Confirm";
-            this.btnMoneyConfirm.Click += new System.EventHandler(this.btnMoneyConfirm_Click);
+            this.ProductName.FillWeight = 87.91444F;
+            this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.FillWeight = 87.91444F;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 87.91444F;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.FillWeight = 87.91444F;
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // DelColumn
+            // 
+            this.DelColumn.FillWeight = 160.4278F;
+            this.DelColumn.HeaderText = "";
+            this.DelColumn.Image = global::QL.Properties.Resources.bin;
+            this.DelColumn.MinimumWidth = 6;
+            this.DelColumn.Name = "DelColumn";
             // 
             // SellingView
             // 
@@ -638,12 +637,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTongTien;
         private Guna.UI2.WinForms.Guna2TextBox tbxTienKhachDua;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button btnMoneyConfirm;
+        private System.Windows.Forms.DataGridViewImageColumn DelColumn;
     }
 }

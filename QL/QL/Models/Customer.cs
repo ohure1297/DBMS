@@ -13,12 +13,18 @@ namespace QL.Models
         int point;
         public Customer() { }
 
+        public Customer(string phoneNum)
+        {
+            PhoneNum = phoneNum;
+        }
         public Customer(string phoneNum, string name, int point)
         {
             this.PhoneNum = phoneNum;
             this.Name = name;
             this.Point = point;
         }
+
+
 
         public string PhoneNum { get => phoneNum; set => phoneNum = value; }
         public string Name { get => name; set => name = value; }

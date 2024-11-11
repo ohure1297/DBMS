@@ -45,6 +45,7 @@ namespace QL.Views
             tbx_Search.Text = string.Empty;
             lblSoTienTongCong.Text = string.Empty;
             lblSoTienThoi.Text = string.Empty;
+            cbx_DungDiem.Checked = false; 
              
         }
         
@@ -196,6 +197,7 @@ namespace QL.Views
             else
             {
                 lblThongBao.Text = string.Empty;
+                cbx_DungDiem.Checked = false;
                 tbxCustomerName.Text = customer.Rows[0]["TenKhachHang"].ToString();
                 tbxPoint.Text = customer.Rows[0]["DiemTichLuy"].ToString();
             }    
@@ -226,23 +228,48 @@ namespace QL.Views
             }
         }
 
-        private void btnMoneyConfirm_Click(object sender, EventArgs e)
+        
+
+        private void btnPay_Click(object sender, EventArgs e)
         {
+
             if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text) && dgvHoaDon.Rows.Count > 0)
             {
                 int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
                 receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Đã thanh toán"));
+                
+
+                //Tích điểm cho khách hàng nếu có nhập thông tin khách hàng
+                if (!String.IsNullOrWhiteSpace(tbxCustomerName.Text))
+                {
+                    if(cbx_DungDiem.Checked)
+                    {
+                        //Tru diem o day
+                        CustomerDAO customerDAO = new CustomerDAO();
+                        customerDAO.UsePoint(new Customer(tbxPhoneNum.Text));
+                    }    
+
+                    else
+                    {
+                        receiptDAO.AccumulatePoints(tbxPhoneNum.Text);
+                    }
+                    
+                    
+                }
+
+
+
                 receiptDAO.EndReceiptProcess();
-                if(receiptDAO.ReturnChangedMoney() != -1)
+                if (receiptDAO.ReturnChangedMoney() != -1)
                     lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
                 else
                     lblSoTienThoi.Text = string.Empty;
-                
-                //Tích điểm cho khách hàng nếu có nhập thông tin khách hàng
-                if(!String.IsNullOrWhiteSpace(tbxCustomerName.Text))
-                {
-                    receiptDAO.AccumulatePoints(tbxPhoneNum.Text);
-                }    
+
+
+
+
+                MessageBox.Show("Đã thanh toán thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SellingView_Load(sender, e);
 
             }
             else
@@ -251,19 +278,66 @@ namespace QL.Views
             }
         }
 
-        private void btnPay_Click(object sender, EventArgs e)
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
-            {           
-                MessageBox.Show("Đã thanh toán thành công");
-                SellingView_Load(sender, e);
+            if(dgvHoaDon.Columns[e.ColumnIndex].Name == "DelColumn")
+            {
+                string id = dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                receiptDAO.DeleteProduct(new ReceiptInfo(id));
+                dgvHoaDon.Rows.RemoveAt(e.RowIndex);
+            }    
+        }
+        private void cbx_DungDiem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cbx_DungDiem.Checked)
+            {
+                lblSoTienTongCong.Text = receiptDAO.ReturnReceiptTotalMoney().ToString() + "đ";
             }
+
+            else if (!String.IsNullOrEmpty(tbxPhoneNum.Text))
+            {
+                if(dgvHoaDon.Rows.Count > 0)
+                {
+                    
+                    int tongTienSau = receiptDAO.CheckMoneyIfUsePoint(new Customer(tbxPhoneNum.Text));
+                    if(tongTienSau == 0)
+                    {
+                        tbxTienKhachDua.Text = "0";
+                     
+                    }
+
+                    lblSoTienTongCong.Text = tongTienSau.ToString() + "đ";
+
+                    
+
+
+                }
+
+                else if(cbx_DungDiem.Checked)
+                {
+                    MessageBox.Show("Chưa có tổng tiền để sử dụng điểm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbx_DungDiem.Checked = false;
+                }
+
+                
+                    
+                //CustomerDAO customerDAO = new CustomerDAO();
+                //customerDAO.UsePoint(new Customer(tbxPhoneNum.Text));
+
+            }
+
             else
             {
-                MessageBox.Show("Chưa nhập số tiền khách hàng đưa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(cbx_DungDiem.Checked)
+                {
+                    MessageBox.Show("Chưa có thông tin khách hàng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbx_DungDiem.Checked = false;
+                }
+                    
             }
+            
         }
 
+        
     }
 }
