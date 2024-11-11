@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -31,13 +32,11 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.lblGender = new System.Windows.Forms.Label();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.radiobtnFemale = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.radiobtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dtpHireDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblHireDate = new System.Windows.Forms.Label();
             this.dtpBirthDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblBirthDate = new System.Windows.Forms.Label();
-            this.tbxAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbxSDT = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.tbxName = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -46,6 +45,10 @@
             this.lblEmployeeDatails = new System.Windows.Forms.Label();
             this.ptbAvatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbxId = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.radiobtnFemale = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radiobtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radiobtnActive = new System.Windows.Forms.CheckBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +69,7 @@
             this.btnClose.Size = new System.Drawing.Size(143, 58);
             this.btnClose.TabIndex = 88;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblGender
             // 
@@ -93,50 +97,14 @@
             this.btnEdit.Size = new System.Drawing.Size(143, 58);
             this.btnEdit.TabIndex = 87;
             this.btnEdit.Text = "Edit";
-            // 
-            // radiobtnFemale
-            // 
-            this.radiobtnFemale.AutoSize = true;
-            this.radiobtnFemale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.radiobtnFemale.CheckedState.BorderThickness = 0;
-            this.radiobtnFemale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.radiobtnFemale.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.radiobtnFemale.CheckedState.InnerOffset = -4;
-            this.radiobtnFemale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radiobtnFemale.Location = new System.Drawing.Point(563, 354);
-            this.radiobtnFemale.Name = "radiobtnFemale";
-            this.radiobtnFemale.Size = new System.Drawing.Size(100, 32);
-            this.radiobtnFemale.TabIndex = 107;
-            this.radiobtnFemale.Text = "Female";
-            this.radiobtnFemale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.radiobtnFemale.UncheckedState.BorderThickness = 2;
-            this.radiobtnFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.radiobtnFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // radiobtnMale
-            // 
-            this.radiobtnMale.AutoSize = true;
-            this.radiobtnMale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.radiobtnMale.CheckedState.BorderThickness = 0;
-            this.radiobtnMale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.radiobtnMale.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.radiobtnMale.CheckedState.InnerOffset = -4;
-            this.radiobtnMale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radiobtnMale.Location = new System.Drawing.Point(434, 354);
-            this.radiobtnMale.Name = "radiobtnMale";
-            this.radiobtnMale.Size = new System.Drawing.Size(80, 32);
-            this.radiobtnMale.TabIndex = 106;
-            this.radiobtnMale.Text = "Male";
-            this.radiobtnMale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.radiobtnMale.UncheckedState.BorderThickness = 2;
-            this.radiobtnMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.radiobtnMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // dtpHireDate
             // 
             this.dtpHireDate.AutoRoundedCorners = true;
             this.dtpHireDate.BorderRadius = 17;
             this.dtpHireDate.Checked = true;
+            this.dtpHireDate.Enabled = false;
             this.dtpHireDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
             this.dtpHireDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -163,6 +131,7 @@
             this.dtpBirthDate.AutoRoundedCorners = true;
             this.dtpBirthDate.BorderRadius = 17;
             this.dtpBirthDate.Checked = true;
+            this.dtpBirthDate.Enabled = false;
             this.dtpBirthDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(207)))), ((int)(((byte)(211)))));
             this.dtpBirthDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -184,28 +153,28 @@
             this.lblBirthDate.TabIndex = 102;
             this.lblBirthDate.Text = "Birthdate";
             // 
-            // tbxAddress
+            // tbxSDT
             // 
-            this.tbxAddress.AutoRoundedCorners = true;
-            this.tbxAddress.BorderRadius = 23;
-            this.tbxAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxAddress.DefaultText = "";
-            this.tbxAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxAddress.Enabled = false;
-            this.tbxAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tbxAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxAddress.Location = new System.Drawing.Point(48, 333);
-            this.tbxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxAddress.Name = "tbxAddress";
-            this.tbxAddress.PasswordChar = '\0';
-            this.tbxAddress.PlaceholderText = "";
-            this.tbxAddress.SelectedText = "";
-            this.tbxAddress.Size = new System.Drawing.Size(229, 48);
-            this.tbxAddress.TabIndex = 101;
+            this.tbxSDT.AutoRoundedCorners = true;
+            this.tbxSDT.BorderRadius = 23;
+            this.tbxSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxSDT.DefaultText = "";
+            this.tbxSDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbxSDT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbxSDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxSDT.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbxSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxSDT.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbxSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbxSDT.Location = new System.Drawing.Point(48, 333);
+            this.tbxSDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxSDT.Name = "tbxSDT";
+            this.tbxSDT.PasswordChar = '\0';
+            this.tbxSDT.PlaceholderText = "";
+            this.tbxSDT.ReadOnly = true;
+            this.tbxSDT.SelectedText = "";
+            this.tbxSDT.Size = new System.Drawing.Size(229, 48);
+            this.tbxSDT.TabIndex = 101;
             // 
             // lblAddress
             // 
@@ -213,9 +182,10 @@
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.Location = new System.Drawing.Point(43, 283);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(82, 28);
+            this.lblAddress.Size = new System.Drawing.Size(140, 28);
             this.lblAddress.TabIndex = 100;
-            this.lblAddress.Text = "Address";
+            this.lblAddress.Text = "Phone number";
+            this.lblAddress.Click += new System.EventHandler(this.lblAddress_Click);
             // 
             // tbxName
             // 
@@ -235,6 +205,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.PasswordChar = '\0';
             this.tbxName.PlaceholderText = "";
+            this.tbxName.ReadOnly = true;
             this.tbxName.SelectedText = "";
             this.tbxName.Size = new System.Drawing.Size(229, 48);
             this.tbxName.TabIndex = 99;
@@ -268,6 +239,7 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1034, 136);
             this.panelTop.TabIndex = 89;
+            this.panelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTop_Paint);
             // 
             // lblEmployeeDatails
             // 
@@ -282,8 +254,9 @@
             // 
             // ptbAvatar
             // 
+            this.ptbAvatar.Enabled = false;
             this.ptbAvatar.ImageRotate = 0F;
-            this.ptbAvatar.Location = new System.Drawing.Point(754, 205);
+            this.ptbAvatar.Location = new System.Drawing.Point(762, 159);
             this.ptbAvatar.Name = "ptbAvatar";
             this.ptbAvatar.Size = new System.Drawing.Size(235, 247);
             this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -300,7 +273,6 @@
             this.tbxId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tbxId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbxId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxId.Enabled = false;
             this.tbxId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxId.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -309,25 +281,99 @@
             this.tbxId.Name = "tbxId";
             this.tbxId.PasswordChar = '\0';
             this.tbxId.PlaceholderText = "";
+            this.tbxId.ReadOnly = true;
             this.tbxId.SelectedText = "";
             this.tbxId.Size = new System.Drawing.Size(229, 48);
             this.tbxId.TabIndex = 94;
+            // 
+            // btnSave
+            // 
+            this.btnSave.AutoRoundedCorners = true;
+            this.btnSave.BorderRadius = 28;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(227, 536);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(143, 58);
+            this.btnSave.TabIndex = 109;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // radiobtnFemale
+            // 
+            this.radiobtnFemale.AutoSize = true;
+            this.radiobtnFemale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radiobtnFemale.CheckedState.BorderThickness = 0;
+            this.radiobtnFemale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radiobtnFemale.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radiobtnFemale.CheckedState.InnerOffset = -4;
+            this.radiobtnFemale.Enabled = false;
+            this.radiobtnFemale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radiobtnFemale.Location = new System.Drawing.Point(539, 374);
+            this.radiobtnFemale.Name = "radiobtnFemale";
+            this.radiobtnFemale.Size = new System.Drawing.Size(100, 32);
+            this.radiobtnFemale.TabIndex = 107;
+            this.radiobtnFemale.Text = "Female";
+            this.radiobtnFemale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radiobtnFemale.UncheckedState.BorderThickness = 2;
+            this.radiobtnFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radiobtnFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // radiobtnMale
+            // 
+            this.radiobtnMale.AutoSize = true;
+            this.radiobtnMale.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radiobtnMale.CheckedState.BorderThickness = 0;
+            this.radiobtnMale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radiobtnMale.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radiobtnMale.CheckedState.InnerOffset = -4;
+            this.radiobtnMale.Enabled = false;
+            this.radiobtnMale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.radiobtnMale.Location = new System.Drawing.Point(436, 374);
+            this.radiobtnMale.Name = "radiobtnMale";
+            this.radiobtnMale.Size = new System.Drawing.Size(80, 32);
+            this.radiobtnMale.TabIndex = 106;
+            this.radiobtnMale.Text = "Male";
+            this.radiobtnMale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radiobtnMale.UncheckedState.BorderThickness = 2;
+            this.radiobtnMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radiobtnMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // radiobtnActive
+            // 
+            this.radiobtnActive.AutoSize = true;
+            this.radiobtnActive.BackColor = System.Drawing.SystemColors.Control;
+            this.radiobtnActive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radiobtnActive.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.radiobtnActive.Location = new System.Drawing.Point(831, 437);
+            this.radiobtnActive.Name = "radiobtnActive";
+            this.radiobtnActive.Size = new System.Drawing.Size(94, 32);
+            this.radiobtnActive.TabIndex = 111;
+            this.radiobtnActive.Text = "Active";
+            this.radiobtnActive.UseVisualStyleBackColor = false;
             // 
             // EmployeeDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1034, 621);
+            this.Controls.Add(this.radiobtnActive);
+            this.Controls.Add(this.radiobtnFemale);
+            this.Controls.Add(this.radiobtnMale);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.radiobtnFemale);
-            this.Controls.Add(this.radiobtnMale);
             this.Controls.Add(this.dtpHireDate);
             this.Controls.Add(this.lblHireDate);
             this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.lblBirthDate);
-            this.Controls.Add(this.tbxAddress);
+            this.Controls.Add(this.tbxSDT);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.lblName);
@@ -351,20 +397,22 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private System.Windows.Forms.Label lblGender;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
-        private Guna.UI2.WinForms.Guna2RadioButton radiobtnFemale;
-        private Guna.UI2.WinForms.Guna2RadioButton radiobtnMale;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpHireDate;
         private System.Windows.Forms.Label lblHireDate;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpBirthDate;
         private System.Windows.Forms.Label lblBirthDate;
-        private Guna.UI2.WinForms.Guna2TextBox tbxAddress;
+        private Guna.UI2.WinForms.Guna2TextBox tbxSDT;
         private System.Windows.Forms.Label lblAddress;
-        private Guna.UI2.WinForms.Guna2TextBox tbxName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblId;
         private Guna.UI2.WinForms.Guna2Panel panelTop;
         private System.Windows.Forms.Label lblEmployeeDatails;
         private Guna.UI2.WinForms.Guna2PictureBox ptbAvatar;
         private Guna.UI2.WinForms.Guna2TextBox tbxId;
+        private Guna.UI2.WinForms.Guna2TextBox tbxName;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2RadioButton radiobtnFemale;
+        private Guna.UI2.WinForms.Guna2RadioButton radiobtnMale;
+        private System.Windows.Forms.CheckBox radiobtnActive;
     }
 }

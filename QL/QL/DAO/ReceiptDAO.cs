@@ -16,22 +16,22 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public ReceiptDAO() { }
 
-        public DataTable LoadReceipts()
+
+        public DataTable GetAllReceipts()
         {
             try
             {
                 dbCon.openConnection();
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsHoaDon", dbCon.getConnection);
-
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.HOADON", dbCon.getConnection);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable stockReceipt_table = new DataTable();
-                adapter.Fill(stockReceipt_table);
-
-                return stockReceipt_table;
+                DataTable receiptTable = new DataTable();
+                adapter.Fill(receiptTable);
+                return receiptTable;
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message + "\n" + ex.StackTrace,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -39,6 +39,77 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
+
+        public DataTable TimKiemHoaDon(string keyword)
+        {
+            try
+            {
+                dbCon.openConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.TimKiemHoaDon(@keyword)", dbCon.getConnection);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable resultTable = new DataTable();
+                adapter.Fill(resultTable);
+                return resultTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message + "\n" + ex.StackTrace,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+        public DataTable LayDanhSachChiTietHoaDon(string maHoaDon)
+        {
+            try
+            {
+                dbCon.openConnection();
+                SqlCommand cmd = new SqlCommand("sp_LayChiTietHoaDon", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+        //public DataTable LoadReceipts()
+        //{
+        //    try
+        //    {
+        //        dbCon.openConnection();
+
+        //        SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsHoaDon", dbCon.getConnection);
+
+        //        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //        DataTable stockReceipt_table = new DataTable();
+        //        adapter.Fill(stockReceipt_table);
+
+        //        return stockReceipt_table;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        dbCon.closeConnection();
+        //    }
+        //}
         
         public void AddReceipt(Receipt receipt)
         {
