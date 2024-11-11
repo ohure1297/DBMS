@@ -32,6 +32,7 @@ namespace QL.Views
             }
             else if (cbSearchOptions.Text.Equals("SĐT"))
             {
+                MessageBox.Show("1");
                 dgv_Customer.DataSource = customerDAO.DataTable_SearchBySDT(tbxSearch.Text);
             }
         }

@@ -69,31 +69,55 @@ namespace QL.DAO
         }
         public DataTable FindDiscountByID(string makhuyenmai) 
         {
-            dbCon.openConnection();
+            try
+            {
+                dbCon.openConnection();
 
-            SqlCommand cmd = new SqlCommand("sp_TimKiemKhuyenMaiTheoMa", dbCon.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("sp_TimKiemKhuyenMaiTheoMa", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@MaKhuyenMai", SqlDbType.Text).Value = makhuyenmai;
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable discountTable = new DataTable();
-            adapter.Fill(discountTable);
+                cmd.Parameters.Add("@MaKhuyenMai", SqlDbType.Text).Value = makhuyenmai;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable discountTable = new DataTable();
+                adapter.Fill(discountTable);
 
-            return discountTable;
+                return discountTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
 
         public DataTable FindDiscountByName(string tenkhuyenmai)
         {
-            dbCon.openConnection();
+            try
+            {
+                dbCon.openConnection();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM fn_TimKiemKhuyenMaiTheoTen (@TenKhuyenMai)", dbCon.getConnection);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM fn_TimKiemKhuyenMaiTheoTen (@TenKhuyenMai)", dbCon.getConnection);
 
-            cmd.Parameters.AddWithValue("@TenKhuyenMai", SqlDbType.Text).Value = tenkhuyenmai;
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable discountTable = new DataTable();
-            adapter.Fill(discountTable);
+                cmd.Parameters.AddWithValue("@TenKhuyenMai", SqlDbType.Text).Value = tenkhuyenmai;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable discountTable = new DataTable();
+                adapter.Fill(discountTable);
 
-            return discountTable;
+                return discountTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
 
         public int AddDiscount (Discount discount)
