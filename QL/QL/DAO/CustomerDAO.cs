@@ -135,5 +135,122 @@ namespace QL.DAO
 
             return dt;
         }
+
+        public Customer GetCustomer(string SDT)
+        {
+            Customer customer = null;
+            string query = "Select * From F_getCustomerbySDT(@SDT)";
+
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+                    command.Parameters.AddWithValue("@SDT", SDT);
+
+                    db.openConnection();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            customer = new Customer()
+                            {
+                                PhoneNum = (string)reader["SDT"],
+                                Name = (string)reader["TenKhachHang"],
+                                Point  = (int)reader["DiemTichLuy"]
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return customer;
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            try
+            {
+                db.openConnection();
+
+                string query = "EXEC [dbo].[proc_AddNewCustomer] @SDT, @TenKhachHang";
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
+                    cmd.Parameters.AddWithValue("@TenKhachHang", customer.Name);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        public void EditCustomer(Customer customer)
+        {
+            try
+            {
+                db.openConnection();
+
+                string query = "EXEC [dbo].[proc_EditCustomer] @SDT, @TenKhachHang, @DiemTichLuy";
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
+                    cmd.Parameters.AddWithValue("@TenKhachHang", customer.Name);
+                    cmd.Parameters.AddWithValue("@DiemTichLuy", customer.Point);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        public void DeleteCustomer(string SDT)
+        {
+            try
+            {
+                db.openConnection();
+
+                string query = "EXEC [dbo].[proc_DeleteCustomer] @SDT";
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    cmd.Parameters.AddWithValue("@SDT", SDT);
+                    
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
     }
 }

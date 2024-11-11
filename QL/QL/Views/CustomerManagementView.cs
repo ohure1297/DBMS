@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,29 @@ namespace QL.Views
             {
                 MessageBox.Show("1");
                 dgv_Customer.DataSource = customerDAO.DataTable_SearchBySDT(tbxSearch.Text);
+            }
+        }
+
+        private void btnAdd_CustomerManagement_Click(object sender, EventArgs e)
+        {
+            CustomerAddView view = new CustomerAddView();
+            view.Show();
+        }
+
+        private void dgv_Customer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 &&
+                    dgv_Customer.Columns[e.ColumnIndex].HeaderText != "Xóa")
+            {
+                CustomerDetailView view = new CustomerDetailView(dgv_Customer.Rows[e.RowIndex].Cells["SDT"].Value.ToString());
+                view.Show();
+            }
+            else if (dgv_Customer.Columns[e.ColumnIndex].HeaderText.Equals("Xóa"))
+            {
+                
+                MessageBox.Show("nhấn Xóa");
+                customerDAO.DeleteCustomer(dgv_Customer.Rows[e.RowIndex].Cells["SDT"].Value.ToString());
+                CustomerManagementView_Load(sender, e);
             }
         }
     }
