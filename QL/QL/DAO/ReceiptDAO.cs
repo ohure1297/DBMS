@@ -158,7 +158,7 @@ namespace QL.DAO
            
         }
 
-        public void EndReceiptProcess()
+        public bool EndReceiptProcess()
         {
             try
             {
@@ -167,17 +167,24 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("sp_HoanTatThanhToan", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
+                
 
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message + "EndReceiptProcess");
+                if (ex.Errors[0].Class == 16)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
             }
             finally
             {
                 dbCon.closeConnection();
             }
+            return true;
 
         }
 
@@ -337,7 +344,7 @@ namespace QL.DAO
                 cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
                 cmd.ExecuteNonQuery();
                 object result = cmd.ExecuteScalar();
-                MessageBox.Show(result.ToString());
+                //MessageBox.Show(result.ToString());
                 if (result != DBNull.Value)
                     tongTienSauKhiSuDungDiem = Convert.ToInt32(result);
 

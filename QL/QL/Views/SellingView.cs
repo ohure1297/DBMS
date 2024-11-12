@@ -177,6 +177,7 @@ namespace QL.Views
 
         private void CheckButton_SellingView_Click(object sender, EventArgs e)
         {
+            tbxCustomerName.Enabled = false;
             string phoneNum = tbxPhoneNum.Text;
             if(String.IsNullOrWhiteSpace(phoneNum))
             {
@@ -208,8 +209,22 @@ namespace QL.Views
 
         private void AddNewButton_SellingView_Click(object sender, EventArgs e)
         {
-            //string 
-            //if(String.IsNullOrWhiteSpace())
+           
+            if(!String.IsNullOrWhiteSpace(tbxCustomerName.Text) && String.IsNullOrWhiteSpace(tbxPoint.Text))
+            {
+                Customer customer = new Customer(tbxPhoneNum.Text, tbxCustomerName.Text, 0);
+                CustomerDAO customerDAO = new CustomerDAO();
+                customerDAO.AddCustomer(customer);
+                MessageBox.Show("Thêm khách hàng thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+            else
+            {
+                MessageBox.Show("Chưa nhập đủ thông tin khách hàng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            tbxPhoneNum.Text = string.Empty;
+            tbxCustomerName.Text = string.Empty;
+            tbxCustomerName.Enabled = false;
+            
         }
 
         private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -236,7 +251,7 @@ namespace QL.Views
             if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text) && dgvHoaDon.Rows.Count > 0)
             {
                 int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
-                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Đã thanh toán"));
+                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Chưa thanh toán"));
                 
 
                 //Tích điểm cho khách hàng nếu có nhập thông tin khách hàng
@@ -257,18 +272,23 @@ namespace QL.Views
                     
                 }
 
+                if(receiptDAO.EndReceiptProcess())
+                {
+                    receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Đã thanh toán"));
+                    MessageBox.Show("Đã thanh toán thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
 
-
-                receiptDAO.EndReceiptProcess();
-                if (receiptDAO.ReturnChangedMoney() != -1)
-                    lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
                 else
-                    lblSoTienThoi.Text = string.Empty;
+                {
+                    return;
+                }    
 
 
 
 
-                MessageBox.Show("Đã thanh toán thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                
                 SellingView_Load(sender, e);
 
             }
@@ -292,6 +312,7 @@ namespace QL.Views
             if (!cbx_DungDiem.Checked)
             {
                 lblSoTienTongCong.Text = receiptDAO.ReturnReceiptTotalMoney().ToString() + "đ";
+                tbxTienKhachDua.Enabled = true;
             }
 
             else if (!String.IsNullOrEmpty(tbxPhoneNum.Text))
@@ -302,7 +323,10 @@ namespace QL.Views
                     int tongTienSau = receiptDAO.CheckMoneyIfUsePoint(new Customer(tbxPhoneNum.Text));
                     if(tongTienSau == 0)
                     {
+                        
                         tbxTienKhachDua.Text = "0";
+                        tbxTienKhachDua.Enabled = false;
+
                      
                     }
 
@@ -338,6 +362,30 @@ namespace QL.Views
             
         }
 
-        
+        private void tbxTienKhachDua_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
+                receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Chưa thanh toán"));
+
+                receiptDAO.EndReceiptProcess();
+                if (receiptDAO.ReturnChangedMoney() != -1)
+                    lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                else
+                    lblSoTienThoi.Text = string.Empty;
+            }
+            
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            tbxCustomerName.Enabled = true;
+        }
+
+        private void panelThongTin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
