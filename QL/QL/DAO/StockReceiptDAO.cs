@@ -30,11 +30,12 @@ namespace QL.DAO
                 stockReceipt_table = new DataTable();
                 adapter.Fill(stockReceipt_table);
 
+
                 return stockReceipt_table;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             finally
             {
@@ -44,48 +45,84 @@ namespace QL.DAO
         }
         public DataTable FindStockReceipt(string maPhieuNhap)
         {
-            dbCon.openConnection();
+            try
+            {
+                dbCon.openConnection();
 
-            SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuNhap", dbCon.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Text).Value = maPhieuNhap;
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable stockReceipt_table = new DataTable();
-            adapter.Fill(stockReceipt_table);
+                cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Text).Value = maPhieuNhap;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable stockReceipt_table = new DataTable();
+                adapter.Fill(stockReceipt_table);
 
-            return stockReceipt_table;
+                return stockReceipt_table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
 
         public DataTable GetStockReceiptProduct(string maPhieuNhap)
         {
-            dbCon.openConnection();
+            try
+            {
+                dbCon.openConnection();
 
-            SqlCommand cmd = new SqlCommand("sp_ChiTietPhieuNhap", dbCon.getConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("sp_ChiTietPhieuNhap", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Text).Value = maPhieuNhap;
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable stockReceipt_table = new DataTable();
-            adapter.Fill(stockReceipt_table);
+                cmd.Parameters.Add("@MaPhieuNhap", SqlDbType.Text).Value = maPhieuNhap;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable stockReceipt_table = new DataTable();
+                adapter.Fill(stockReceipt_table);
 
-            return stockReceipt_table;
+                return stockReceipt_table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
 
         public DataTable LoadStockProductList()
         {
-            dbCon.openConnection();
+            try
+            {
+                dbCon.openConnection();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsSanPhamNhap", dbCon.getConnection);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM V_DsSanPhamNhap", dbCon.getConnection);
 
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable stockReceipt_table = new DataTable();
-            adapter.Fill(stockReceipt_table);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable stockReceipt_table = new DataTable();
+                adapter.Fill(stockReceipt_table);
 
-            return stockReceipt_table;
+                return stockReceipt_table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
         }
 
-        public void AddStockReceipt(string maSP, int soluongnhap)
+        public void AddStockReceipt(List<StockReceiptProducts> selectedProducts)
         {
             try
             {
@@ -93,15 +130,34 @@ namespace QL.DAO
 
                 SqlCommand cmd = new SqlCommand("sp_ThemPhieuNhap", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaSPham", maSP);
-                cmd.Parameters.AddWithValue("@SoLuongNhap", soluongnhap);
+
+                DataTable productList = new DataTable();
+                productList.Columns.Add("MaSPham", typeof(string));
+                productList.Columns.Add("SoLuongNhap", typeof(int));
+
+                foreach (var product in selectedProducts)
+                {
+                    if (product.MaSPham == null)
+                    {
+                        productList.Rows.Add(DBNull.Value, product.SoLuongNhap);
+                    }
+                    else
+                    {
+                        productList.Rows.Add(product.MaSPham, product.SoLuongNhap);
+                    }
+                }
+
+                SqlParameter tvpParam = cmd.Parameters.AddWithValue("@DanhSachSanPham", productList);
+                tvpParam.SqlDbType = SqlDbType.Structured;
+                tvpParam.TypeName = "DanhSachSanPhamNhap";
 
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm Phiếu Nhập Thành Công");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             finally
             {
@@ -124,7 +180,7 @@ namespace QL.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             finally
             {
@@ -146,7 +202,7 @@ namespace QL.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             finally
             {

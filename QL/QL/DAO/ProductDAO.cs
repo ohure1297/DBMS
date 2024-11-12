@@ -323,5 +323,51 @@ namespace QL.DAO
             }
         }
 
+        public void UpdateProduct(Product product)
+        {
+            MessageBox.Show(product.MaSP);
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[Proc_UpdateProduct] " +
+               "@MaSPham, " +
+               "@TenSPham, " +
+               "@HinhAnh, " +
+               "@NhaSanXuat, " +
+               "@GiaBan, " +
+               "@TonKho, " +
+               "@NhomSPham;";
+
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Add parameters to the command
+                        command.Parameters.AddWithValue("@MaSPham", product.MaSP);
+                        command.Parameters.AddWithValue("@TenSPham", product.TenSP);
+
+                        // Assuming the product.HinhAnh is a byte[] representing the image
+                        command.Parameters.AddWithValue("@HinhAnh", product.HinhAnh);
+
+                        command.Parameters.AddWithValue("@NhaSanXuat", product.NhaSanXuat);
+                        command.Parameters.AddWithValue("@GiaBan", product.GiaBan);
+                        command.Parameters.AddWithValue("@TonKho", product.TonKho);
+                        command.Parameters.AddWithValue("@NhomSPham", product.NhomSanPham);
+
+                        // Open connection and execute the command
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Sửa sản phẩm thành công.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

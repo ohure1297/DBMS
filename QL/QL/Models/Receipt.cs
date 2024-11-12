@@ -31,6 +31,12 @@ namespace QL.Models
             TinhTrang = tinhTrang;
         }
 
+        public Receipt(int tienKhachDua)
+        {
+            TienKhachDua = tienKhachDua;
+        }
+
+
         public Receipt(int tienKhachDua, string tinhTrang)
         {
             TienKhachDua = tienKhachDua;

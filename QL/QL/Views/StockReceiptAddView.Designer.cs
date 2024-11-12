@@ -157,7 +157,6 @@
             this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStockProductList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvStockProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockProductList_CellClick);
-            this.dgvStockProductList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStockProductList_CellValueChanged);
             this.dgvStockProductList.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvStockProductList_CurrentCellDirtyStateChanged);
             // 
             // lbStockProductList
@@ -180,7 +179,7 @@
             // 
             // colProductNumber
             // 
-            this.colProductNumber.HeaderText = "Chọn số lượng nhập";
+            this.colProductNumber.HeaderText = "Nhập số lượng";
             this.colProductNumber.MinimumWidth = 6;
             this.colProductNumber.Name = "colProductNumber";
             this.colProductNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;

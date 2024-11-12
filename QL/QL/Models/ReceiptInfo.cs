@@ -14,6 +14,11 @@ namespace QL.Models
         private int soLuong;
         private int thanhTien;
 
+
+        public ReceiptInfo(string maSanPham)
+        {
+            MaSanPham = maSanPham;
+        }
         public ReceiptInfo(string maHoaDon, string maSanPham, int soLuong, int thanhTien)
         {
             MaHoaDon = maHoaDon;

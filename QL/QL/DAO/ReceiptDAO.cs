@@ -158,7 +158,7 @@ namespace QL.DAO
            
         }
 
-        public void EndReceiptProcess()
+        public bool EndReceiptProcess()
         {
             try
             {
@@ -167,17 +167,24 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("sp_HoanTatThanhToan", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
+                
 
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message + "EndReceiptProcess");
+                if (ex.Errors[0].Class == 16)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
             }
             finally
             {
                 dbCon.closeConnection();
             }
+            return true;
 
         }
 
@@ -278,6 +285,30 @@ namespace QL.DAO
             }
         }
 
+        public void DeleteProduct(ReceiptInfo receiptInfo) 
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_XoaSanPhamTrongHoaDon", dbCon.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaSPham", receiptInfo.MaSanPham);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "UpdateReceiptInfo");
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+
         public void UpdateReceipt(Receipt receipt)
         {
             try
@@ -301,6 +332,36 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
         }
+
+        public int CheckMoneyIfUsePoint(Customer customer)
+        {
+            int tongTienSauKhiSuDungDiem = -1;
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("SELECT dbo.fn_KiemTraTongTienNeuSuDungDiem(@SDT)", dbCon.getConnection);
+                cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
+                cmd.ExecuteNonQuery();
+                object result = cmd.ExecuteScalar();
+                //MessageBox.Show(result.ToString());
+                if (result != DBNull.Value)
+                    tongTienSauKhiSuDungDiem = Convert.ToInt32(result);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "CheckMoneyIfUsePoint");
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+            return tongTienSauKhiSuDungDiem;
+        }
+
+        
 
 
     }
