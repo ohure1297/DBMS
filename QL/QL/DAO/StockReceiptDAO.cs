@@ -30,7 +30,7 @@ namespace QL.DAO
                 stockReceipt_table = new DataTable();
                 adapter.Fill(stockReceipt_table);
 
-                MessageBox.Show("Xóa Phiếu Nhập Thành Công");
+
                 return stockReceipt_table;
             }
             catch (Exception ex)
