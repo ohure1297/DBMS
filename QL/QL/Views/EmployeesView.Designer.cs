@@ -29,21 +29,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblEmployeeView = new System.Windows.Forms.Label();
             this.dgvEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnSearch_Employee = new Guna.UI2.WinForms.Guna2Button();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
             // 
+            this.topPanel.Controls.Add(this.btnSearch_Employee);
             this.topPanel.Controls.Add(this.lblSearch);
             this.topPanel.Controls.Add(this.tbxSearch);
             this.topPanel.Controls.Add(this.btnAdd);
@@ -76,7 +78,7 @@
             this.tbxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxSearch.Location = new System.Drawing.Point(730, 61);
+            this.tbxSearch.Location = new System.Drawing.Point(728, 61);
             this.tbxSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.PasswordChar = '\0';
@@ -118,28 +120,28 @@
             // 
             this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEmployee.ColumnHeadersHeight = 70;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvEmployee.Location = new System.Drawing.Point(52, 134);
             this.dgvEmployee.Name = "dgvEmployee";
@@ -173,6 +175,25 @@
             this.dgvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellClick);
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
             // 
+            // btnSearch_Employee
+            // 
+            this.btnSearch_Employee.BorderColor = System.Drawing.Color.Aquamarine;
+            this.btnSearch_Employee.BorderRadius = 23;
+            this.btnSearch_Employee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch_Employee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch_Employee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch_Employee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch_Employee.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnSearch_Employee.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSearch_Employee.ForeColor = System.Drawing.Color.White;
+            this.btnSearch_Employee.Location = new System.Drawing.Point(1035, 61);
+            this.btnSearch_Employee.Name = "btnSearch_Employee";
+            this.btnSearch_Employee.PressedColor = System.Drawing.Color.Transparent;
+            this.btnSearch_Employee.Size = new System.Drawing.Size(78, 45);
+            this.btnSearch_Employee.TabIndex = 7;
+            this.btnSearch_Employee.Text = "Search";
+            this.btnSearch_Employee.Click += new System.EventHandler(this.btnSearch_Employee_Click);
+            // 
             // EmployeesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -201,5 +222,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lblEmployeeView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvEmployee;
+        private Guna.UI2.WinForms.Guna2Button btnSearch_Employee;
     }
 }

@@ -35,7 +35,7 @@ namespace QL.Views
             dgvEmployee.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             foreach (DataGridViewColumn column in dgvEmployee.Columns)
             {
-                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Ví dụ căn giữa cho tất cả các cột
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;  //căn giữa cho tất cả các cột
             }
 
         }
@@ -71,6 +71,29 @@ namespace QL.Views
         private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnSearch_Employee_Click(object sender, EventArgs e)
+        {
+            string maNV = tbxSearch.Text.Trim();
+            string hoTen = tbxSearch.Text.Trim();
+            string sdt = tbxSearch.Text.Trim();
+            string tenTK = tbxSearch.Text.Trim();
+            string mKhau = tbxSearch.Text.Trim();
+            string tinhTrang = tbxSearch.Text.Trim();
+
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            DataTable dt = employeeDAO.TimKiemNhanVien(maNV, hoTen, sdt, tenTK, mKhau, tinhTrang);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dgvEmployee.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy nhân viên nào phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvEmployee.DataSource = null;
+            }
         }
     }
 }

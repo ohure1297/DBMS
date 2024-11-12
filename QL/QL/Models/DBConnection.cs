@@ -10,7 +10,9 @@ namespace QL.Models
 {
     public class DBConnection
     {
-        SqlConnection conn = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True");
+        //SqlConnection conn = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CuaHangTienLoi;Integrated Security=True");
+
         public SqlConnection getConnection
         {
             get

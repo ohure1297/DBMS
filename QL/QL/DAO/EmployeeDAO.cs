@@ -89,6 +89,28 @@ namespace QL.DAO
                 db.closeConnection();
             }
         }
+
+        public DataTable TimKiemNhanVien(string maNV, string hoTen, string sdt, string tenTK, string mKhau, string tinhTrang)
+        {
+            DBConnection db = new DBConnection();
+            DataTable dt = new DataTable();
+            {
+                SqlCommand cmd = new SqlCommand("sp_TimKiemNhanVien", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaNV", string.IsNullOrEmpty(maNV) ? (object)DBNull.Value : maNV);
+                cmd.Parameters.AddWithValue("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen);
+                cmd.Parameters.AddWithValue("@SDT", string.IsNullOrEmpty(sdt) ? (object)DBNull.Value : sdt);
+                cmd.Parameters.AddWithValue("@TenTK", string.IsNullOrEmpty(tenTK) ? (object)DBNull.Value : tenTK);
+                cmd.Parameters.AddWithValue("@MKhau", string.IsNullOrEmpty(mKhau) ? (object)DBNull.Value : mKhau);
+                cmd.Parameters.AddWithValue("@TinhTrang", string.IsNullOrEmpty(tinhTrang) ? (object)DBNull.Value : tinhTrang);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
         public bool ThemNhanVien(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, byte[] anhDaiDien, string tenTK, string matKhau, DateTime ngTuyenDung, string maNguoiQuanLy)
         {
             try
@@ -107,6 +129,7 @@ namespace QL.DAO
                 cmd.Parameters.AddWithValue("@MKhau", matKhau);
                 cmd.Parameters.AddWithValue("@NgTuyenDung", ngTuyenDung);
                 cmd.Parameters.AddWithValue("@MaNguoiQuanLy", maNguoiQuanLy ?? (object)DBNull.Value);
+                Console.WriteLine(cmd.ExecuteNonQuery());
 
                 int result = cmd.ExecuteNonQuery();
                 return result > 0;
@@ -115,6 +138,29 @@ namespace QL.DAO
             {
                 MessageBox.Show("Hãy nhập đầy đủ thông tin");
                 return false;
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+        public DataTable TimKiemNhanVien(string keyword)
+        {
+            try
+            {
+                db.openConnection();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.F_TimKiemHoaDon(@keyword)", db.getConnection);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable resultTable = new DataTable();
+                adapter.Fill(resultTable);
+                return resultTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message + "\n" + ex.StackTrace,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             finally
             {
