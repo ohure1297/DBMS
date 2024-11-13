@@ -110,11 +110,10 @@ namespace QL.Views
                         }
 
 
+                        if(receiptDAO.AddReceiptInfo(new ReceiptInfo(prodUC.ProductId, 1)))
+                            dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice, prodUC.CurrentPrice);
 
-
-                        dgvHoaDon.Rows.Add(prodUC.ProductId, prodUC.ProductName, 1, prodUC.CurrentPrice, prodUC.CurrentPrice);
-
-                        receiptDAO.AddReceiptInfo(new ReceiptInfo(prodUC.ProductId, 1));
+                        
                         int tongTien = receiptDAO.ReturnReceiptTotalMoney();
                         lblSoTienTongCong.Text = tongTien.ToString() + "đ";
 
@@ -146,6 +145,16 @@ namespace QL.Views
             else if (filter.Equals("Mã SP"))
             {
                 product = productDAO.DataTable_ProductOnScreenSearchById(searchVal);
+            }
+
+            else if (filter.Equals("Loại SP"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchByProductType(searchVal);
+            }
+
+            else if (filter.Equals("Nhà sản xuất"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchByProvider(searchVal);
             }
             LoadProductUC(product);
         }
@@ -237,9 +246,17 @@ namespace QL.Views
                 int productPrice = int.Parse(productPriceStr);
                 int quan = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value.ToString());
                 dgvHoaDon.Rows[e.RowIndex].Cells["Total"].Value = quan * productPrice + "đ";
-                receiptDAO.UpdateProductQuantity(new ReceiptInfo(dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString(), quan));
-                int tongTien = receiptDAO.ReturnReceiptTotalMoney();
-                lblSoTienTongCong.Text = tongTien.ToString() + "đ";
+                if(receiptDAO.UpdateProductQuantity(new ReceiptInfo(dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString(), quan)))
+                {
+                    int tongTien = receiptDAO.ReturnReceiptTotalMoney();
+                    lblSoTienTongCong.Text = tongTien.ToString() + "đ";
+                }
+                else
+                {
+                    dgvHoaDon.Rows[e.RowIndex].Cells["Qty"].Value = 1;
+                }
+
+              
             }
         }
 
@@ -305,6 +322,7 @@ namespace QL.Views
                 string id = dgvHoaDon.Rows[e.RowIndex].Cells["Id"].Value.ToString();
                 receiptDAO.DeleteProduct(new ReceiptInfo(id));
                 dgvHoaDon.Rows.RemoveAt(e.RowIndex);
+                lblSoTienTongCong.Text = receiptDAO.ReturnReceiptTotalMoney().ToString() + "đ";
             }    
         }
         private void cbx_DungDiem_CheckedChanged(object sender, EventArgs e)
@@ -386,6 +404,22 @@ namespace QL.Views
         private void panelThongTin_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFilter.SelectedIndex == 4) //Cao đến thấp
+            {
+                product = productDAO.DataTable_ProductOnScreenSortFromHighToLow();
+                LoadProductUC(product);
+            }
+
+            else if(cbFilter.SelectedIndex == 5) //Thấp đến cao
+            {
+                product = productDAO.DataTable_ProductOnScreenSortFromLowToHigh();
+                LoadProductUC(product);
+            }
+            
         }
     }
 }
