@@ -78,12 +78,10 @@ namespace QL.Views
             string maNV = tbxSearch.Text.Trim();
             string hoTen = tbxSearch.Text.Trim();
             string sdt = tbxSearch.Text.Trim();
-            string tenTK = tbxSearch.Text.Trim();
-            string mKhau = tbxSearch.Text.Trim();
             string tinhTrang = tbxSearch.Text.Trim();
 
             EmployeeDAO employeeDAO = new EmployeeDAO();
-            DataTable dt = employeeDAO.TimKiemNhanVien(maNV, hoTen, sdt, tenTK, mKhau, tinhTrang);
+            DataTable dt = employeeDAO.TimKiemNhanVien(maNV, hoTen, sdt, tinhTrang);
 
             if (dt != null && dt.Rows.Count > 0)
             {

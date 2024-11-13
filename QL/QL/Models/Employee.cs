@@ -13,35 +13,55 @@ namespace QL.Models
         private string gioiTinh;
         private DateTime ngaySinh;
         private string sdt;
-        private string dChi;
-        private string anhDaiDien;
-        private string MKhau;
+        private byte[] anhDaiDien;
+        private string tenTK;
+        private string mKhau;
         private DateTime ngayTuyenDung;
-        private string chucvu;
+        private string maNguoiQuanLy;
+        private string tinhTrang;
 
         public string MaNV { get => maNV; set => maNV = value; }
         public string HoTen { get => hoTen; set => hoTen = value; }
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string Sdt { get => sdt; set => sdt = value; }
-        public string DChi { get => dChi; set => dChi = value; }
-        public string AnhDaiDien { get => anhDaiDien; set => anhDaiDien = value; }
-        public string MKhau1 { get => MKhau; set => MKhau = value; }
+        public byte[] AnhDaiDien { get => anhDaiDien; set => anhDaiDien = value; }
+        public string TenTK { get => tenTK; set => tenTK = value; }
+        public string MKhau { get => mKhau; set => mKhau = value; }
         public DateTime NgayTuyenDung { get => ngayTuyenDung; set => ngayTuyenDung = value; }
-        public string Chucvu { get => chucvu; set => chucvu = value; }
-
-        public Employee(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, string dChi, string anhDaiDien, string mKhau1, DateTime ngayTuyenDung, string chucvu)
+        public string MaNguoiQuanLy { get => maNguoiQuanLy; set => maNguoiQuanLy = value; }
+        public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
+        
+        public Employee(string maNV, string hoTen, string gioiTinh  , DateTime ngaySinh, string sdt, byte[] anhDaiDien, string tenTK, string mKhau, DateTime ngayTuyenDung, string maNguoiQuanLy, string tinhTrang)
         {
             MaNV = maNV;
             HoTen = hoTen;
             GioiTinh = gioiTinh;
             NgaySinh = ngaySinh;
             Sdt = sdt;
-            DChi = dChi;
             AnhDaiDien = anhDaiDien;
-            MKhau1 = mKhau1;
+            TenTK = tenTK;
+            MKhau = mKhau;
             NgayTuyenDung = ngayTuyenDung;
-            Chucvu = chucvu;
+            MaNguoiQuanLy = maNguoiQuanLy;
+            TinhTrang = tinhTrang;
+        }
+        public Employee()
+        {
+            
+        }
+        public Employee(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, string tenTK, string mKhau, DateTime ngayTuyenDung, string maNguoiQuanLy, string tinhTrang)
+        {
+            MaNV = maNV;
+            HoTen = hoTen;
+            GioiTinh = gioiTinh;
+            NgaySinh = ngaySinh;
+            Sdt = sdt;
+            TenTK = tenTK;
+            MKhau = mKhau;
+            NgayTuyenDung = ngayTuyenDung;
+            MaNguoiQuanLy = maNguoiQuanLy;
+            TinhTrang = tinhTrang;
         }
     }
 }

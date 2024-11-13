@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace QL.Views
 {
     public partial class EmployeeAddView : Form
     {
+        private string filePath = null;
         public event Action OnEmployeeAdded;
 
 
@@ -22,6 +24,7 @@ namespace QL.Views
         {
             InitializeComponent();
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -40,51 +43,56 @@ namespace QL.Views
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            string maNV = tbxID.Text;
-            string hoTen = tbxName.Text;
-            string sdt = tbxPhoneNumber.Text;
-            string tenTK = tbxUserName.Text;
-            string matKhau = tbxPassword.Text;
-            DateTime ngaySinh = dtpBirthDate.Value;
-            DateTime ngTuyenDung = dtpHireDate.Value;
-            string gioiTinh = radiobtnMale.Checked ? "Nam" : "Nữ";
-            string maNguoiQuanLy = radiobtnManager.Checked ? maNV : null;
 
-            // Chuyển ảnh thành mảng byte nếu có
-            byte[] anhDaiDien = null;
-            if (ptbAvatar.Image != null)
+            // Kiểm tra xem tất cả các trường thông tin bắt buộc có được điền đủ không
+            if (string.IsNullOrWhiteSpace(tbxID.Text) ||
+                string.IsNullOrWhiteSpace(tbxName.Text) ||
+                string.IsNullOrWhiteSpace(tbxPhoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(tbxUserName.Text) ||
+                string.IsNullOrWhiteSpace(tbxPassword.Text) ||
+                (radiobtnMale.Checked == false && radiobtnFemale.Checked == false) ||
+                dtpBirthDate.Value == null ||
+                dtpHireDate.Value == null)
             {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    ptbAvatar.Image.Save(ms, ptbAvatar.Image.RawFormat);
-                    anhDaiDien = ms.ToArray();
-                }
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Gọi phương thức thêm nhân viên với thông tin và ảnh đã chuyển đổi
-            bool success = employeeDAO.ThemNhanVien(maNV, hoTen, gioiTinh, ngaySinh, sdt, anhDaiDien, tenTK, matKhau, ngTuyenDung, maNguoiQuanLy);
+            // Kiểm tra xem có chọn hình ảnh không
+            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
+            {
+                MessageBox.Show("Vui lòng chọn ảnh đại diện cho nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            if (success)
+            // Đọc dữ liệu hình ảnh dưới dạng byte array
+            byte[] imageBinaryData = File.ReadAllBytes(filePath);
+            Employee employee = new Employee()
             {
-                MessageBox.Show("Thêm nhân viên thành công!");
-                this.Close(); // Đóng form sau khi thêm
-                OnEmployeeAdded.Invoke();
-            }
-            else
-            {
-                MessageBox.Show("Thêm nhân viên thất bại.");
-            }
+                MaNV = tbxID.Text,
+                HoTen = tbxName.Text,
+                GioiTinh = radiobtnMale.Checked ? "Nam" : " Nữ",
+                NgaySinh = dtpBirthDate.Value,
+                Sdt = tbxPhoneNumber.Text,
+                AnhDaiDien = imageBinaryData,
+                TenTK = tbxUserName.Text,
+                MKhau = tbxPassword.Text,
+                NgayTuyenDung = dtpHireDate.Value,
+                MaNguoiQuanLy = radiobtnManager.Checked ? tbxID.Text : null,
+                TinhTrang = "Hoạt động"
+            };
+            employeeDAO.ThemNhanVien(employee);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Hiển thị ảnh lên PictureBox
-                    ptbAvatar.Image = Image.FromFile(openFileDialog.FileName);
+                    // Get the selected file path
+                    filePath = openFileDialog.FileName;
+                    ptbAvatar.Image = Image.FromFile(filePath);
                 }
             }
         }

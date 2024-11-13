@@ -15,6 +15,7 @@ namespace QL.DAO
     public class EmployeeDAO
     {
         DBConnection db = new DBConnection();
+        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;";
         public DataTable LayDanhSachNhanVien()
         {
             DataTable dt = new DataTable();
@@ -90,7 +91,7 @@ namespace QL.DAO
             }
         }
 
-        public DataTable TimKiemNhanVien(string maNV, string hoTen, string sdt, string tenTK, string mKhau, string tinhTrang)
+        public DataTable TimKiemNhanVien(string maNV, string hoTen, string sdt, string tinhTrang)
         {
             DBConnection db = new DBConnection();
             DataTable dt = new DataTable();
@@ -101,8 +102,6 @@ namespace QL.DAO
                 cmd.Parameters.AddWithValue("@MaNV", string.IsNullOrEmpty(maNV) ? (object)DBNull.Value : maNV);
                 cmd.Parameters.AddWithValue("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen);
                 cmd.Parameters.AddWithValue("@SDT", string.IsNullOrEmpty(sdt) ? (object)DBNull.Value : sdt);
-                cmd.Parameters.AddWithValue("@TenTK", string.IsNullOrEmpty(tenTK) ? (object)DBNull.Value : tenTK);
-                cmd.Parameters.AddWithValue("@MKhau", string.IsNullOrEmpty(mKhau) ? (object)DBNull.Value : mKhau);
                 cmd.Parameters.AddWithValue("@TinhTrang", string.IsNullOrEmpty(tinhTrang) ? (object)DBNull.Value : tinhTrang);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -111,38 +110,83 @@ namespace QL.DAO
             return dt;
         }
 
-        public bool ThemNhanVien(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, byte[] anhDaiDien, string tenTK, string matKhau, DateTime ngTuyenDung, string maNguoiQuanLy)
+        public void ThemNhanVien(Employee employee)
         {
             try
             {
-                db.openConnection();
-                SqlCommand cmd = new SqlCommand("sp_ThemNhanVien", db.getConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "EXEC [dbo].[sp_ThemNhanVien] " +
+                                   "@MaNV = @maNv, " +
+                                   "@HoTen = @hoTen, " +
+                                   "@GioiTinh = @gioiTinh, " +
+                                   "@NgaySinh = @ngaySinh, " +
+                                   "@SDT = @sdt, " +
+                                   "@AnhDaiDien = @anhDaiDien, " +
+                                   "@TenTK = @tenTK, " +
+                                   "@MKhau = @mKhau, " +
+                                   "@NgTuyenDung = @ngTuyenDung, " +
+                                   "@MaNguoiQuanLy = @maNguoiQuanly ";
 
-                cmd.Parameters.AddWithValue("@MaNV", maNV);
-                cmd.Parameters.AddWithValue("@HoTen", hoTen);
-                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
-                cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
-                cmd.Parameters.AddWithValue("@SDT", sdt);
-                cmd.Parameters.AddWithValue("@AnhDaiDien", anhDaiDien ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@TenTK", tenTK);
-                cmd.Parameters.AddWithValue("@MKhau", matKhau);
-                cmd.Parameters.AddWithValue("@NgTuyenDung", ngTuyenDung);
-                cmd.Parameters.AddWithValue("@MaNguoiQuanLy", maNguoiQuanLy ?? (object)DBNull.Value);
-                Console.WriteLine(cmd.ExecuteNonQuery());
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        
 
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                        cmd.Parameters.AddWithValue("@maNV", employee.MaNV);
+                        cmd.Parameters.AddWithValue("@hoTen", employee.HoTen);
+                        cmd.Parameters.AddWithValue("@gioiTinh", employee.GioiTinh);
+                        cmd.Parameters.AddWithValue("@ngaySinh", employee.NgaySinh);
+                        cmd.Parameters.AddWithValue("@sdt", employee.Sdt);
+                        cmd.Parameters.AddWithValue("@anhDaiDien", employee.AnhDaiDien ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@tenTK", employee.TenTK);
+                        cmd.Parameters.AddWithValue("@mKhau", employee.MKhau);
+                        cmd.Parameters.AddWithValue("@ngTuyenDung", employee.NgayTuyenDung);
+                        cmd.Parameters.AddWithValue("@maNguoiQuanLy", employee.MaNguoiQuanLy ?? (object)DBNull.Value);
+                        // Open connection and execute the command
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
-                return false;
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                db.closeConnection();
-            }
+            //try
+            //{
+            //    db.openConnection();
+            //    SqlCommand cmd = new SqlCommand("sp_ThemNhanVien", db.getConnection);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    cmd.Parameters.AddWithValue("@MaNV", maNV);
+            //    cmd.Parameters.AddWithValue("@HoTen", hoTen);
+            //    cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+            //    cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+            //    cmd.Parameters.AddWithValue("@SDT", sdt);
+            //    cmd.Parameters.AddWithValue("@AnhDaiDien", anhDaiDien ?? (object)DBNull.Value);
+            //    cmd.Parameters.AddWithValue("@TenTK", tenTK);
+            //    cmd.Parameters.AddWithValue("@MKhau", matKhau);
+            //    cmd.Parameters.AddWithValue("@NgTuyenDung", ngTuyenDung);
+            //    cmd.Parameters.AddWithValue("@MaNguoiQuanLy", maNguoiQuanLy ?? (object)DBNull.Value);
+                
+            //    Console.WriteLine(cmd.ExecuteNonQuery());
+                
+            //    int result = cmd.ExecuteNonQuery();
+            //    return result > 0;
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Hãy nhập đầy đủ thông tin");
+            //    return false;
+            //}
+            //finally
+            //{
+            //    db.closeConnection();
+            //}
         }
         public DataTable TimKiemNhanVien(string keyword)
         {
