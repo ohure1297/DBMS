@@ -48,9 +48,8 @@ namespace QL.Views
             DateTime ngaySinh = dtpBirthDate.Value;
             DateTime ngTuyenDung = dtpHireDate.Value;
             string gioiTinh = radiobtnMale.Checked ? "Nam" : "Nữ";
-            string maNguoiQuanLy = radiobtnManager.Checked ? maNV : null;
 
-            // Chuyển ảnh thành mảng byte nếu có
+
             byte[] anhDaiDien = null;
             if (ptbAvatar.Image != null)
             {
@@ -62,7 +61,8 @@ namespace QL.Views
             }
 
             // Gọi phương thức thêm nhân viên với thông tin và ảnh đã chuyển đổi
-            bool success = employeeDAO.ThemNhanVien(maNV, hoTen, gioiTinh, ngaySinh, sdt, anhDaiDien, tenTK, matKhau, ngTuyenDung, maNguoiQuanLy);
+            bool success = employeeDAO.ThemNhanVien(maNV, hoTen, gioiTinh, ngaySinh, sdt, anhDaiDien, tenTK, matKhau, ngTuyenDung, "NV001");
+            employeeDAO.ThemTaiKhoan(maNV, tenTK, matKhau, "Nhân viên");
 
             if (success)
             {
