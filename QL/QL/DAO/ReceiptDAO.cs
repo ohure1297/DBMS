@@ -352,7 +352,7 @@ namespace QL.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "AccumulatePoints");
+                MessageBox.Show(ex.Message + "CheckMoneyIfUsePoint");
             }
             finally
             {
