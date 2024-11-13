@@ -87,17 +87,19 @@ namespace QL.DAO
                     {
                         if (reader.Read())
                         {
+
                             product = new Product
                             {
 
                                 MaSP = (string)reader["MaSPham"],
                                 TenSP = (string)reader["TenSPham"],
-                                HinhAnh = (byte[])reader["HinhAnh"],
+                                //HinhAnh = (byte[])reader["HinhAnh"],
                                 NhaSanXuat = (string)reader["NhaSanXuat"],
                                 GiaBan = (int)reader["GiaBan"],
                                 TonKho = (int)reader["TonKho"],
                                 NhomSanPham = (string)reader["NhomSPham"]
                             };
+
                         }
 
                     }
@@ -108,7 +110,6 @@ namespace QL.DAO
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
-         
 
             return product;
         }

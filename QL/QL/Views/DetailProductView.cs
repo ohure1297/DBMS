@@ -43,8 +43,8 @@ namespace QL.Views
             tbxSellPrice.Text = product.GiaBan.ToString();
             cbCategory.Text = product.NhomSanPham;
             tbxQuantity.Text = product.TonKho.ToString();
-            MemoryStream ms = new MemoryStream(product.HinhAnh);
-            ptbProductImg.Image = Image.FromStream(ms);
+            //MemoryStream ms = new MemoryStream(product.HinhAnh);
+            //ptbProductImg.Image = Image.FromStream(ms);
 
         }
 
