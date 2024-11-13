@@ -211,6 +211,124 @@ namespace QL.DAO
             return dt;
         }
 
+        public DataTable DataTable_ProductOnScreenSearchByProvider(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM fn_ProductOnScreenSearchByProvider(@ProviderName)";
+
+                db.openConnection();
+
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+                    command.Parameters.AddWithValue("@ProviderName", searchStr);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
+        public DataTable DataTable_ProductOnScreenSearchByProductType(string searchStr)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM fn_ProductOnScreenSearchByProductType(@ProductType)";
+
+                db.openConnection();
+
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+                    command.Parameters.AddWithValue("@ProductType", searchStr);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
+        public DataTable DataTable_ProductOnScreenSortFromLowToHigh()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM V_DsSanPhamBanHang order by GiaSauKhuyenMai ASC";
+
+                db.openConnection();
+
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
+        public DataTable DataTable_ProductOnScreenSortFromHighToLow()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM V_DsSanPhamBanHang order by GiaSauKhuyenMai DESC";
+
+                db.openConnection();
+
+
+                using (SqlCommand command = new SqlCommand(query, db.getConnection))
+                {
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return dt;
+        }
+
 
 
 

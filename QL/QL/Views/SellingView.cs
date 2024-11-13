@@ -146,6 +146,16 @@ namespace QL.Views
             {
                 product = productDAO.DataTable_ProductOnScreenSearchById(searchVal);
             }
+
+            else if (filter.Equals("Loại SP"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchByProductType(searchVal);
+            }
+
+            else if (filter.Equals("Nhà sản xuất"))
+            {
+                product = productDAO.DataTable_ProductOnScreenSearchByProvider(searchVal);
+            }
             LoadProductUC(product);
         }
 
@@ -394,6 +404,22 @@ namespace QL.Views
         private void panelThongTin_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFilter.SelectedIndex == 4) //Cao đến thấp
+            {
+                product = productDAO.DataTable_ProductOnScreenSortFromHighToLow();
+                LoadProductUC(product);
+            }
+
+            else if(cbFilter.SelectedIndex == 5) //Thấp đến cao
+            {
+                product = productDAO.DataTable_ProductOnScreenSortFromLowToHigh();
+                LoadProductUC(product);
+            }
+            
         }
     }
 }
