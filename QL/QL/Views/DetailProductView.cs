@@ -15,7 +15,7 @@ namespace QL.Views
     public partial class DetailProductView : Form
     {
         private string productID;
-        readonly ProductDAO productDAO = new ProductDAO();
+        readonly ProductDAO productDAO = null;
         private bool isEdit = false;
         private byte[] imageBinaryData = null;
         public DetailProductView()
@@ -23,11 +23,14 @@ namespace QL.Views
             InitializeComponent();
         }
 
-        public DetailProductView(string productID)
+        public DetailProductView(Employee userVal ,string productID)
         {
             InitializeComponent();
             this.productID = productID;
+            productDAO = new ProductDAO(userVal);
         }
+
+
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();

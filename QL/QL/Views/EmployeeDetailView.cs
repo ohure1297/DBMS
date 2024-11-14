@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Data;
 using System.Drawing;
@@ -9,17 +10,18 @@ namespace QL.Views
 {
     public partial class EmployeeDetailView : Form
     {
-        private EmployeeDAO employeeDAO = new EmployeeDAO();
+        private EmployeeDAO employeeDAO = null;
         private bool isEditing = false; // Kiểm tra chế độ chỉnh sửa
         private string currentEmployeeId; // Lưu mã nhân viên đang xem
         private EmployeesView employeeView = new EmployeesView();
         private EmployeesView parentView;
 
-        public EmployeeDetailView(EmployeesView parent)
+        public EmployeeDetailView(Employee userVal, EmployeesView parent)
         {
             InitializeComponent();
             SetFieldsEditable(false); // Khóa các trường khi load form
             this.parentView = parent;
+            employeeDAO = new EmployeeDAO(userVal);
         }
 
         // Hàm Load chi tiết nhân viên

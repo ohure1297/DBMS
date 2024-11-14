@@ -14,10 +14,16 @@ namespace QL.Views
 {
     public partial class CustomerAddView : Form
     {
-        readonly CustomerDAO customerDAO = new CustomerDAO();
+        readonly CustomerDAO customerDAO = null;
         public CustomerAddView()
         {
             InitializeComponent();
+        }
+
+        public CustomerAddView(Employee userVal)
+        {
+            InitializeComponent();
+            customerDAO = new CustomerDAO(userVal);
         }
 
         private void btnNew_Click(object sender, EventArgs e)

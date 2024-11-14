@@ -15,7 +15,7 @@ namespace QL.Views
 {
     public partial class StockReceiptsView : Form
     {
-        StockReceiptDAO stockdao = new StockReceiptDAO();
+        StockReceiptDAO stockdao = null;
 
         private Employee user = null;
         public StockReceiptsView()
@@ -26,7 +26,7 @@ namespace QL.Views
         public StockReceiptsView(Employee userVal)
         {
             InitializeComponent();
-            user = userVal;
+            stockdao = new StockReceiptDAO(userVal);    
         }
 
         private void StockReceiptsView_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace QL.Views
             else
             {
                 string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
-                DetailStockReceiptView chitiet = new DetailStockReceiptView(maPhieuNhap);
+                DetailStockReceiptView chitiet = new DetailStockReceiptView(user, maPhieuNhap);
                 chitiet.ShowDialog();
             }
         }

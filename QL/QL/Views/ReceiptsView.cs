@@ -10,9 +10,9 @@ namespace QL.Views
     public partial class ReceiptsView : Form
     {
         // Khai báo đối tượng DAO để làm việc với dữ liệu
-        ReceiptDAO receiptDAO = new ReceiptDAO();
+        ReceiptDAO receiptDAO = null;
 
-        private Employee user = null;
+
 
         public ReceiptsView()
         {
@@ -21,8 +21,7 @@ namespace QL.Views
 
         public ReceiptsView(Employee userVal)
         {
-            InitializeComponent();
-            user = userVal;
+            receiptDAO = new ReceiptDAO(userVal);
         }
 
         private void ReceiptsView_Load(object sender, EventArgs e)

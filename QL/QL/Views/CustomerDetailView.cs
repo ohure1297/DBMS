@@ -14,7 +14,7 @@ namespace QL.Views
 {
     public partial class CustomerDetailView : Form
     {
-        readonly CustomerDAO customerDAO = new CustomerDAO();
+        readonly CustomerDAO customerDAO = null;
         private string SDT = null;
         private bool isEdit = false;
         public CustomerDetailView()
@@ -22,10 +22,11 @@ namespace QL.Views
             InitializeComponent();
         }
 
-        public CustomerDetailView(string SDT)
+        public CustomerDetailView(Employee userVal,string SDT)
         {
             InitializeComponent();
             this.SDT = SDT;
+            customerDAO = new CustomerDAO(userVal);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

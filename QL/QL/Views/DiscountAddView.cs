@@ -17,16 +17,17 @@ namespace QL.Views
     {
         DBConnection Dbcon = new DBConnection();
         Discount discount = null;
-        DiscountDAO discountDAO = new DiscountDAO();
+        DiscountDAO discountDAO = null;
         public DiscountAddView()
         {
             InitializeComponent();
         }
 
-        public DiscountAddView(Discount discount)
+        public DiscountAddView(Employee userVal,Discount discount)
         {
             InitializeComponent();
             this.discount = discount;
+            discountDAO = new DiscountDAO(userVal);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -45,7 +46,6 @@ namespace QL.Views
                 Muckhuyenmai = (float)Convert.ToDecimal(tbxDiscountval.Text)
             };
 
-            DiscountDAO discountDAO = new DiscountDAO();
             int result = discountDAO.AddDiscount(discount);
 
             MessageBox.Show("Thêm Khuyến Mãi Thành Công");

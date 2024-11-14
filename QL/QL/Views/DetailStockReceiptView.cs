@@ -8,17 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QL.DAO;
+using QL.Models;
 
 namespace QL.Views
 {
     public partial class DetailStockReceiptView : Form
     {
-        readonly StockReceiptDAO dao = new StockReceiptDAO();
-        public DetailStockReceiptView(string maphieunhap)
+        readonly StockReceiptDAO dao = null;
+        public DetailStockReceiptView(Employee userVal, string maphieunhap)
         {
             InitializeComponent();
+            dao = new StockReceiptDAO(userVal);
             LoadStockReceiptDetail(maphieunhap);
         }
+
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -14,7 +14,7 @@ namespace QL.Views
 {
     public partial class CustomerManagementView : Form
     {
-        readonly CustomerDAO customerDAO = new CustomerDAO();
+        readonly CustomerDAO customerDAO = null;
 
         private Employee user = null;
         public CustomerManagementView()
@@ -48,7 +48,7 @@ namespace QL.Views
 
         private void btnAdd_CustomerManagement_Click(object sender, EventArgs e)
         {
-            CustomerAddView view = new CustomerAddView();
+            CustomerAddView view = new CustomerAddView(user);
             view.Show();
         }
 
@@ -57,7 +57,7 @@ namespace QL.Views
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 &&
                     dgv_Customer.Columns[e.ColumnIndex].HeaderText != "Xóa")
             {
-                CustomerDetailView view = new CustomerDetailView(dgv_Customer.Rows[e.RowIndex].Cells["SDT"].Value.ToString());
+                CustomerDetailView view = new CustomerDetailView(user, dgv_Customer.Rows[e.RowIndex].Cells["SDT"].Value.ToString());
                 view.Show();
             }
             else if (dgv_Customer.Columns[e.ColumnIndex].HeaderText.Equals("Xóa"))

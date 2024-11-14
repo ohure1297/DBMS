@@ -21,9 +21,9 @@ namespace QL.Views
 
         private ProductDAO productDAO = null;
 
-        private CustomerDAO customerDAO = new CustomerDAO();
+        private CustomerDAO customerDAO = null;
 
-        private ReceiptDAO receiptDAO = new ReceiptDAO();
+        private ReceiptDAO receiptDAO = null;
 
         private DataTable product = new DataTable();
 
@@ -234,7 +234,6 @@ namespace QL.Views
             if(!String.IsNullOrWhiteSpace(tbxCustomerName.Text) && String.IsNullOrWhiteSpace(tbxPoint.Text))
             {
                 Customer customer = new Customer(tbxPhoneNum.Text, tbxCustomerName.Text, 0);
-                CustomerDAO customerDAO = new CustomerDAO();
                 customerDAO.AddCustomer(customer);
                 MessageBox.Show("Thêm khách hàng thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
@@ -289,7 +288,6 @@ namespace QL.Views
                     if(cbx_DungDiem.Checked)
                     {
                         //Tru diem o day
-                        CustomerDAO customerDAO = new CustomerDAO();
                         customerDAO.UsePoint(new Customer(tbxPhoneNum.Text));
                     }    
 

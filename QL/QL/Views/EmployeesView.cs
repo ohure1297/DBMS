@@ -14,7 +14,7 @@ namespace QL.Views
 {
     public partial class EmployeesView : Form
     {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeDAO employeeDAO = null;
 
         private Employee user = null;
         public EmployeesView()
@@ -25,7 +25,7 @@ namespace QL.Views
         public EmployeesView(Employee userVal)
         {
             InitializeComponent();
-            user = userVal;
+            employeeDAO = new EmployeeDAO(userVal); 
         }
 
         private void EmployeesView_Load(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace QL.Views
             if (e.RowIndex >= 0)
             {
                 string maNV = dgvEmployee.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
-                EmployeeDetailView detailsForm = new EmployeeDetailView(this);
+                EmployeeDetailView detailsForm = new EmployeeDetailView(user, this);
                 detailsForm.LoadEmployeeDetails(maNV);
                 detailsForm.ShowDialog();
             }
@@ -89,7 +89,6 @@ namespace QL.Views
             string sdt = tbxSearch.Text.Trim();
             string tinhTrang = tbxSearch.Text.Trim();
 
-            EmployeeDAO employeeDAO = new EmployeeDAO();
             DataTable dt = employeeDAO.TimKiemNhanVien(maNV, hoTen, sdt, tinhTrang);
 
             if (dt != null && dt.Rows.Count > 0)

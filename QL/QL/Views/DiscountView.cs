@@ -14,7 +14,7 @@ namespace QL.Views
 {
     public partial class DiscountView : Form
     {
-        DiscountDAO discountdao = new DiscountDAO();
+        DiscountDAO discountdao = null;
 
         private Employee user = null;
         public DiscountView()
@@ -26,6 +26,8 @@ namespace QL.Views
         {
             InitializeComponent();
             user = userVal;
+            discountdao = new DiscountDAO(userVal);
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace QL.Views
                 string makhuyenmai = dgvDiscount.Rows[e.RowIndex].Cells["MaKhuyenMai"].Value.ToString();
                 Discount discount = discountdao.LoadDisCountInfo(makhuyenmai);
 
-                DiscountAddView discountview = new DiscountAddView(discount);
+                DiscountAddView discountview = new DiscountAddView(user, discount);
                 discountview.LoadDiscount();
                 discountview.btnAdd.Enabled = false;
                 discountview.Show();

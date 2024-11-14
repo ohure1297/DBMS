@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,15 @@ namespace QL.Views
 {
     public partial class DetailReceiptView : Form
     {
-        ReceiptDAO ReceiptDAO = new ReceiptDAO();
-        private ReceiptDAO receiptDAO = new ReceiptDAO();
+        private ReceiptDAO ReceiptDAO = null;
+ 
 
-        public DetailReceiptView(string maHoaDon)
+
+        public DetailReceiptView(Employee userVal, string maHoaDon)
         {
             InitializeComponent();
+
+            ReceiptDAO = new ReceiptDAO(userVal);
             // Gọi hàm lấy thông tin chi tiết hóa đơn
             DataTable dt = ReceiptDAO.LayDanhSachChiTietHoaDon(maHoaDon);
             if (dt != null)

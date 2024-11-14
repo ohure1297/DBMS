@@ -15,11 +15,17 @@ namespace QL.Views
 {
     public partial class StockReceiptAddView : Form
     {
-        StockReceiptDAO stockDAO = new StockReceiptDAO();
+        StockReceiptDAO stockDAO = null;
         List<StockReceiptProducts> productsList = new List<StockReceiptProducts>();
         public StockReceiptAddView()
         {
             InitializeComponent();
+        }
+
+        public StockReceiptAddView(Employee userVal)
+        {
+            InitializeComponent();
+            stockDAO = new StockReceiptDAO(userVal);    
         }
 
         private void btnClose_Click(object sender, EventArgs e)

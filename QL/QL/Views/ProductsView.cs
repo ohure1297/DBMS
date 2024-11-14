@@ -23,6 +23,7 @@ namespace QL.Views
             InitializeComponent();
         }
 
+
         public ProductsView(Employee userVal)
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace QL.Views
                     dgvProduct.Columns[e.ColumnIndex].HeaderText != "Sửa" &&
                     dgvProduct.Columns[e.ColumnIndex].HeaderText != "Xóa")
             {
-                DetailProductView detailView = new DetailProductView(dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString());  
+                DetailProductView detailView = new DetailProductView(user, dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString());  
                 detailView.Show();
             }
             else if (dgvProduct.Columns[e.ColumnIndex].HeaderText.Equals("Xóa"))

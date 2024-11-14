@@ -34,10 +34,10 @@ namespace QL
             btn_Max.PerformClick();
             lblManv.Text = user.MaNV;
 
-            using (MemoryStream ms = new MemoryStream(user.AnhDaiDien))
-            {
-                p_avatar.Image = Image.FromStream(ms);
-            }
+            //using (MemoryStream ms = new MemoryStream(user.AnhDaiDien))
+            //{
+            //    p_avatar.Image = Image.FromStream(ms);
+            //}
 
             
             //btn_employee.Hide();
