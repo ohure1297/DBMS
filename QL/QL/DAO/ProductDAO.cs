@@ -396,10 +396,7 @@ namespace QL.DAO
                         // Add parameters to the command
                         command.Parameters.AddWithValue("@Ma", product.MaSP);
                         command.Parameters.AddWithValue("@Ten", product.TenSP);
-
-                        // Assuming the product.HinhAnh is a byte[] representing the image
                         command.Parameters.AddWithValue("@Anh", product.HinhAnh);
-
                         command.Parameters.AddWithValue("@NSX", product.NhaSanXuat);
                         command.Parameters.AddWithValue("@Gia", product.GiaBan);
                         command.Parameters.AddWithValue("@SL", product.TonKho);
@@ -437,7 +434,7 @@ namespace QL.DAO
                         
 
                       
-                        connection.Open();
+                        
                         command.ExecuteNonQuery();
 
                    

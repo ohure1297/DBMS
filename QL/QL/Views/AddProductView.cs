@@ -29,7 +29,17 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            byte[] imageBinaryData = File.ReadAllBytes(filePath);
+            byte[] imageBinaryData = null;
+            if (filePath != null)
+            {
+                imageBinaryData = File.ReadAllBytes(filePath);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng thêm ảnh!");
+                return;
+            }
+            
             Product product = new Product()
             {
                 MaSP = tbxId.Text,
