@@ -186,6 +186,24 @@ namespace QL.DAO
 
 
         }
+        public DataTable TimKiemNhanVien(string maNV, string hoTen, string sdt, string tinhTrang)
+        {
+            DBConnection db = new DBConnection();
+            DataTable dt = new DataTable();
+            {
+                SqlCommand cmd = new SqlCommand("sp_TimKiemNhanVien", db.getConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaNV", string.IsNullOrEmpty(maNV) ? (object)DBNull.Value : maNV);
+                cmd.Parameters.AddWithValue("@HoTen", string.IsNullOrEmpty(hoTen) ? (object)DBNull.Value : hoTen);
+                cmd.Parameters.AddWithValue("@SDT", string.IsNullOrEmpty(sdt) ? (object)DBNull.Value : sdt);
+                cmd.Parameters.AddWithValue("@TinhTrang", string.IsNullOrEmpty(tinhTrang) ? (object)DBNull.Value : tinhTrang);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
 
     }
 }
