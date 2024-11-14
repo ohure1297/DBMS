@@ -12,7 +12,7 @@ namespace QL.Views
         // Khai báo đối tượng DAO để làm việc với dữ liệu
         ReceiptDAO receiptDAO = null;
 
-
+        private Employee user = null;
 
         public ReceiptsView()
         {
@@ -21,7 +21,9 @@ namespace QL.Views
 
         public ReceiptsView(Employee userVal)
         {
+            user = userVal;
             receiptDAO = new ReceiptDAO(userVal);
+
         }
 
         private void ReceiptsView_Load(object sender, EventArgs e)
@@ -89,7 +91,7 @@ namespace QL.Views
             {
                 string maHoaDon = dgvCategory.Rows[e.RowIndex].Cells["MaHoaDon"].Value.ToString();
                 // Mở form DetailReceiptView và truyền mã hóa đơn
-                DetailReceiptView detailView = new DetailReceiptView(maHoaDon);
+                DetailReceiptView detailView = new DetailReceiptView(user, maHoaDon);
                 detailView.Show();
             }
         }
