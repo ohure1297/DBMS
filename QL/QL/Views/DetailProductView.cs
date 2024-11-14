@@ -48,7 +48,9 @@ namespace QL.Views
             {
                 MemoryStream ms = new MemoryStream(product.HinhAnh);
                 ptbProductImg.Image = Image.FromStream(ms);
+
             }    
+
 
         }
 

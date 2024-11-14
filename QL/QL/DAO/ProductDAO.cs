@@ -24,6 +24,7 @@ namespace QL.DAO
             db.changeStrConnectToQuanLy();
         }
 
+
         public DataTable DataTable_Product()
         {
             DataTable dt = new DataTable();
@@ -439,7 +440,7 @@ namespace QL.DAO
                         command.ExecuteNonQuery();
 
                    
-                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Delete added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
