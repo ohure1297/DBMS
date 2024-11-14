@@ -176,7 +176,12 @@
             this.cbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbCategory.ItemHeight = 30;
             this.cbCategory.Items.AddRange(new object[] {
-            "Thực phẩm"});
+            "Đồ khô",
+            "Đồ uống",
+            "Thực phẩm ngọt",
+            "Thực phẩm mặn",
+            "Hóa phẩm",
+            "Rau Củ Quả"});
             this.cbCategory.Location = new System.Drawing.Point(409, 221);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(198, 36);
