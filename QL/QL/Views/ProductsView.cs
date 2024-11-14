@@ -49,7 +49,6 @@ namespace QL.Views
                 {
                     MaSP = dgvProduct.Rows[e.RowIndex].Cells["MaSPham"].Value.ToString()
                 };
-                MessageBox.Show("nhấn Xóa");
                 productDAO.DeleteProduct(product);
             }
 

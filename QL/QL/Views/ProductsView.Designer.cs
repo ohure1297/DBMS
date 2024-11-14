@@ -38,9 +38,9 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblProductView = new System.Windows.Forms.Label();
             this.dgvProduct = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.lbFilter = new System.Windows.Forms.Label();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
@@ -199,16 +199,6 @@
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
             // 
-            // dgvDelete
-            // 
-            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDelete.FillWeight = 50F;
-            this.dgvDelete.HeaderText = "Xóa";
-            this.dgvDelete.MinimumWidth = 50;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.ReadOnly = true;
-            this.dgvDelete.Width = 50;
-            // 
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
@@ -242,6 +232,17 @@
             this.cbFilter.TabIndex = 6;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
+            // dgvDelete
+            // 
+            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvDelete.FillWeight = 50F;
+            this.dgvDelete.HeaderText = "Xóa";
+            this.dgvDelete.Image = global::QL.Properties.Resources.bin;
+            this.dgvDelete.MinimumWidth = 50;
+            this.dgvDelete.Name = "dgvDelete";
+            this.dgvDelete.ReadOnly = true;
+            this.dgvDelete.Width = 50;
+            // 
             // ProductsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -274,8 +275,8 @@
         private System.Windows.Forms.Label lblProductView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvProduct;
         private Guna.UI2.WinForms.Guna2Button btnFind;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
         private System.Windows.Forms.Label lbFilter;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
 }

@@ -33,9 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbxUserName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxShowPass = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,17 +125,6 @@
             this.tbxUserName.Size = new System.Drawing.Size(316, 48);
             this.tbxUserName.TabIndex = 31;
             // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(290, 28);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.guna2CirclePictureBox1.TabIndex = 37;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -164,6 +153,19 @@
             this.cbxShowPass.UncheckedState.BorderThickness = 0;
             this.cbxShowPass.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbxShowPass.CheckedChanged += new System.EventHandler(this.cbxShowPass_CheckedChanged);
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::QL.Properties.Resources.account;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(290, 28);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(80, 80);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.guna2CirclePictureBox1.TabIndex = 37;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
