@@ -58,14 +58,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.dgvHoaDon = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DelColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnPay = new Guna.UI2.WinForms.Guna2Button();
             this.flowPanelSanPham = new System.Windows.Forms.FlowLayoutPanel();
+            this.DelColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelKhachHang.SuspendLayout();
             this.panelHoaDon.SuspendLayout();
             this.panelThongTin.SuspendLayout();
@@ -534,53 +534,6 @@
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
             // 
-            // Id
-            // 
-            this.Id.FillWeight = 87.91444F;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.FillWeight = 87.91444F;
-            this.ProductName.HeaderText = "Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.FillWeight = 87.91444F;
-            this.Qty.HeaderText = "Qty";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 87.91444F;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.FillWeight = 87.91444F;
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // DelColumn
-            // 
-            this.DelColumn.FillWeight = 160.4278F;
-            this.DelColumn.HeaderText = "";
-            this.DelColumn.Image = global::QL.Properties.Resources.bin;
-            this.DelColumn.MinimumWidth = 6;
-            this.DelColumn.Name = "DelColumn";
-            // 
             // btnPay
             // 
             this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -606,6 +559,53 @@
             this.flowPanelSanPham.Name = "flowPanelSanPham";
             this.flowPanelSanPham.Size = new System.Drawing.Size(819, 530);
             this.flowPanelSanPham.TabIndex = 3;
+            // 
+            // DelColumn
+            // 
+            this.DelColumn.FillWeight = 160.4278F;
+            this.DelColumn.HeaderText = "";
+            this.DelColumn.Image = global::QL.Properties.Resources.bin;
+            this.DelColumn.MinimumWidth = 6;
+            this.DelColumn.Name = "DelColumn";
+            // 
+            // Total
+            // 
+            this.Total.FillWeight = 87.91444F;
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 87.91444F;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.FillWeight = 87.91444F;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            // 
+            // ProductName
+            // 
+            this.ProductName.FillWeight = 87.91444F;
+            this.ProductName.HeaderText = "Name";
+            this.ProductName.MinimumWidth = 10;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 87.91444F;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // SellingView
             // 
@@ -661,12 +661,12 @@
         private System.Windows.Forms.Label lblTongTien;
         private Guna.UI2.WinForms.Guna2TextBox tbxTienKhachDua;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button btnEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewImageColumn DelColumn;
-        private Guna.UI2.WinForms.Guna2Button btnEdit;
     }
 }

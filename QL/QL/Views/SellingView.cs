@@ -55,7 +55,7 @@ namespace QL.Views
 
             foreach (DataRow row in productTable.Rows)
             {
-                MessageBox.Show(row["MaSPham"].ToString());
+                //MessageBox.Show(row["MaSPham"].ToString());
                 if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
