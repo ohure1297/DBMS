@@ -178,14 +178,9 @@ namespace QL.DAO
 
 
         }
-
-        string query = "EXEC [dbo].[sp_ThemtaiKhoan] " +
-               "@TenTaiKhoan, " +
-               "@MatKhau, " +
-               "@VaiTro, " +
-               "@MaNV";
     }
 }
+
 
 
 
