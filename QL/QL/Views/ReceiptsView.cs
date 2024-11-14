@@ -21,6 +21,7 @@ namespace QL.Views
 
         public ReceiptsView(Employee userVal)
         {
+            InitializeComponent();
             user = userVal;
             receiptDAO = new ReceiptDAO(userVal);
 

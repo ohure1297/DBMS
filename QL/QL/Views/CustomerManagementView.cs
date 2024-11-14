@@ -26,6 +26,7 @@ namespace QL.Views
         {
             InitializeComponent();
             user = userVal;
+            customerDAO = new CustomerDAO(user);
         }
 
         private void CustomerManagementView_Load(object sender, EventArgs e)
