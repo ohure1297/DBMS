@@ -72,5 +72,26 @@ namespace QL.Views
         {
 
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string maNV = tbxSearch.Text.Trim();
+            string hoTen = tbxSearch.Text.Trim();
+            string sdt = tbxSearch.Text.Trim();
+            string tinhTrang = tbxSearch.Text.Trim();
+
+            EmployeeDAO employeeDAO = new EmployeeDAO();
+            DataTable dt = employeeDAO.TimKiemNhanVien(maNV, hoTen, sdt, tinhTrang);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dgvEmployee.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy nhân viên nào phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvEmployee.DataSource = null;
+            }
+        }
     }
 }
