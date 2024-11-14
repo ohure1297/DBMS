@@ -41,7 +41,7 @@ namespace QL
             else
             {
                 MessageBox.Show(table.Rows[0]["MaNV"].ToString());
-                user = new Employee(table.Rows[0]["MaNV"].ToString(), table.Rows[0]["AnhDaiDien"] != DBNull.Value ? (byte[])table.Rows[0]["AnhDaiDien"] : null);
+                user = new Employee(table.Rows[0]["MaNV"].ToString(), table.Rows[0]["AnhDaiDien"] != DBNull.Value ? (byte[])table.Rows[0]["AnhDaiDien"] : null, table.Rows[0]["VaiTro"].ToString());
 
                 if (table.Rows[0]["VaiTro"].ToString().Equals("nv"))
                 {

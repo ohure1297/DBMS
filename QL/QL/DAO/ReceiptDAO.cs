@@ -54,7 +54,7 @@ namespace QL.DAO
             try
             {
                 dbCon.openConnection();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM fn_TimKiemHoaDon(@keyword)", dbCon.getConnection);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.TimKiemHoaDon(@keyword)", dbCon.getConnection);
                 cmd.Parameters.AddWithValue("@keyword", keyword);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable resultTable = new DataTable();
