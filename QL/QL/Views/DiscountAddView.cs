@@ -51,7 +51,7 @@ namespace QL.Views
             MessageBox.Show("Thêm Khuyến Mãi Thành Công");
             if (result > 0 && clbProductIds.CheckedItems.Count > 0)
             {
-                foreach (var item in clbProductIds.Items)
+                foreach (var item in clbProductIds.CheckedItems)
                 {
                     string maSP = item.ToString();
                     discountDAO.AddDiscountedProduct(discount.Makhuyenmai, maSP);
