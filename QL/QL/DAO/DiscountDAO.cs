@@ -240,6 +240,28 @@ namespace QL.DAO
             }
         }
 
+        public void UpdateDisCountStatus()
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_CapNhatTinhTrangKhuyenMai", dbCon.getConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
         public void UpdateDiscount(Discount discount)
         {
             try

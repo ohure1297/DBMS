@@ -48,6 +48,7 @@ namespace QL.Views
             DiscountDAO discountDAO = new DiscountDAO();
             int result = discountDAO.AddDiscount(discount);
 
+            MessageBox.Show("Thêm Khuyến Mãi Thành Công");
             if (result > 0 && clbProductIds.CheckedItems.Count > 0)
             {
                 foreach (var item in clbProductIds.Items)

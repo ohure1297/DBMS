@@ -240,6 +240,7 @@
             this.cbFilter.Size = new System.Drawing.Size(230, 36);
             this.cbFilter.StartIndex = 0;
             this.cbFilter.TabIndex = 6;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
             // ProductsView
             // 
@@ -273,8 +274,8 @@
         private System.Windows.Forms.Label lblProductView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvProduct;
         private Guna.UI2.WinForms.Guna2Button btnFind;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
         private System.Windows.Forms.Label lbFilter;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
 }

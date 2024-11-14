@@ -85,7 +85,5 @@ namespace QL
         {
             Application.Exit();
         }
-
-        
     }
 }

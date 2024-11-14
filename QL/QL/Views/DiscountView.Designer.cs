@@ -42,6 +42,7 @@
             this.btnFindDisCount = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.btnValidDiscount = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -230,6 +231,7 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.btnUpdate);
             this.panelTop.Controls.Add(this.btnValidDiscount);
             this.panelTop.Controls.Add(this.btnFindDisCount);
             this.panelTop.Controls.Add(this.cbFindDisCount);
@@ -261,6 +263,25 @@
             this.btnValidDiscount.TabIndex = 6;
             this.btnValidDiscount.Text = "Valid";
             this.btnValidDiscount.Click += new System.EventHandler(this.btnValidDiscount_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Animated = true;
+            this.btnUpdate.AutoRoundedCorners = true;
+            this.btnUpdate.BorderRadius = 21;
+            this.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(306, 61);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(126, 45);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // DiscountView
             // 
@@ -297,5 +318,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dgvUpdate;
         private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
         private Guna.UI2.WinForms.Guna2Button btnValidDiscount;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate;
     }
 }

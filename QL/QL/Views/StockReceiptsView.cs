@@ -83,18 +83,22 @@ namespace QL.Views
         {
             try
             {
+                string maPhieuNhap = null;
+                string maNV = null;
                 foreach (DataGridViewRow row in dgvStockReceipt.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells["colConfirm"].Value) == true)
                     {
-                        string maPhieuNhap = row.Cells["MaPhieuNhap"].Value.ToString();
-                        string maNV = "NV001"; 
-
-                        stockdao.ConfirmStockReceipt(maPhieuNhap, maNV);
+                        maPhieuNhap = row.Cells["MaPhieuNhap"].Value.ToString();
+                        maNV = "NV001";
                     }
+                    stockdao.ConfirmStockReceipt(maPhieuNhap, maNV);
                 }
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
-                MessageBox.Show("Xác Nhận Phiếu Nhập Thành Công");
+                if (maPhieuNhap != null)
+                {
+                    MessageBox.Show("Xác Nhận Phiếu Nhập Thành Công");
+                }
             }
             catch (SqlException ex)
             {
