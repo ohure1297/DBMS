@@ -65,5 +65,15 @@ namespace QL.Views
         {
             dgvProduct.DataSource = productDAO.DataTable_ProductSearchByName(tbxSearch.Text);
         }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbFilter.Text == "Giá từ cao đến thấp")
+                dgvProduct.DataSource = productDAO.GiaCaoDenThap();
+            else if (cbFilter.Text == "Giá từ thấp đến cao")
+                dgvProduct.DataSource = productDAO.GiaThapDenCao();
+            else
+                dgvProduct.DataSource = productDAO.CoKhuyenMai();
+        }
     }
 }

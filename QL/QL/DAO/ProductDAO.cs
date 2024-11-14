@@ -43,7 +43,7 @@ namespace QL.DAO
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
@@ -70,7 +70,7 @@ namespace QL.DAO
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
@@ -116,7 +116,7 @@ namespace QL.DAO
                 }
             }
             
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
@@ -151,7 +151,7 @@ namespace QL.DAO
                 }
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -184,7 +184,7 @@ namespace QL.DAO
                 }
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -214,7 +214,7 @@ namespace QL.DAO
                 }
                 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -244,7 +244,7 @@ namespace QL.DAO
                 }
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -274,7 +274,7 @@ namespace QL.DAO
                 }
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -303,7 +303,7 @@ namespace QL.DAO
                 }
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -332,7 +332,7 @@ namespace QL.DAO
                 }
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
@@ -415,7 +415,7 @@ namespace QL.DAO
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -445,7 +445,7 @@ namespace QL.DAO
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -492,11 +492,90 @@ namespace QL.DAO
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public DataTable GiaCaoDenThap()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM V_DsSanPham ORDer by GiaBan DesC";
+
+            try
+            {
+                db.openConnection();
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+
+            return dt;
+        }
+
+        public DataTable GiaThapDenCao()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM V_DsSanPham ORDer by GiaBan ASC";
+            try
+            {
+                db.openConnection();
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+
+            return dt;
+        }
+
+        public DataTable CoKhuyenMai()
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM V_DsSanPham where TinhTrangKhuyenMai = N'Hoạt động'";
+            try
+            {
+                db.openConnection();
+
+                using (SqlCommand cmd = new SqlCommand(query, db.getConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+
+            return dt;
         }
     }
 }

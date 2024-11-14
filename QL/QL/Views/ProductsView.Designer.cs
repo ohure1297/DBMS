@@ -38,9 +38,9 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.lblProductView = new System.Windows.Forms.Label();
             this.dgvProduct = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.lbFilter = new System.Windows.Forms.Label();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dgvDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
@@ -173,7 +173,6 @@
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 50;
-            this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgvProduct.Size = new System.Drawing.Size(1028, 478);
             this.dgvProduct.TabIndex = 5;
             this.dgvProduct.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -199,6 +198,16 @@
             this.dgvProduct.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
+            // 
+            // dgvDelete
+            // 
+            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvDelete.FillWeight = 50F;
+            this.dgvDelete.HeaderText = "Xóa";
+            this.dgvDelete.MinimumWidth = 50;
+            this.dgvDelete.Name = "dgvDelete";
+            this.dgvDelete.ReadOnly = true;
+            this.dgvDelete.Width = 50;
             // 
             // lbFilter
             // 
@@ -231,16 +240,7 @@
             this.cbFilter.Size = new System.Drawing.Size(230, 36);
             this.cbFilter.StartIndex = 0;
             this.cbFilter.TabIndex = 6;
-            // 
-            // dgvDelete
-            // 
-            this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDelete.FillWeight = 50F;
-            this.dgvDelete.HeaderText = "Xóa";
-            this.dgvDelete.MinimumWidth = 50;
-            this.dgvDelete.Name = "dgvDelete";
-            this.dgvDelete.ReadOnly = true;
-            this.dgvDelete.Width = 50;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
             // ProductsView
             // 
@@ -274,8 +274,8 @@
         private System.Windows.Forms.Label lblProductView;
         private Guna.UI2.WinForms.Guna2DataGridView dgvProduct;
         private Guna.UI2.WinForms.Guna2Button btnFind;
+        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
         private System.Windows.Forms.Label lbFilter;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;
-        private System.Windows.Forms.DataGridViewImageColumn dgvDelete;
     }
 }
