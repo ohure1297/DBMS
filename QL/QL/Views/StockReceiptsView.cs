@@ -61,7 +61,6 @@ namespace QL.Views
             {             
                 string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
                 stockdao.DeleteStocReceipt(maPhieuNhap);
-                MessageBox.Show("Xóa Phiếu Nhập Thành Công");
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
                 
             }

@@ -271,7 +271,7 @@ namespace QL.DAO
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Lỗi:" + ex.Message);
             }
             finally
             {

@@ -42,7 +42,6 @@ namespace QL.Views
             }
             else if (cbSearchOptions.Text.Equals("SĐT"))
             {
-                MessageBox.Show("1");
                 dgv_Customer.DataSource = customerDAO.DataTable_SearchBySDT(tbxSearch.Text);
             }
         }
@@ -64,7 +63,6 @@ namespace QL.Views
             else if (dgv_Customer.Columns[e.ColumnIndex].HeaderText.Equals("Xóa"))
             {
                 
-                MessageBox.Show("nhấn Xóa");
                 customerDAO.DeleteCustomer(dgv_Customer.Rows[e.RowIndex].Cells["SDT"].Value.ToString());
                 CustomerManagementView_Load(sender, e);
             }
