@@ -13,7 +13,7 @@ namespace QL.DAO
     public class ProductDAO
     {
         DBConnection db = new DBConnection();
-        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;";
+        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTuChon;Integrated Security=True;";
 
         public DataTable DataTable_Product()
         {
@@ -92,7 +92,7 @@ namespace QL.DAO
 
                                 MaSP = (string)reader["MaSPham"],
                                 TenSP = (string)reader["TenSPham"],
-                                HinhAnh = (byte[])reader["HinhAnh"],
+                                HinhAnh = reader["HinhAnh"] != DBNull.Value ? (byte[])reader["HinhAnh"] : null,
                                 NhaSanXuat = (string)reader["NhaSanXuat"],
                                 GiaBan = (int)reader["GiaBan"],
                                 TonKho = (int)reader["TonKho"],
@@ -430,7 +430,7 @@ namespace QL.DAO
                         command.ExecuteNonQuery();
 
                    
-                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Delete added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
