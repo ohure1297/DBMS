@@ -27,6 +27,7 @@ namespace QL.Views
         {
             InitializeComponent();
             stockdao = new StockReceiptDAO(userVal);    
+            user = userVal;
         }
 
         private void StockReceiptsView_Load(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            StockReceiptAddView addStock = new StockReceiptAddView();
+            StockReceiptAddView addStock = new StockReceiptAddView(user);
             addStock.ShowDialog();
         }
 

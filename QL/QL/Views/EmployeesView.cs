@@ -26,6 +26,7 @@ namespace QL.Views
         {
             InitializeComponent();
             employeeDAO = new EmployeeDAO(userVal); 
+            user = userVal;
         }
 
         private void EmployeesView_Load(object sender, EventArgs e)

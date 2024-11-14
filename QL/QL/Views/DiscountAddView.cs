@@ -23,6 +23,11 @@ namespace QL.Views
             InitializeComponent();
         }
 
+        public DiscountAddView(Employee userVal)
+        {
+            InitializeComponent();
+            discountDAO = new DiscountDAO(userVal);
+        }
         public DiscountAddView(Employee userVal,Discount discount)
         {
             InitializeComponent();
