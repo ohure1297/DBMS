@@ -15,10 +15,19 @@ namespace QL.Views
 {
     public partial class ProductsView : Form
     {
-        private ProductDAO productDAO = new ProductDAO();
+        private ProductDAO productDAO = null;
+
+        private Employee user = null;
         public ProductsView()
         {
             InitializeComponent();
+        }
+
+        public ProductsView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
+            productDAO = new ProductDAO(userVal);
         }
 
 
@@ -30,7 +39,7 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddProductView view = new AddProductView();
+            AddProductView view = new AddProductView(user);
             view.Show();
         }
 

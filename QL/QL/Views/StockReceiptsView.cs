@@ -16,9 +16,17 @@ namespace QL.Views
     public partial class StockReceiptsView : Form
     {
         StockReceiptDAO stockdao = new StockReceiptDAO();
+
+        private Employee user = null;
         public StockReceiptsView()
         {
             InitializeComponent();
+        }
+
+        public StockReceiptsView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
         }
 
         private void StockReceiptsView_Load(object sender, EventArgs e)

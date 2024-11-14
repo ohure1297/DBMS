@@ -15,9 +15,17 @@ namespace QL.Views
     public partial class DiscountView : Form
     {
         DiscountDAO discountdao = new DiscountDAO();
+
+        private Employee user = null;
         public DiscountView()
         {
             InitializeComponent();
+        }
+
+        public DiscountView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

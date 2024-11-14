@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Data;
 using System.Windows.Controls;
@@ -11,9 +12,17 @@ namespace QL.Views
         // Khai báo đối tượng DAO để làm việc với dữ liệu
         ReceiptDAO receiptDAO = new ReceiptDAO();
 
+        private Employee user = null;
+
         public ReceiptsView()
         {
             InitializeComponent();
+        }
+
+        public ReceiptsView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
         }
 
         private void ReceiptsView_Load(object sender, EventArgs e)

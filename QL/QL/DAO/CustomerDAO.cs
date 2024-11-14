@@ -16,6 +16,19 @@ namespace QL.DAO
         
         DBConnection db = new DBConnection();
 
+        public CustomerDAO() { }
+
+        public CustomerDAO(Employee user) 
+        {
+            if (user.Chucvu.Equals("nv"))
+            {
+                NhanVienConnect();
+            }
+            else
+            {
+                QuanLyConnect();
+            }    
+        }
         
         public void NhanVienConnect()
         {

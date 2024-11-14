@@ -18,6 +18,17 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public DiscountDAO() { }
 
+        public DiscountDAO(Employee user)
+        {
+            if (user.Chucvu.Equals("nv"))
+            {
+                NhanVienConnect();
+            }
+            else
+            {
+                QuanLyConnect();
+            }
+        }
         public void NhanVienConnect()
         {
             dbCon.changeStrConnectToNhanVien();

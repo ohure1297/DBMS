@@ -14,6 +14,18 @@ namespace QL.DAO
     {
         DBConnection db = new DBConnection();
 
+        public ProductDAO() { }
+        public ProductDAO(Employee user)
+        {
+            if (user.Chucvu.Equals("nv"))
+            {
+                NhanVienConnect();
+            }
+            else
+            {
+                QuanLyConnect();
+            }
+        }
         public void NhanVienConnect()
         {
             db.changeStrConnectToNhanVien();
@@ -414,7 +426,6 @@ namespace QL.DAO
             }
             catch (SqlException ex)
             {
-                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -15,6 +15,19 @@ namespace QL.DAO
     public class EmployeeDAO
     {
         DBConnection db = new DBConnection();
+
+        public EmployeeDAO() { }
+        public EmployeeDAO(Employee user)
+        {
+            if (user.Chucvu.Equals("nv"))
+            {
+                NhanVienConnect();
+            }
+            else
+            {
+                QuanLyConnect();
+            }
+        }
         public void NhanVienConnect()
         {
             db.changeStrConnectToNhanVien();

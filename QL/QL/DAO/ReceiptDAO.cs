@@ -16,6 +16,17 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public ReceiptDAO() { }
 
+        public ReceiptDAO(Employee user)
+        {
+            if (user.Chucvu.Equals("nv"))
+            {
+                NhanVienConnect();
+            }
+            else
+            {
+                QuanLyConnect();
+            }
+        }
         public void NhanVienConnect()
         {
             dbCon.changeStrConnectToNhanVien();

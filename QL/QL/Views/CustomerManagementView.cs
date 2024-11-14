@@ -15,9 +15,17 @@ namespace QL.Views
     public partial class CustomerManagementView : Form
     {
         readonly CustomerDAO customerDAO = new CustomerDAO();
+
+        private Employee user = null;
         public CustomerManagementView()
         {
             InitializeComponent();
+        }
+
+        public CustomerManagementView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
         }
 
         private void CustomerManagementView_Load(object sender, EventArgs e)

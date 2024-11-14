@@ -19,7 +19,7 @@ namespace QL.Views
     public partial class SellingView : Form
     {
 
-        private ProductDAO productDAO = new ProductDAO();
+        private ProductDAO productDAO = null;
 
         private CustomerDAO customerDAO = new CustomerDAO();
 
@@ -28,9 +28,20 @@ namespace QL.Views
         private DataTable product = new DataTable();
 
         private DataTable customer = new DataTable();
+
+
+
         public SellingView()
         {
             InitializeComponent();
+        }
+
+        public SellingView(Employee userVal)
+        {
+            InitializeComponent();
+            productDAO = new ProductDAO(userVal);
+            customerDAO = new CustomerDAO(userVal);
+            receiptDAO = new ReceiptDAO(userVal);
         }
 
 

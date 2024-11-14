@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,17 @@ namespace QL.Views
     public partial class EmployeesView : Form
     {
         EmployeeDAO employeeDAO = new EmployeeDAO();
+
+        private Employee user = null;
         public EmployeesView()
         {
             InitializeComponent();
+        }
+
+        public EmployeesView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
         }
 
         private void EmployeesView_Load(object sender, EventArgs e)
@@ -42,7 +51,7 @@ namespace QL.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            EmployeeAddView view = new EmployeeAddView();   
+            EmployeeAddView view = new EmployeeAddView(user);   
             view.Show();
             view.OnEmployeeAdded += RefreshEmployeeList;
             RefreshEmployeeList();

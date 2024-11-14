@@ -49,37 +49,37 @@ namespace QL
 
         private void btn_category_Click(object sender, EventArgs e)
         {
-            AddControls(new ReceiptsView());
+            AddControls(new ReceiptsView(user));
         }
 
         private void btn_employee_Click(object sender, EventArgs e)
         {
-            AddControls(new EmployeesView());
+            AddControls(new EmployeesView(user));
         }
 
         private void btn_product_Click(object sender, EventArgs e)
         {
-            AddControls(new ProductsView());
+            AddControls(new ProductsView(user));
         }
 
         private void btn_home_Click(object sender, EventArgs e)
         {
-            AddControls(new SellingView());
+            AddControls(new SellingView(user));
         }
 
         private void btn_stockReceipt_Click(object sender, EventArgs e)
         {
-            AddControls(new StockReceiptsView());
+            AddControls(new StockReceiptsView(user));
         }
 
         private void btn_discount_Click(object sender, EventArgs e)
         {
-            AddControls(new DiscountView());
+            AddControls(new DiscountView(user));
         }
 
         private void btn_customer_Click(object sender, EventArgs e)
         {
-            AddControls(new CustomerManagementView());
+            AddControls(new CustomerManagementView(user));
         }
         private void btn_Close_Click(object sender, EventArgs e)
         {

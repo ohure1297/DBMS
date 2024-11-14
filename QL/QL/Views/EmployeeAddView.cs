@@ -1,4 +1,5 @@
 ﻿using QL.DAO;
+using QL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,17 @@ namespace QL.Views
         public event Action OnEmployeeAdded;
 
 
-        EmployeeDAO employeeDAO = new EmployeeDAO();
+        EmployeeDAO employeeDAO = null;
+
         public EmployeeAddView()
         {
             InitializeComponent();
+        }
+
+        public EmployeeAddView(Employee userVal)
+        {
+            InitializeComponent();
+            employeeDAO = new EmployeeDAO(userVal);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

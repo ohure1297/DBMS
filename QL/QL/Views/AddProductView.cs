@@ -16,10 +16,20 @@ namespace QL.Views
     public partial class AddProductView : Form
     {
         private string filePath = null;
-        ProductDAO ProductDAO = new ProductDAO();
+        
+        private Employee user = null;
+
+        ProductDAO ProductDAO = null;
         public AddProductView()
         {
             InitializeComponent();
+        }
+
+        public AddProductView(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
+            ProductDAO = new ProductDAO(userVal);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
