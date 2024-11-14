@@ -16,6 +16,15 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public ReceiptDAO() { }
 
+        public void NhanVienConnect()
+        {
+            dbCon.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            dbCon.changeStrConnectToQuanLy();
+        }
 
         public DataTable GetAllReceipts()
         {

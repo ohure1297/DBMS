@@ -13,7 +13,16 @@ namespace QL.DAO
     public class ProductDAO
     {
         DBConnection db = new DBConnection();
-        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;";
+
+        public void NhanVienConnect()
+        {
+            db.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            db.changeStrConnectToQuanLy();
+        }
 
         public DataTable DataTable_Product()
         {
@@ -92,7 +101,7 @@ namespace QL.DAO
 
                                 MaSP = (string)reader["MaSPham"],
                                 TenSP = (string)reader["TenSPham"],
-                                HinhAnh = (byte[])reader["HinhAnh"],
+                                HinhAnh = reader["HinhAnh"] != DBNull.Value ? (byte[])reader["HinhAnh"] : null,
                                 NhaSanXuat = (string)reader["NhaSanXuat"],
                                 GiaBan = (int)reader["GiaBan"],
                                 TonKho = (int)reader["TonKho"],
@@ -368,7 +377,7 @@ namespace QL.DAO
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = db.getConnection)
                 {
                     string query = "EXEC [dbo].[Proc_AddNewProduct] " +
                                    "@MaSPham = @Ma, " +
@@ -415,7 +424,7 @@ namespace QL.DAO
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = db.getConnection)
                 {
                     string query = "EXEC [dbo].[Proc_DeteleProduct] @Ma = @MaSPham;";
 
@@ -446,7 +455,7 @@ namespace QL.DAO
             MessageBox.Show(product.MaSP);
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = db.getConnection)
                 {
                     string query = "EXEC [dbo].[Proc_UpdateProduct] " +
                "@MaSPham, " +

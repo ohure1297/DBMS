@@ -85,12 +85,16 @@ namespace QL.Views
                     uCProduct.CurrentPrice = currPrice;
 
 
-                    if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
+                    if(row["GiaSauKhuyenMai"] != DBNull.Value)
                     {
-                        uCProduct.Price = price;
-                        uCProduct.Discount = discount;
+                        if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
+                        {
+                            uCProduct.Price = price;
+                            uCProduct.Discount = discount;
 
-                    }
+                        }
+                    }    
+                    
                     else
                     {
                         uCProduct.Price = string.Empty;

@@ -35,7 +35,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_discount = new Guna.UI2.WinForms.Guna2Button();
             this.btn_customer = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblManv = new System.Windows.Forms.Label();
             this.btn_stockReceipt = new Guna.UI2.WinForms.Guna2Button();
             this.btn_employee = new Guna.UI2.WinForms.Guna2Button();
             this.btn_product = new Guna.UI2.WinForms.Guna2Button();
@@ -100,7 +100,7 @@
             this.guna2Panel2.BorderRadius = 60;
             this.guna2Panel2.Controls.Add(this.btn_discount);
             this.guna2Panel2.Controls.Add(this.btn_customer);
-            this.guna2Panel2.Controls.Add(this.label1);
+            this.guna2Panel2.Controls.Add(this.lblManv);
             this.guna2Panel2.Controls.Add(this.btn_stockReceipt);
             this.guna2Panel2.Controls.Add(this.btn_employee);
             this.guna2Panel2.Controls.Add(this.btn_product);
@@ -160,17 +160,17 @@
             this.btn_customer.Text = "Customer";
             this.btn_customer.Click += new System.EventHandler(this.btn_customer_Click);
             // 
-            // label1
+            // lblManv
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(66, 129);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "UserName";
+            this.lblManv.AutoSize = true;
+            this.lblManv.BackColor = System.Drawing.Color.Transparent;
+            this.lblManv.ForeColor = System.Drawing.Color.White;
+            this.lblManv.Location = new System.Drawing.Point(66, 129);
+            this.lblManv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblManv.Name = "lblManv";
+            this.lblManv.Size = new System.Drawing.Size(73, 16);
+            this.lblManv.TabIndex = 0;
+            this.lblManv.Text = "UserName";
             // 
             // btn_stockReceipt
             // 
@@ -329,7 +329,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox btn_Close;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button btn_customer;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblManv;
         private Guna.UI2.WinForms.Guna2Button btn_stockReceipt;
         private Guna.UI2.WinForms.Guna2Button btn_employee;
         private Guna.UI2.WinForms.Guna2Button btn_product;

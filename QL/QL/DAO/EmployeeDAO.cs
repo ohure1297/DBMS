@@ -15,7 +15,15 @@ namespace QL.DAO
     public class EmployeeDAO
     {
         DBConnection db = new DBConnection();
-        String connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CuaHangTienLoi;Integrated Security=True;";
+        public void NhanVienConnect()
+        {
+            db.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            db.changeStrConnectToQuanLy();
+        }
         public DataTable LayDanhSachNhanVien()
         {
             DataTable dt = new DataTable();
@@ -94,7 +102,7 @@ namespace QL.DAO
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = db.getConnection)
                 {
                     string query = "EXEC [dbo].[sp_AddNhanVien] " +
                "@MaNV, " +
@@ -144,7 +152,7 @@ namespace QL.DAO
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = db.getConnection)
                 {
                     string query = "EXEC [dbo].[sp_ThemtaiKhoan] " +
                "@TenTaiKhoan, " +
@@ -179,11 +187,7 @@ namespace QL.DAO
 
         }
 
-        string query = "EXEC [dbo].[sp_ThemtaiKhoan] " +
-               "@TenTaiKhoan, " +
-               "@MatKhau, " +
-               "@VaiTro, " +
-               "@MaNV";
+        
     }
 }
 

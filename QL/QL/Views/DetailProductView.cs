@@ -36,6 +36,7 @@ namespace QL.Views
         private void DetailProductView_Load(object sender, EventArgs e)
         {
             
+            
             Product product = productDAO.DataTable_DetailProduct(productID);
             tbxId.Text = product.MaSP;
             tbxName.Text = product.TenSP;
@@ -43,8 +44,11 @@ namespace QL.Views
             tbxSellPrice.Text = product.GiaBan.ToString();
             cbCategory.Text = product.NhomSanPham;
             tbxQuantity.Text = product.TonKho.ToString();
-            MemoryStream ms = new MemoryStream(product.HinhAnh);
-            ptbProductImg.Image = Image.FromStream(ms);
+            if(product.HinhAnh != null)
+            {
+                MemoryStream ms = new MemoryStream(product.HinhAnh);
+                ptbProductImg.Image = Image.FromStream(ms);
+            }    
 
         }
 

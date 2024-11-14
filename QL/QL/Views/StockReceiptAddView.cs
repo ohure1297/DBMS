@@ -16,7 +16,6 @@ namespace QL.Views
     public partial class StockReceiptAddView : Form
     {
         StockReceiptDAO stockDAO = new StockReceiptDAO();
-        StockReceiptProducts product1;
         List<StockReceiptProducts> productsList = new List<StockReceiptProducts>();
         public StockReceiptAddView()
         {

@@ -18,6 +18,16 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public DiscountDAO() { }
 
+        public void NhanVienConnect()
+        {
+            dbCon.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            dbCon.changeStrConnectToQuanLy();
+        }
+
         public DataTable LoadDiscountTable()
         {
             DataTable discountTable = new DataTable();
