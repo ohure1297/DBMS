@@ -12,8 +12,11 @@ namespace QL.DAO
 {
     public class CustomerDAO
     {
+        
+        
         DBConnection db = new DBConnection();
 
+        
         public void NhanVienConnect()
         {
             db.changeStrConnectToNhanVien();

@@ -55,8 +55,8 @@ namespace QL.Views
 
             foreach (DataRow row in productTable.Rows)
             {
-                //MessageBox.Show(row["MaSPham"].ToString());
-                if (row["MaSPham"] != null && row["GiaSauKhuyenMai"] != DBNull.Value)
+                MessageBox.Show(row["MaSPham"].ToString());
+                if (row["MaSPham"] != null)
                 {
                     UCProduct uCProduct = new UCProduct();
 
@@ -83,17 +83,14 @@ namespace QL.Views
                     uCProduct.ProductId = productId;
                     uCProduct.ProductName = productName;
                     uCProduct.CurrentPrice = currPrice;
-
-
-                    if(row["GiaSauKhuyenMai"] != DBNull.Value)
+                    
+                    if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0) //Có khuyến mãi
                     {
-                        if (int.Parse(row["SoTienDuocKhuyenMai"].ToString()) != 0)
-                        {
-                            uCProduct.Price = price;
-                            uCProduct.Discount = discount;
 
-                        }
-                    }    
+                        uCProduct.Price = price;
+                        uCProduct.Discount = discount;
+                        
+                    } 
                     
                     else
                     {

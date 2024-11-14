@@ -30,10 +30,11 @@ namespace QL.Models
         public DateTime NgayTuyenDung { get => ngayTuyenDung; set => ngayTuyenDung = value; }
         public string Chucvu { get => chucvu; set => chucvu = value; }
 
-        public Employee(string maNV, byte[] anhDaiDien)
+        public Employee(string maNV, byte[] anhDaiDien, string chucvu)
         {
             MaNV = maNV;
             AnhDaiDien = anhDaiDien;
+            Chucvu = chucvu;
         }
 
         public Employee(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, string dChi, byte[] anhDaiDien, string mKhau, DateTime ngayTuyenDung, string chucvu)
