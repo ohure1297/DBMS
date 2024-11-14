@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,13 @@ namespace QL
         {
             btn_Max.PerformClick();
             lblManv.Text = user.MaNV;
+
+            using (MemoryStream ms = new MemoryStream(user.AnhDaiDien))
+            {
+                p_avatar.Image = Image.FromStream(ms);
+            }
+
+            
             //btn_employee.Hide();
             //btn_discount.Hide();
         }

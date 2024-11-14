@@ -41,11 +41,11 @@
             this.btn_product = new Guna.UI2.WinForms.Guna2Button();
             this.btn_receipt = new Guna.UI2.WinForms.Guna2Button();
             this.btn_home = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.p_avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.CenterPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p_avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -106,7 +106,7 @@
             this.guna2Panel2.Controls.Add(this.btn_product);
             this.guna2Panel2.Controls.Add(this.btn_receipt);
             this.guna2Panel2.Controls.Add(this.btn_home);
-            this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2Panel2.Controls.Add(this.p_avatar);
             this.guna2Panel2.CustomizableEdges.BottomLeft = false;
             this.guna2Panel2.CustomizableEdges.BottomRight = false;
             this.guna2Panel2.CustomizableEdges.TopLeft = false;
@@ -277,18 +277,19 @@
             this.btn_home.Text = "Home";
             this.btn_home.Click += new System.EventHandler(this.btn_home_Click);
             // 
-            // guna2CirclePictureBox1
+            // p_avatar
             // 
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(56, 16);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(92, 92);
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.UseTransparentBackground = true;
+            this.p_avatar.BackColor = System.Drawing.Color.Transparent;
+            this.p_avatar.ImageRotate = 0F;
+            this.p_avatar.Location = new System.Drawing.Point(56, 16);
+            this.p_avatar.Margin = new System.Windows.Forms.Padding(2);
+            this.p_avatar.Name = "p_avatar";
+            this.p_avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.p_avatar.Size = new System.Drawing.Size(92, 92);
+            this.p_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p_avatar.TabIndex = 0;
+            this.p_avatar.TabStop = false;
+            this.p_avatar.UseTransparentBackground = true;
             // 
             // CenterPanel
             // 
@@ -316,7 +317,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p_avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,7 +336,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_product;
         private Guna.UI2.WinForms.Guna2Button btn_receipt;
         private Guna.UI2.WinForms.Guna2Button btn_home;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox p_avatar;
         private Guna.UI2.WinForms.Guna2Panel CenterPanel;
         private Guna.UI2.WinForms.Guna2Button btn_discount;
     }

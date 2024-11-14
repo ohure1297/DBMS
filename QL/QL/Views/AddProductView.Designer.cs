@@ -31,7 +31,6 @@
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.lblProductDetails = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.ptbProductImg = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbxSellPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblSellPrice = new System.Windows.Forms.Label();
             this.tbxProvider = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,6 +44,7 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.tbxQuantity = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ptbProductImg = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbProductImg)).BeginInit();
             this.SuspendLayout();
@@ -66,9 +66,9 @@
             this.lblProductDetails.ForeColor = System.Drawing.Color.White;
             this.lblProductDetails.Location = new System.Drawing.Point(17, 34);
             this.lblProductDetails.Name = "lblProductDetails";
-            this.lblProductDetails.Size = new System.Drawing.Size(205, 38);
+            this.lblProductDetails.Size = new System.Drawing.Size(179, 38);
             this.lblProductDetails.TabIndex = 0;
-            this.lblProductDetails.Text = "Product Details";
+            this.lblProductDetails.Text = "Product Add ";
             // 
             // btnClose
             // 
@@ -87,17 +87,6 @@
             this.btnClose.TabIndex = 98;
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // ptbProductImg
-            // 
-            this.ptbProductImg.ImageRotate = 0F;
-            this.ptbProductImg.Location = new System.Drawing.Point(1058, 209);
-            this.ptbProductImg.Name = "ptbProductImg";
-            this.ptbProductImg.Size = new System.Drawing.Size(191, 168);
-            this.ptbProductImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbProductImg.TabIndex = 97;
-            this.ptbProductImg.TabStop = false;
-            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
             // tbxSellPrice
             // 
@@ -311,6 +300,17 @@
             this.label1.Size = new System.Drawing.Size(88, 28);
             this.label1.TabIndex = 100;
             this.label1.Text = "Quantity";
+            // 
+            // ptbProductImg
+            // 
+            this.ptbProductImg.ImageRotate = 0F;
+            this.ptbProductImg.Location = new System.Drawing.Point(1058, 209);
+            this.ptbProductImg.Name = "ptbProductImg";
+            this.ptbProductImg.Size = new System.Drawing.Size(191, 168);
+            this.ptbProductImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbProductImg.TabIndex = 97;
+            this.ptbProductImg.TabStop = false;
+            this.ptbProductImg.Click += new System.EventHandler(this.ptbProductImg_Click);
             // 
             // AddProductView
             // 

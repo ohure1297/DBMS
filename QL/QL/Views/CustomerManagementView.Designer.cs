@@ -213,6 +213,7 @@
             this.dgvDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvDelete.FillWeight = 50F;
             this.dgvDelete.HeaderText = "Xóa";
+            this.dgvDelete.Image = global::QL.Properties.Resources.bin;
             this.dgvDelete.MinimumWidth = 50;
             this.dgvDelete.Name = "dgvDelete";
             this.dgvDelete.ReadOnly = true;
