@@ -126,7 +126,10 @@ namespace QL.DAO
                "@AnhDaiDien, " +
                "@NgTuyenDung, " +
                "@MaNguoiQuanLy, " +
-               "@TinhTrang";
+               "@TinhTrang;EXEC [dbo].[sp_ThemtaiKhoan] " +
+               "@TenTaiKhoan, " +
+               "@MatKhau, " +
+               "@MaNV";
 
                     
 
@@ -135,7 +138,8 @@ namespace QL.DAO
                         command.Parameters.AddWithValue("@MaNV", maNV);
                         command.Parameters.AddWithValue("@HoTen", hoTen);
                         command.Parameters.AddWithValue("@GioiTinh", gioiTinh);
-
+                        command.Parameters.AddWithValue("@TenTaiKhoan", tenTK);
+                        command.Parameters.AddWithValue("@MatKhau", matKhau);
                         command.Parameters.AddWithValue("@NgaySinh", ngaySinh);
                         command.Parameters.AddWithValue("@SDT", sdt);
                         command.Parameters.AddWithValue("@AnhDaiDien", anhDaiDien);
@@ -161,44 +165,7 @@ namespace QL.DAO
 
         }
 
-        public void ThemTaiKhoan(string maNV, string taiKhoan, string matKhau, string vaiTro)
-        {
-            try
-            {
-                using (SqlConnection connection = db.getConnection)
-                {
-                    string query = "EXEC [dbo].[sp_ThemtaiKhoan] " +
-               "@TenTaiKhoan, " +
-               "@MatKhau, " +
-               "@VaiTro, " +
-               "@MaNV";
-
-
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@MaNV", maNV);
-                        command.Parameters.AddWithValue("@TenTaiKhoan", taiKhoan);
-                        command.Parameters.AddWithValue("@VaiTro", vaiTro);
-                        command.Parameters.AddWithValue("@MatKhau", matKhau);
-                        
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-
-                        // Display success message
-                        MessageBox.Show("Thêm tài khoản thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
+        
         public DataTable TimKiemNhanVien(string maNV, string hoTen, string sdt, string tinhTrang)
         {
             DBConnection db = new DBConnection();
