@@ -147,7 +147,7 @@ namespace QL.DAO
                         cmd.ExecuteNonQuery();
 
                         // Display success message
-                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm nhân viên thành công!.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
