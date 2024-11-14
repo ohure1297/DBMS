@@ -14,8 +14,8 @@ namespace QL.Models
         private DateTime ngaySinh;
         private string sdt;
         private string dChi;
-        private string anhDaiDien;
-        private string MKhau;
+        private byte[] anhDaiDien;
+        private string mKhau;
         private DateTime ngayTuyenDung;
         private string chucvu;
 
@@ -25,12 +25,19 @@ namespace QL.Models
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public string Sdt { get => sdt; set => sdt = value; }
         public string DChi { get => dChi; set => dChi = value; }
-        public string AnhDaiDien { get => anhDaiDien; set => anhDaiDien = value; }
-        public string MKhau1 { get => MKhau; set => MKhau = value; }
+        public byte[] AnhDaiDien { get => anhDaiDien; set => anhDaiDien = value; }
+        public string MKhau { get => mKhau; set => mKhau = value; }
         public DateTime NgayTuyenDung { get => ngayTuyenDung; set => ngayTuyenDung = value; }
         public string Chucvu { get => chucvu; set => chucvu = value; }
 
-        public Employee(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, string dChi, string anhDaiDien, string mKhau1, DateTime ngayTuyenDung, string chucvu)
+        public Employee(string maNV, byte[] anhDaiDien, string chucvu)
+        {
+            MaNV = maNV;
+            AnhDaiDien = anhDaiDien;
+            Chucvu = chucvu;
+        }
+
+        public Employee(string maNV, string hoTen, string gioiTinh, DateTime ngaySinh, string sdt, string dChi, byte[] anhDaiDien, string mKhau, DateTime ngayTuyenDung, string chucvu)
         {
             MaNV = maNV;
             HoTen = hoTen;
@@ -39,7 +46,7 @@ namespace QL.Models
             Sdt = sdt;
             DChi = dChi;
             AnhDaiDien = anhDaiDien;
-            MKhau1 = mKhau1;
+            MKhau = mKhau;
             NgayTuyenDung = ngayTuyenDung;
             Chucvu = chucvu;
         }

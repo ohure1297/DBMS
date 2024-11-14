@@ -51,7 +51,6 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.tbxPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.radiobtnManager = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -403,25 +402,12 @@
             this.lblPhoneNumber.Text = "Phone Number";
             this.lblPhoneNumber.Click += new System.EventHandler(this.label1_Click);
             // 
-            // radiobtnManager
-            // 
-            this.radiobtnManager.AutoSize = true;
-            this.radiobtnManager.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radiobtnManager.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.radiobtnManager.Location = new System.Drawing.Point(805, 504);
-            this.radiobtnManager.Name = "radiobtnManager";
-            this.radiobtnManager.Size = new System.Drawing.Size(118, 32);
-            this.radiobtnManager.TabIndex = 90;
-            this.radiobtnManager.Text = "Manager";
-            this.radiobtnManager.UseVisualStyleBackColor = true;
-            // 
             // EmployeeAddView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1052, 743);
-            this.Controls.Add(this.radiobtnManager);
             this.Controls.Add(this.tbxPhoneNumber);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.btnClose);
@@ -482,6 +468,5 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2TextBox tbxPhoneNumber;
         private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.CheckBox radiobtnManager;
     }
 }

@@ -17,6 +17,16 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public StockReceiptDAO() { }
 
+        public void NhanVienConnect()
+        {
+            dbCon.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            dbCon.changeStrConnectToQuanLy();
+        }
+
         public DataTable LoadStockReceipts()
         {
             DataTable stockReceipt_table = new DataTable();
@@ -174,8 +184,16 @@ namespace QL.DAO
                 SqlCommand cmd = new SqlCommand("sp_XacNhanPhieuNhap", dbCon.getConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
-                cmd.Parameters.AddWithValue("@MaNV", maNV);
+                if (maphieunhap == null || maNV == null)
+                {
+                    cmd.Parameters.AddWithValue("@MaPhieuNhap", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MaNV", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@MaPhieuNhap", maphieunhap);
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                }
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

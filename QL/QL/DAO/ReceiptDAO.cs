@@ -16,6 +16,15 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public ReceiptDAO() { }
 
+        public void NhanVienConnect()
+        {
+            dbCon.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            dbCon.changeStrConnectToQuanLy();
+        }
 
         public DataTable GetAllReceipts()
         {
@@ -134,7 +143,7 @@ namespace QL.DAO
             }
         }
 
-        public void AddReceiptInfo(ReceiptInfo receiptInfo)
+        public bool AddReceiptInfo(ReceiptInfo receiptInfo)
         {
             try
             {
@@ -150,12 +159,13 @@ namespace QL.DAO
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "AddReceiptInfo");
+                return false;
             }
             finally
             {
                 dbCon.closeConnection();
             }
-           
+            return true;
         }
 
         public bool EndReceiptProcess()
@@ -261,7 +271,7 @@ namespace QL.DAO
 
 
 
-        public void UpdateProductQuantity(ReceiptInfo receiptInfo)
+        public bool UpdateProductQuantity(ReceiptInfo receiptInfo)
         {
             try
             {
@@ -278,11 +288,13 @@ namespace QL.DAO
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "UpdateReceiptInfo");
+                return false;
             }
             finally
             {
                 dbCon.closeConnection();
             }
+            return true;
         }
 
         public void DeleteProduct(ReceiptInfo receiptInfo) 

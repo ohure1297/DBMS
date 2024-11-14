@@ -1,4 +1,5 @@
-﻿using QL.Views;
+﻿using QL.Models;
+using QL.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,29 @@ namespace QL
 {
     public partial class MainForm : Form
     {
+
+        private Employee user = null;
         public MainForm()
         {
             InitializeComponent();
         }
 
+        public MainForm(Employee userVal)
+        {
+            InitializeComponent();
+            user = userVal;
+        }
+
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             btn_Max.PerformClick();
+            lblManv.Text = user.MaNV;
             //btn_employee.Hide();
             //btn_discount.Hide();
         }
+
+     
         public void AddControls(Form form)
         {
             this.CenterPanel.Controls.Clear();
@@ -72,7 +85,5 @@ namespace QL
         {
             Application.Exit();
         }
-
-        
     }
 }

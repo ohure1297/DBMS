@@ -14,7 +14,7 @@ namespace QL.Views
 {
     public partial class DiscountView : Form
     {
-        DiscountDAO dao = new DiscountDAO();
+        DiscountDAO discountdao = new DiscountDAO();
         public DiscountView()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace QL.Views
         {
             try
             {
-                dgvDiscount.DataSource = dao.LoadDiscountTable();
+                dgvDiscount.DataSource = discountdao.LoadDiscountTable();
             }
             catch (Exception ex)
             {
@@ -44,11 +44,11 @@ namespace QL.Views
         {
             if (cbFindDisCount.Text.Equals("Theo Mã Khuyến Mãi"))
             {
-                dgvDiscount.DataSource = dao.FindDiscountByID(tbxSearch.Text);
+                dgvDiscount.DataSource = discountdao.FindDiscountByID(tbxSearch.Text);
             }
             else if (cbFindDisCount.Text.Equals("Theo Tên Khuyến Mãi"))
             {
-                dgvDiscount.DataSource = dao.FindDiscountByName(tbxSearch.Text);
+                dgvDiscount.DataSource = discountdao.FindDiscountByName(tbxSearch.Text);
             }
         }
 
@@ -58,7 +58,7 @@ namespace QL.Views
             if (dgvDiscount.CurrentCell.OwningColumn.Name == "dgvUpdate")
             {
                 string makhuyenmai = dgvDiscount.Rows[e.RowIndex].Cells["MaKhuyenMai"].Value.ToString();
-                Discount discount = dao.LoadDisCountInfo(makhuyenmai);
+                Discount discount = discountdao.LoadDisCountInfo(makhuyenmai);
 
                 DiscountAddView discountview = new DiscountAddView(discount);
                 discountview.LoadDiscount();
@@ -70,8 +70,8 @@ namespace QL.Views
             else if (dgvDiscount.CurrentCell.OwningColumn.Name == "dgvDelete")
             {
                 string makhuyenmai = dgvDiscount.Rows[e.RowIndex].Cells["MaKhuyenMai"].Value.ToString();
-                dao.DeleteDisCount(makhuyenmai);
-                dgvDiscount.DataSource = dao.LoadDiscountTable();
+                discountdao.DeleteDisCount(makhuyenmai);
+                dgvDiscount.DataSource = discountdao.LoadDiscountTable();
             }
         }
 
@@ -79,7 +79,19 @@ namespace QL.Views
         {
             try
             {
-                dgvDiscount.DataSource = dao.LoadValidDiscount();
+                dgvDiscount.DataSource = discountdao.LoadValidDiscount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                discountdao.UpdateDisCountStatus();
             }
             catch (Exception ex)
             {

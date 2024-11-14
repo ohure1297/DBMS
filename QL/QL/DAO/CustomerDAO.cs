@@ -13,6 +13,17 @@ namespace QL.DAO
     public class CustomerDAO
     {
         DBConnection db = new DBConnection();
+
+        public void NhanVienConnect()
+        {
+            db.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            db.changeStrConnectToQuanLy();
+        }
+
         public DataTable DataTable_Customer()
         {
             DataTable dt = new DataTable();

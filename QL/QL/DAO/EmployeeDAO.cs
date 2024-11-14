@@ -15,6 +15,15 @@ namespace QL.DAO
     public class EmployeeDAO
     {
         DBConnection db = new DBConnection();
+        public void NhanVienConnect()
+        {
+            db.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            db.changeStrConnectToQuanLy();
+        }
         public DataTable LayDanhSachNhanVien()
         {
             DataTable dt = new DataTable();
@@ -93,39 +102,94 @@ namespace QL.DAO
         {
             try
             {
-                db.openConnection();
-                SqlCommand cmd = new SqlCommand("sp_ThemNhanVien", db.getConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connection = db.getConnection)
+                {
+                    string query = "EXEC [dbo].[sp_AddNhanVien] " +
+               "@MaNV, " +
+               "@HoTen, " +
+               "@GioiTinh, " +
+               "@NgaySinh, " +
+               "@SDT, " +
+               "@AnhDaiDien, " +
+               "@NgTuyenDung, " +
+               "@MaNguoiQuanLy, " +
+               "@TinhTrang";
 
-                cmd.Parameters.AddWithValue("@MaNV", maNV);
-                cmd.Parameters.AddWithValue("@HoTen", hoTen);
-                cmd.Parameters.AddWithValue("@GioiTinh", gioiTinh);
-                cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
-                cmd.Parameters.AddWithValue("@SDT", sdt);
-                cmd.Parameters.AddWithValue("@AnhDaiDien", anhDaiDien ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@TenTK", tenTK);
-                cmd.Parameters.AddWithValue("@MKhau", matKhau);
-                cmd.Parameters.AddWithValue("@NgTuyenDung", ngTuyenDung);
-                cmd.Parameters.AddWithValue("@MaNguoiQuanLy", maNguoiQuanLy ?? (object)DBNull.Value);
+                    
 
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaNV", maNV);
+                        command.Parameters.AddWithValue("@HoTen", hoTen);
+                        command.Parameters.AddWithValue("@GioiTinh", gioiTinh);
+
+                        command.Parameters.AddWithValue("@NgaySinh", ngaySinh);
+                        command.Parameters.AddWithValue("@SDT", sdt);
+                        command.Parameters.AddWithValue("@AnhDaiDien", anhDaiDien);
+                        command.Parameters.AddWithValue("@NgTuyenDung", ngTuyenDung);
+                        command.Parameters.AddWithValue("@MaNguoiQuanLy", maNguoiQuanLy);
+                        command.Parameters.AddWithValue("@TinhTrang", "Active");
+                        
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Thêm nhân viên thành công.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            finally
+
+        }
+
+        public void ThemTaiKhoan(string maNV, string taiKhoan, string matKhau, string vaiTro)
+        {
+            try
             {
-                db.closeConnection();
+                using (SqlConnection connection = db.getConnection)
+                {
+                    string query = "EXEC [dbo].[sp_ThemtaiKhoan] " +
+               "@TenTaiKhoan, " +
+               "@MatKhau, " +
+               "@VaiTro, " +
+               "@MaNV";
+
+
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaNV", maNV);
+                        command.Parameters.AddWithValue("@TenTaiKhoan", taiKhoan);
+                        command.Parameters.AddWithValue("@VaiTro", vaiTro);
+                        command.Parameters.AddWithValue("@MatKhau", matKhau);
+                        
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        // Display success message
+                        MessageBox.Show("Thêm tài khoản thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                // Log the error (in a real-world scenario, you'd log to a file or monitoring system)
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
     }
-
-
 }
+
 
 
 

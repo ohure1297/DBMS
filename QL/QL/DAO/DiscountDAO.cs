@@ -18,6 +18,16 @@ namespace QL.DAO
         DBConnection dbCon = new DBConnection();
         public DiscountDAO() { }
 
+        public void NhanVienConnect()
+        {
+            dbCon.changeStrConnectToNhanVien();
+        }
+
+        public void QuanLyConnect()
+        {
+            dbCon.changeStrConnectToQuanLy();
+        }
+
         public DataTable LoadDiscountTable()
         {
             DataTable discountTable = new DataTable();
@@ -218,6 +228,28 @@ namespace QL.DAO
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@MaKhuyenMai", makhuyenmai);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbCon.closeConnection();
+            }
+        }
+
+        public void UpdateDisCountStatus()
+        {
+            try
+            {
+                dbCon.openConnection();
+
+                SqlCommand cmd = new SqlCommand("sp_CapNhatTinhTrangKhuyenMai", dbCon.getConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
