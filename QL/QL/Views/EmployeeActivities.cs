@@ -47,6 +47,27 @@ namespace QL.Views
             {
                 dbConnection.Close();
             }
+            try
+            {
+                dbConnection.Open();
+                SqlCommand cmd = new SqlCommand("sp_PredictEmployee", dbConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaNV", maNV);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dgvPredict.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải hoạt động của nhân viên: " + ex.Message);
+            }
+            finally
+            {
+                dbConnection.Close();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
