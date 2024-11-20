@@ -365,13 +365,25 @@ namespace QL.Views
 
             else if (!String.IsNullOrEmpty(tbxPhoneNum.Text) && cbx_DungDiem.Checked)
             {
-                if(dgvHoaDon.Rows.Count > 0)
+                if (dgvHoaDon.Rows.Count > 0)
                 {
-                    
-                    int tongTienSau = receiptDAO.CheckMoneyIfUsePoint(new Customer(tbxPhoneNum.Text));
 
-                    int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
-                    int tienThoi = tienKhachDua - tongTienSau;
+                    int tongTienSau = receiptDAO.CheckMoneyIfUsePoint(new Customer(tbxPhoneNum.Text));
+                    int tienKhachDua;
+                    int tienThoi = 0;
+
+                    if (!String.IsNullOrWhiteSpace(tbxTienKhachDua.Text))
+                    {
+                        tienKhachDua = int.Parse(tbxTienKhachDua.Text);
+                        tienThoi = tienKhachDua - tongTienSau;
+                    }
+
+                    else
+                    {
+                        cbx_DungDiem.Checked = false;
+                        MessageBox.Show("Chưa nhập tiền khách đưa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                     if (tongTienSau == 0)
                     {
                         

@@ -372,7 +372,7 @@ namespace QL.DAO
                 //MessageBox.Show(result.ToString());
                 if (result != DBNull.Value)
                     tongTienSauKhiSuDungDiem = Convert.ToInt32(result);
-                MessageBox.Show(result.ToString());
+                //MessageBox.Show(result.ToString());
 
 
             }
