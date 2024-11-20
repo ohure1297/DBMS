@@ -22,6 +22,7 @@ namespace QL.Views
             this.maNV = maNV;
             dbConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CuaHangTienLoi;Integrated Security=True");
             LoadActivities();
+            PredictEmployee();
         }
 
         private void LoadActivities()
@@ -47,6 +48,10 @@ namespace QL.Views
             {
                 dbConnection.Close();
             }
+        }
+
+        private void PredictEmployee()
+        {
             try
             {
                 dbConnection.Open();
@@ -69,7 +74,6 @@ namespace QL.Views
                 dbConnection.Close();
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
