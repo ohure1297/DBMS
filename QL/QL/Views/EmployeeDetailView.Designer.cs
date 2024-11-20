@@ -49,6 +49,7 @@
             this.radiobtnFemale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radiobtnMale = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radiobtnActive = new System.Windows.Forms.CheckBox();
+            this.btnActivities = new Guna.UI2.WinForms.Guna2Button();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
@@ -233,6 +234,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(61)))), ((int)(((byte)(204)))));
+            this.panelTop.Controls.Add(this.btnActivities);
             this.panelTop.Controls.Add(this.lblEmployeeDatails);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
@@ -357,6 +359,24 @@
             this.radiobtnActive.Text = "Active";
             this.radiobtnActive.UseVisualStyleBackColor = false;
             // 
+            // btnActivities
+            // 
+            this.btnActivities.AutoRoundedCorners = true;
+            this.btnActivities.BorderRadius = 28;
+            this.btnActivities.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnActivities.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnActivities.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnActivities.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnActivities.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(254)))));
+            this.btnActivities.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnActivities.ForeColor = System.Drawing.Color.White;
+            this.btnActivities.Location = new System.Drawing.Point(816, 49);
+            this.btnActivities.Name = "btnActivities";
+            this.btnActivities.Size = new System.Drawing.Size(143, 58);
+            this.btnActivities.TabIndex = 112;
+            this.btnActivities.Text = "Activities";
+            this.btnActivities.Click += new System.EventHandler(this.btnActivities_Click);
+            // 
             // EmployeeDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -414,5 +434,6 @@
         private Guna.UI2.WinForms.Guna2RadioButton radiobtnFemale;
         private Guna.UI2.WinForms.Guna2RadioButton radiobtnMale;
         private System.Windows.Forms.CheckBox radiobtnActive;
+        private Guna.UI2.WinForms.Guna2Button btnActivities;
     }
 }
