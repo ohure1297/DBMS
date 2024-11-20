@@ -266,6 +266,13 @@ namespace QL.Views
                 {
                     int tongTien = receiptDAO.ReturnReceiptTotalMoney();
                     lblSoTienTongCong.Text = tongTien.ToString() + "đ";
+                    if (receiptDAO.ReturnChangedMoney() != -1)
+                        lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                    else
+                        lblSoTienThoi.Text = string.Empty;
+
+                    cbx_DungDiem.Checked = false;
+
                 }
                 else
                 {
@@ -350,6 +357,10 @@ namespace QL.Views
             {
                 lblSoTienTongCong.Text = receiptDAO.ReturnReceiptTotalMoney().ToString() + "đ";
                 tbxTienKhachDua.Enabled = true;
+                if (receiptDAO.ReturnChangedMoney() != -1)
+                    lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                else
+                    lblSoTienThoi.Text = string.Empty;
             }
 
             else if (!String.IsNullOrEmpty(tbxPhoneNum.Text) && cbx_DungDiem.Checked)
@@ -358,16 +369,22 @@ namespace QL.Views
                 {
                     
                     int tongTienSau = receiptDAO.CheckMoneyIfUsePoint(new Customer(tbxPhoneNum.Text));
-                    if(tongTienSau == 0)
+
+                    int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
+                    int tienThoi = tienKhachDua - tongTienSau;
+                    if (tongTienSau == 0)
                     {
                         
                         tbxTienKhachDua.Text = "0";
                         tbxTienKhachDua.Enabled = false;
 
+                        
+
                      
                     }
 
                     lblSoTienTongCong.Text = tongTienSau.ToString() + "đ";
+                    lblSoTienThoi.Text = tienThoi.ToString() + "đ";
 
                     
 
