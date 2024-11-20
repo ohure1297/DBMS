@@ -30,6 +30,10 @@ namespace QL.Views
             {
                 dgvCategory.DataSource = dt;
             }
+            else
+            {
+                MessageBox.Show("NO");
+            }    
             dgvCategory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             foreach (DataGridViewColumn column in dgvCategory.Columns)
             {

@@ -66,6 +66,7 @@ namespace QL.Views
                     }
                 }
                 stockDAO.AddStockReceipt(productsList);
+                this.Close();
             }
 
             catch (SqlException ex)

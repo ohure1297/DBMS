@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QL.DAO;
 using QL.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace QL.Views
 {
@@ -26,17 +27,17 @@ namespace QL.Views
         public StockReceiptsView(Employee userVal)
         {
             InitializeComponent();
-            stockdao = new StockReceiptDAO(userVal);    
+            stockdao = new StockReceiptDAO(userVal);
             user = userVal;
         }
 
         private void StockReceiptsView_Load(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
             }
-            catch (Exception  ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -58,11 +59,11 @@ namespace QL.Views
                 dgvStockReceipt.Rows[e.RowIndex].Cells["colConfirm"].Value = !isChecked;
             }
             else if (dgvStockReceipt.Columns[e.ColumnIndex].Name == "colDelete")
-            {             
+            {
                 string maPhieuNhap = dgvStockReceipt.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
                 stockdao.DeleteStocReceipt(maPhieuNhap);
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
-                
+
             }
             else
             {
@@ -95,12 +96,12 @@ namespace QL.Views
                 string maNV = null;
                 foreach (DataGridViewRow row in dgvStockReceipt.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells["colConfirm"].Value) == true)
+                    if (Convert.ToBoolean(row.Cells["colConfirm"].Value) == true && row.Cells["TinhTrang"].Value.ToString() != "Đã Nhận")
                     {
                         maPhieuNhap = row.Cells["MaPhieuNhap"].Value.ToString();
                         maNV = "NV001";
+                        stockdao.ConfirmStockReceipt(maPhieuNhap, maNV);
                     }
-                    stockdao.ConfirmStockReceipt(maPhieuNhap, maNV);
                 }
                 dgvStockReceipt.DataSource = stockdao.LoadStockReceipts();
                 if (maPhieuNhap != null)
@@ -111,6 +112,7 @@ namespace QL.Views
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
+
             }
         }
     }

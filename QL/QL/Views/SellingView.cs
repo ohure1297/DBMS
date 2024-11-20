@@ -129,6 +129,11 @@ namespace QL.Views
                         int tongTien = receiptDAO.ReturnReceiptTotalMoney();
                         lblSoTienTongCong.Text = tongTien.ToString() + "đ";
 
+                        if (receiptDAO.ReturnChangedMoney() != -1)
+                            lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
+                        else
+                            lblSoTienThoi.Text = string.Empty;
+
 
                     };
 
@@ -289,6 +294,8 @@ namespace QL.Views
                     {
                         //Tru diem o day
                         customerDAO.UsePoint(new Customer(tbxPhoneNum.Text));
+                        int tongTien = receiptDAO.ReturnReceiptTotalMoney();
+                        lblSoTienTongCong.Text = tongTien.ToString() + "đ";
                     }    
 
                     else
@@ -333,6 +340,8 @@ namespace QL.Views
                 receiptDAO.DeleteProduct(new ReceiptInfo(id));
                 dgvHoaDon.Rows.RemoveAt(e.RowIndex);
                 lblSoTienTongCong.Text = receiptDAO.ReturnReceiptTotalMoney().ToString() + "đ";
+                if (receiptDAO.ReturnChangedMoney() != -1)
+                    lblSoTienThoi.Text = receiptDAO.ReturnChangedMoney().ToString() + "đ";
             }    
         }
         private void cbx_DungDiem_CheckedChanged(object sender, EventArgs e)
@@ -343,7 +352,7 @@ namespace QL.Views
                 tbxTienKhachDua.Enabled = true;
             }
 
-            else if (!String.IsNullOrEmpty(tbxPhoneNum.Text))
+            else if (!String.IsNullOrEmpty(tbxPhoneNum.Text) && cbx_DungDiem.Checked)
             {
                 if(dgvHoaDon.Rows.Count > 0)
                 {
@@ -394,6 +403,7 @@ namespace QL.Views
         {
             if (e.KeyCode == Keys.Enter)
             {
+                tbxTienKhachDua.Enabled = false;
                 int tienKhachDua = int.Parse(tbxTienKhachDua.Text);
                 receiptDAO.UpdateReceipt(new Receipt(tienKhachDua, "Chưa thanh toán"));
 
@@ -430,6 +440,11 @@ namespace QL.Views
                 LoadProductUC(product);
             }
             
+        }
+
+        private void btnThayDoiTienKhachDua_Click(object sender, EventArgs e)
+        {
+            tbxTienKhachDua.Enabled = true;
         }
     }
 }

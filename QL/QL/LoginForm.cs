@@ -40,18 +40,18 @@ namespace QL
             }    
             else
             {
-                MessageBox.Show(table.Rows[0]["MaNV"].ToString());
+                //MessageBox.Show(table.Rows[0]["MaNV"].ToString());
                 user = new Employee(table.Rows[0]["MaNV"].ToString(), table.Rows[0]["AnhDaiDien"] != DBNull.Value ? (byte[])table.Rows[0]["AnhDaiDien"] : null, table.Rows[0]["VaiTro"].ToString());
 
                 if (table.Rows[0]["VaiTro"].ToString().Equals("nv"))
                 {
-                    MessageBox.Show("NV yay");
+                    MessageBox.Show("NV đăng nhập thành công");
                     
                     
                 }    
                 else
                 {
-                    MessageBox.Show("QL yay");
+                    MessageBox.Show("QL đăng nhập thành công");
                 }
 
                 

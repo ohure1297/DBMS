@@ -165,7 +165,8 @@ namespace QL.DAO
                 cmd.Parameters.AddWithValue("@MaSP", receiptInfo.MaSanPham);
                 cmd.Parameters.AddWithValue("@SoLuong", receiptInfo.SoLuong);
 
-                cmd.ExecuteNonQuery();               
+                cmd.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
@@ -177,6 +178,7 @@ namespace QL.DAO
                 dbCon.closeConnection();
             }
             return true;
+
         }
 
         public bool EndReceiptProcess()
@@ -365,11 +367,12 @@ namespace QL.DAO
 
                 SqlCommand cmd = new SqlCommand("SELECT dbo.fn_KiemTraTongTienNeuSuDungDiem(@SDT)", dbCon.getConnection);
                 cmd.Parameters.AddWithValue("@SDT", customer.PhoneNum);
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
                 object result = cmd.ExecuteScalar();
                 //MessageBox.Show(result.ToString());
                 if (result != DBNull.Value)
                     tongTienSauKhiSuDungDiem = Convert.ToInt32(result);
+                MessageBox.Show(result.ToString());
 
 
             }
