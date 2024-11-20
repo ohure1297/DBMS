@@ -169,6 +169,12 @@
     <Compile Include="Views\EmployeesView.Designer.cs">
       <DependentUpon>EmployeesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmployeeActivities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeActivities.Designer.cs">
+      <DependentUpon>EmployeeActivities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StockReceiptAddView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\EmployeeActivities.resx">
+      <DependentUpon>EmployeeActivities.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddProductView.resx">
       <DependentUpon>AddProductView.cs</DependentUpon>
     </EmbeddedResource>

@@ -143,5 +143,12 @@ namespace QL.Views
         {
 
         }
+
+        private void btnActivities_Click(object sender, EventArgs e)
+        {
+            string maNV = tbxId.Text; // Lấy mã nhân viên từ form chi tiết nhân viên
+            ActivitiesForm activitiesForm = new ActivitiesForm(maNV);
+            activitiesForm.ShowDialog();
+        }
     }
 }
